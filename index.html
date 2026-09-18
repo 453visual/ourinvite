@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OurInvite — Katalog Undangan Digital</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root { --gold: #D4AF37; --gold-light: #F3E5AB; --grad: linear-gradient(135deg, #ECC86A 0%, #D4AF37 100%); }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+    body { background: #0F1216; color: #FFF; padding-bottom: 50px; }
+    header { background: #151A21; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.08); position: sticky; top: 0; z-index: 10; }
+    .brand { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: #FFF; }
+    .btn-wa { background: var(--grad); color: #111; padding: 8px 16px; border-radius: 50px; text-decoration: none; font-size: 12px; font-weight: 700; }
+    .hero { text-align: center; padding: 30px 16px 20px; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: 28px; margin-bottom: 8px; font-style: italic; }
+    .hero p { color: #9CA3AF; font-size: 13px; }
+    .catalog { display: flex; flex-direction: column; gap: 20px; padding: 0 16px; max-width: 500px; margin: 0 auto; }
+    .card { background: #151A21; border-radius: 18px; border: 1px solid rgba(255,255,255,0.08); padding: 20px; }
+    .card.best { border: 2px solid var(--gold); }
+    .badge { background: #C69214; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; display: inline-block; margin-bottom: 8px; }
+    .card h3 { font-family: 'Playfair Display', serif; font-size: 22px; }
+    .price { font-size: 26px; font-weight: 700; color: var(--gold-light); margin: 6px 0 14px; font-family: 'Playfair Display', serif; }
+    ul { list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: #D1D5DB; margin-bottom: 18px; }
+    ul li i { color: var(--gold); margin-right: 8px; }
+    .btn-order { width: 100%; padding: 12px; background: var(--grad); border: none; border-radius: 12px; font-weight: 700; font-size: 14px; color: #111; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">✨ OurInvite</div>
+    <a href="https://wa.me/6281234567890?text=Halo%20OurInvite,%20saya%20ingin%20tanya%20paket%20undangan" class="btn-wa">Hubungi Kami</a>
+  </header>
+  <div class="hero">
+    <h1>Pilihan Paket Undangan</h1>
+    <p>Undangan pernikahan digital modern, mewah & aktif selamanya.</p>
+  </div>
+  <div class="catalog">
+    <!-- BASIC -->
+    <div class="card">
+      <h3>Paket Basic</h3>
+      <div class="price">Rp 79.000</div>
+      <ul>
+        <li><i class="fa-solid fa-check"></i> Detail Akad & Resepsi</li>
+        <li><i class="fa-solid fa-check"></i> Countdown Acara & Navigasi Google Maps</li>
+        <li><i class="fa-solid fa-check"></i> Galeri 5 Foto Prewedding</li>
+        <li><i class="fa-solid fa-check"></i> Pengerjaan 1-2 Hari</li>
+      </ul>
+      <button class="btn-order" onclick="pesan('Paket Basic', '79.000')">Pilih Paket Basic</button>
+    </div>
+    <!-- STANDARD -->
+    <div class="card best">
+      <span class="badge">BEST SELLER</span>
+      <h3>Paket Standard</h3>
+      <div class="price">Rp 149.000</div>
+      <ul>
+        <li><i class="fa-solid fa-check"></i> <b>Semua Fitur Paket Basic</b></li>
+        <li><i class="fa-solid fa-check"></i> Konfirmasi Kehadiran Tamu (RSVP)</li>
+        <li><i class="fa-solid fa-check"></i> Kolom Ucapan & Doa Tamu</li>
+        <li><i class="fa-solid fa-check"></i> Background Musik Romantis Otomatis</li>
+        <li><i class="fa-solid fa-check"></i> Love Story & Galeri 15 Foto</li>
+      </ul>
+      <button class="btn-order" onclick="pesan('Paket Standard', '149.000')">Pilih Paket Standard</button>
+    </div>
+    <!-- PREMIUM -->
+    <div class="card">
+      <h3>Paket Premium</h3>
+      <div class="price">Rp 249.000</div>
+      <ul>
+        <li><i class="fa-solid fa-check"></i> <b>Semua Fitur Paket Standard</b></li>
+        <li><i class="fa-solid fa-check"></i> Amplop Digital Kado (BCA, Mandiri, QRIS)</li>
+        <li><i class="fa-solid fa-check"></i> Video Prewedding HD Player</li>
+        <li><i class="fa-solid fa-check"></i> Galeri Besar hingga 30 Foto</li>
+        <li><i class="fa-solid fa-check"></i> Pengerjaan Prioritas 24 Jam</li>
+      </ul>
+      <button class="btn-order" onclick="pesan('Paket Premium', '249.000')">Pilih Paket Premium</button>
+    </div>
+  </div>
+  <script>
+    function pesan(paket, harga) {
+      const nama = prompt("Nama Mempelai (Contoh: Andi & Siti):", "");
+      if(!nama) return;
+      const url = "https://wa.me/6281234567890?text=" + encodeURIComponent("Halo OurInvite, saya ingin pesan " + paket + " (Rp " + harga + ") untuk mempelai " + nama);
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>
