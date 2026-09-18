@@ -3,87 +3,480 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OurInvite — Katalog Undangan Digital</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>OurInvite — Digital Wedding Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    :root { --gold: #D4AF37; --gold-light: #F3E5AB; --grad: linear-gradient(135deg, #ECC86A 0%, #D4AF37 100%); }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
-    body { background: #0F1216; color: #FFF; padding-bottom: 50px; }
-    header { background: #151A21; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.08); position: sticky; top: 0; z-index: 10; }
-    .brand { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: #FFF; }
-    .btn-wa { background: var(--grad); color: #111; padding: 8px 16px; border-radius: 50px; text-decoration: none; font-size: 12px; font-weight: 700; }
-    .hero { text-align: center; padding: 30px 16px 20px; }
-    .hero h1 { font-family: 'Playfair Display', serif; font-size: 28px; margin-bottom: 8px; font-style: italic; }
-    .hero p { color: #9CA3AF; font-size: 13px; }
-    .catalog { display: flex; flex-direction: column; gap: 20px; padding: 0 16px; max-width: 500px; margin: 0 auto; }
-    .card { background: #151A21; border-radius: 18px; border: 1px solid rgba(255,255,255,0.08); padding: 20px; }
-    .card.best { border: 2px solid var(--gold); }
-    .badge { background: #C69214; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; display: inline-block; margin-bottom: 8px; }
-    .card h3 { font-family: 'Playfair Display', serif; font-size: 22px; }
-    .price { font-size: 26px; font-weight: 700; color: var(--gold-light); margin: 6px 0 14px; font-family: 'Playfair Display', serif; }
-    ul { list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: #D1D5DB; margin-bottom: 18px; }
-    ul li i { color: var(--gold); margin-right: 8px; }
-    .btn-order { width: 100%; padding: 12px; background: var(--grad); border: none; border-radius: 12px; font-weight: 700; font-size: 14px; color: #111; cursor: pointer; }
+    :root {
+      --header-bg: #1B1E22;
+      --sidebar-bg: #191B1F;
+      --body-bg: #ECEAE5;
+      --card-bg: #FFFFFF;
+      --text-dark: #1E232A;
+      --text-muted: #6B7280;
+      --card-border: #E8E5DF;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    body { background-color: var(--body-bg); color: var(--text-dark); font-family: var(--font-sans); min-height: 100vh; display: flex; flex-direction: column; }
+    header { background-color: var(--header-bg); border-bottom: 1px solid rgba(255,255,255,0.08); position: sticky; top: 0; z-index: 100; padding: 14px 36px; }
+    .header-inner { max-width: 1440px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .brand-logo-svg { width: 36px; height: 36px; stroke: #FFFFFF; fill: none; }
+    .brand-title { font-family: var(--font-serif); font-size: 22px; color: #FFFFFF; font-weight: 600; letter-spacing: 0.5px; line-height: 1.1; }
+    .brand-subtitle { font-size: 10px; color: #9CA3AF; letter-spacing: 1px; display: block; font-family: var(--font-sans); }
+    .nav-menu { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-menu a { color: #D1D5DB; text-decoration: none; font-size: 14px; font-weight: 500; position: relative; padding-bottom: 4px; }
+    .nav-menu a.active { color: #FFFFFF; font-weight: 600; }
+    .nav-menu a.active::after { content: ''; position: absolute; bottom: -6px; left: 0; right: 0; height: 2px; background-color: #FFFFFF; border-radius: 2px; }
+    .btn-header-contact { display: inline-flex; align-items: center; gap: 8px; padding: 9px 20px; border: 1px solid rgba(255,255,255,0.4); border-radius: 50px; background: transparent; color: #FFFFFF; font-size: 13px; font-weight: 500; text-decoration: none; }
+    .app-layout { display: flex; flex: 1; max-width: 1440px; margin: 0 auto; width: 100%; }
+    .sidebar-pane { width: 280px; background-color: var(--sidebar-bg); color: #FFFFFF; padding: 36px 24px; display: flex; flex-direction: column; flex-shrink: 0; border-right: 1px solid rgba(255,255,255,0.05); }
+    .sidebar-heading h2 { font-family: var(--font-serif); font-size: 24px; font-style: italic; font-weight: 500; color: #F3F4F6; margin-bottom: 6px; }
+    .sidebar-heading p { font-size: 12px; color: #9CA3AF; line-height: 1.4; margin-bottom: 28px; }
+    .sidebar-nav-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: auto; }
+    .sidebar-item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); color: #FFFFFF; cursor: pointer; text-decoration: none; }
+    .sidebar-item:hover, .sidebar-item.active { background: #3B3830; border-color: rgba(212,175,55,0.3); }
+    .sidebar-thumb { width: 38px; height: 48px; border-radius: 6px; background-size: cover; background-position: center; flex-shrink: 0; }
+    .sidebar-item-info { flex: 1; }
+    .sidebar-item-info h4 { font-size: 13px; font-weight: 600; color: #FFFFFF; margin-bottom: 2px; }
+    .sidebar-item-info span { font-size: 11px; color: #9CA3AF; }
+    .sidebar-bottom { margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .botanical-svg { width: 90px; height: 120px; opacity: 0.3; stroke: #A89578; fill: none; margin-bottom: 12px; }
+    .sidebar-bottom p { font-family: var(--font-serif); font-style: italic; font-size: 12px; color: #9CA3AF; line-height: 1.5; margin-bottom: 16px; }
+    .content-pane { flex: 1; padding: 36px 36px 60px; display: flex; flex-direction: column; gap: 32px; overflow-x: hidden; }
+    .pricing-cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .pricing-card { background-color: var(--card-bg); border-radius: 20px; border: 1px solid var(--card-border); box-shadow: 0 4px 20px rgba(0,0,0,0.04); padding: 26px 22px; display: flex; flex-direction: column; position: relative; }
+    .card-top-pill { display: inline-block; padding: 5px 14px; border-radius: 50px; font-size: 11px; font-weight: 600; color: #FFFFFF; margin-bottom: 14px; width: fit-content; }
+    .pill-basic { background-color: #8C7B65; }
+    .pill-standard { background-color: #634C2B; }
+    .pill-premium { background-color: #1F2328; }
+    .badge-best-seller { position: absolute; top: -12px; right: 28px; background-color: #9C7235; color: #FFFFFF; font-size: 11px; font-weight: 600; padding: 4px 16px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+    .card-header h3 { font-family: var(--font-serif); font-size: 24px; font-weight: 700; color: #1A1F26; margin-bottom: 8px; }
+    .card-header .card-desc { font-size: 12px; color: var(--text-muted); line-height: 1.45; min-height: 38px; margin-bottom: 12px; }
+    .price-value { font-family: var(--font-serif); font-size: 28px; font-weight: 700; color: #111827; margin-bottom: 18px; }
+    .mockup-preview-stage { background: #F8F7F4; border-radius: 16px; height: 290px; position: relative; display: flex; align-items: center; justify-content: center; margin-bottom: 22px; overflow: hidden; border: 1px solid #EFECE6; cursor: pointer; }
+    .stage-phone { width: 145px; height: 255px; background: #FFFFFF; border-radius: 22px; border: 3.5px solid #1E232B; box-shadow: 0 10px 24px rgba(0,0,0,0.12); position: relative; display: flex; flex-direction: column; align-items: center; padding: 14px 8px 8px; text-align: center; z-index: 2; }
+    .stage-phone::before { content: ''; position: absolute; top: 5px; width: 32px; height: 3px; background: #1E232B; border-radius: 3px; }
+    .stage-phone.phone-basic { background: linear-gradient(180deg, #FBF8F3 0%, #EDE7DD 100%); }
+    .stage-phone.phone-standard { background: linear-gradient(180deg, #FDFBF8 0%, #EFE8DC 100%); }
+    .stage-phone.phone-premium { background: linear-gradient(180deg, #1C2026 0%, #101318 100%); color: #FFFFFF; }
+    .phone-arch-photo { width: 58px; height: 68px; border-radius: 28px 28px 6px 6px; background-size: cover; background-position: center; margin-bottom: 4px; border: 1.5px solid #D4AF37; }
+    .wedding-text { font-size: 6px; letter-spacing: 1px; color: #9C794A; margin-top: 2px; text-transform: uppercase; font-weight: 600; }
+    .stage-phone.phone-premium .wedding-text { color: #D4AF37; }
+    .couple-names { font-family: var(--font-serif); font-size: 11px; font-weight: 700; color: #1F2937; margin: 1px 0; }
+    .stage-phone.phone-premium .couple-names { color: #F3F4F6; }
+    .wedding-date { font-size: 6px; color: #6B7280; margin-bottom: 6px; }
+    .phone-timer { display: flex; gap: 3px; margin-bottom: 8px; }
+    .timer-col { background: rgba(0,0,0,0.05); border-radius: 3px; padding: 1px 3px; font-size: 6.5px; font-weight: 700; color: #374151; }
+    .stage-phone.phone-premium .timer-col { background: rgba(255,255,255,0.1); color: #F3F4F6; }
+    .phone-btn-open { background-color: #9C794A; color: #FFFFFF; font-size: 6.5px; font-weight: 600; padding: 3px 8px; border-radius: 10px; border: none; margin-top: 2px; }
+    .phone-nav-bottom { margin-top: auto; display: flex; width: 100%; justify-content: space-around; font-size: 6px; color: #6B7280; padding-top: 4px; border-top: 1px solid rgba(0,0,0,0.05); }
+    .floating-mini-card { position: absolute; background: #FFFFFF; border-radius: 10px; padding: 8px 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); border: 1px solid #E5E7EB; z-index: 3; pointer-events: none; }
+    .float-basic-event { right: 8px; top: 18px; width: 105px; font-size: 7px; }
+    .float-basic-event h6 { font-size: 7.5px; color: #111827; margin-bottom: 4px; font-weight: 700; }
+    .float-basic-event .item { display: flex; align-items: center; gap: 4px; margin-bottom: 3px; color: #4B5563; }
+    .float-basic-event .mini-maps-btn { display: block; width: 100%; text-align: center; background: #8C7B65; color: #FFF; font-size: 6.5px; padding: 2px 0; border-radius: 4px; margin-top: 4px; }
+    .float-std-story { right: 8px; top: 14px; width: 110px; padding: 7px; }
+    .float-std-story h6 { font-size: 7.5px; color: #1F2937; margin-bottom: 4px; }
+    .float-std-story .story-content { display: flex; gap: 6px; align-items: center; }
+    .float-std-story img { width: 28px; height: 28px; border-radius: 4px; object-fit: cover; }
+    .float-std-story span { font-size: 6px; color: #6B7280; line-height: 1.2; }
+    .float-std-ucapan { right: 8px; bottom: 16px; width: 115px; padding: 7px; font-size: 6px; }
+    .float-std-ucapan h6 { font-size: 7.5px; color: #1F2937; margin-bottom: 3px; }
+    .float-std-ucapan .author { display: flex; align-items: center; gap: 4px; font-weight: 600; color: #374151; margin-bottom: 2px; }
+    .float-prem-galeri { right: 8px; top: 12px; width: 115px; background: #1F2328; color: #FFF; border-color: #30363D; padding: 7px; }
+    .float-prem-galeri h6 { font-size: 7.5px; color: #D4AF37; margin-bottom: 4px; }
+    .float-prem-galeri .gal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-bottom: 3px; }
+    .float-prem-galeri .gal-grid img { width: 100%; height: 28px; border-radius: 3px; object-fit: cover; }
+    .float-prem-rekening { right: 8px; bottom: 12px; width: 115px; background: #1F2328; color: #FFF; border-color: #30363D; padding: 7px; }
+    .float-prem-rekening h6 { font-size: 7.5px; color: #D4AF37; margin-bottom: 4px; }
+    .float-prem-rekening .rek-row { display: flex; align-items: center; gap: 4px; margin-bottom: 3px; font-size: 6px; }
+    .float-prem-rekening .rek-icon { width: 14px; height: 14px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 6px; color: #D4AF37; }
+    .features-section h5 { font-size: 13px; font-weight: 700; color: #1F2937; margin-bottom: 12px; }
+    .features-list { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 24px; flex-grow: 1; }
+    .features-list li { font-size: 12.5px; color: #374151; display: flex; align-items: flex-start; gap: 9px; line-height: 1.35; }
+    .features-list li i { color: #6B7280; font-size: 13px; margin-top: 2px; }
+    .btn-choose { width: 100%; padding: 13px; border-radius: 12px; font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; border: none; font-family: var(--font-sans); }
+    .btn-basic { background-color: #8C7B65; color: #FFFFFF; }
+    .btn-standard { background-color: #9C7235; color: #FFFFFF; }
+    .btn-premium { background-color: #1F2328; color: #FFFFFF; }
+    .bottom-bonus-card { background: #F7F5F0; border: 1px solid #E6E1D8; border-radius: 20px; padding: 26px 36px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .bonus-left { display: flex; align-items: center; gap: 18px; max-width: 440px; }
+    .bonus-icon-box { width: 48px; height: 48px; border-radius: 50%; background: #EDE8DC; display: flex; align-items: center; justify-content: center; color: #8C7249; font-size: 20px; flex-shrink: 0; }
+    .bonus-left h4 { font-size: 15px; font-weight: 700; color: #1F2937; margin-bottom: 4px; }
+    .bonus-left p { font-size: 12px; color: #6B7280; line-height: 1.4; }
+    .bonus-middle { display: flex; align-items: center; gap: 14px; max-width: 380px; }
+    .bonus-middle i { font-size: 20px; color: #8C7249; flex-shrink: 0; }
+    .bonus-middle p { font-family: var(--font-serif); font-style: italic; font-size: 13px; color: #4B5563; line-height: 1.4; }
+    .bonus-right-plant { width: 70px; height: 70px; opacity: 0.35; stroke: #8C7249; fill: none; }
+    
+    /* MODAL */
+    .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(6px); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 16px; }
+    .modal-backdrop.active { display: flex; }
+    .modal-container { background: #FFFFFF; border-radius: 20px; max-width: 460px; width: 100%; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+    .modal-header-bar { padding: 18px 24px; border-bottom: 1px solid #E5E7EB; display: flex; justify-content: space-between; align-items: center; background: #F9FAFB; }
+    .modal-header-bar h3 { font-family: var(--font-serif); font-size: 18px; color: #111827; }
+    .close-btn { background: none; border: none; font-size: 20px; color: #6B7280; cursor: pointer; }
+    .modal-body-content { padding: 24px; }
+    .form-group-item { margin-bottom: 14px; }
+    .form-group-item label { display: block; font-size: 12px; font-weight: 600; color: #374151; margin-bottom: 5px; }
+    .form-field { width: 100%; padding: 11px 14px; border: 1px solid #D1D5DB; border-radius: 10px; font-size: 13.5px; font-family: var(--font-sans); }
+    .btn-submit-whatsapp { width: 100%; padding: 13px; background-color: #25D366; color: #FFFFFF; font-weight: 700; border: none; border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px; margin-top: 10px; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1120px) {
+      .pricing-cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .bottom-bonus-card { flex-direction: column; align-items: flex-start; }
+      .bonus-right-plant { display: none; }
+    }
+    @media (max-width: 840px) {
+      header { padding: 12px 18px; }
+      .nav-menu { display: none; }
+      .app-layout { flex-direction: column; }
+      .sidebar-pane { width: 100%; padding: 20px 18px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .sidebar-nav-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+      .sidebar-bottom { display: none; }
+      .content-pane { padding: 20px 16px 40px; }
+      .pricing-cards-grid { grid-template-columns: 1fr; }
+      .mockup-preview-stage { height: 270px; }
+      .stage-phone { width: 140px; height: 245px; }
+    }
   </style>
 </head>
 <body>
+
   <header>
-    <div class="brand">✨ OurInvite</div>
-    <a href="https://wa.me/6281234567890?text=Halo%20OurInvite,%20saya%20ingin%20tanya%20paket%20undangan" class="btn-wa">Hubungi Kami</a>
+    <div class="header-inner">
+      <a href="#" class="brand">
+        <svg class="brand-logo-svg" viewBox="0 0 24 24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke-width="1.8"/>
+        </svg>
+        <div>
+          <h1 class="brand-title">OurInvite</h1>
+          <span class="brand-subtitle">Digital Wedding Invitation</span>
+        </div>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="#">Beranda</a></li>
+        <li><a href="#" class="active">Katalog</a></li>
+        <li><a href="#cara-pesan" onclick="alert('Cara Pesan: 1. Pilih Paket -> 2. Klik tombol Pilih Paket -> 3. Kirim detail acara via WhatsApp -> 4. Selesai dalam 24 Jam!')">Cara Pesan</a></li>
+        <li><a href="#testimoni" onclick="alert('Testimoni: 1.000+ Pasangan pengantin puas dengan OurInvite!')">Testimoni</a></li>
+        <li><a href="#faq" onclick="alert('FAQ: Revisi bebas, gratis ganti lagu & nama tamu tanpa batas!')">FAQ</a></li>
+      </ul>
+      <a href="https://wa.me/6281234567890?text=Halo%20OurInvite,%20saya%20ingin%20konsultasi%20undangan%20digital" target="_blank" class="btn-header-contact">
+        <i class="fa-regular fa-comment-dots"></i> Hubungi Kami
+      </a>
+    </div>
   </header>
-  <div class="hero">
-    <h1>Pilihan Paket Undangan</h1>
-    <p>Undangan pernikahan digital modern, mewah & aktif selamanya.</p>
+
+  <div class="app-layout">
+    <aside class="sidebar-pane">
+      <div class="sidebar-heading">
+        <h2>Pilih Paket</h2>
+        <p>Temukan paket yang paling sesuai dengan kebutuhanmu.</p>
+      </div>
+      <div class="sidebar-nav-list">
+        <div class="sidebar-item active" onclick="scrollToCard('card-basic')">
+          <div class="sidebar-thumb" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?w=150&auto=format&fit=crop&q=80');"></div>
+          <div class="sidebar-item-info">
+            <h4>Paket Basic</h4>
+            <span>Simpel & Elegan</span>
+          </div>
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+        <div class="sidebar-item" onclick="scrollToCard('card-standard')">
+          <div class="sidebar-thumb" style="background-image: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=150&auto=format&fit=crop&q=80');"></div>
+          <div class="sidebar-item-info">
+            <h4>Paket Standard</h4>
+            <span>Paling Banyak Dipilih</span>
+          </div>
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+        <div class="sidebar-item" onclick="scrollToCard('card-premium')">
+          <div class="sidebar-thumb" style="background-image: url('https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=150&auto=format&fit=crop&q=80');"></div>
+          <div class="sidebar-item-info">
+            <h4>Paket Premium</h4>
+            <span>Eksklusif & Lengkap</span>
+          </div>
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </div>
+      <div class="sidebar-bottom">
+        <svg class="botanical-svg" viewBox="0 0 100 140">
+          <path d="M50,135 Q48,90 52,40 Q54,10 50,5 M50,110 Q30,95 20,80 Q35,80 50,95 M51,90 Q70,75 80,60 Q65,60 51,75 M50,70 Q30,55 25,40 Q40,40 50,55 M51,50 Q70,35 75,20 Q60,20 51,35" stroke-width="1.5"/>
+        </svg>
+        <p>Undangan digital,<br>untuk memulai cerita indah bersama orang-orang tercinta.</p>
+        <div class="sidebar-heart-icon"><i class="fa-regular fa-heart"></i></div>
+      </div>
+    </aside>
+
+    <main class="content-pane">
+      <div class="pricing-cards-grid">
+        <!-- CARD BASIC -->
+        <div class="pricing-card" id="card-basic">
+          <span class="card-top-pill pill-basic">Paket Basic</span>
+          <div class="card-header">
+            <h3>Paket Basic</h3>
+            <p class="card-desc">Simpel namun tetap elegan, cocok untuk kamu yang ingin undangan digital dengan fitur esensial.</p>
+          </div>
+          <div class="price-value">Rp79.000</div>
+          <div class="mockup-preview-stage" onclick="openOrder('Paket Basic', 'Rp79.000')">
+            <div class="stage-phone phone-basic">
+              <span class="wedding-text">The Wedding Of</span>
+              <div class="phone-arch-photo" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?w=200&auto=format&fit=crop&q=80');"></div>
+              <h4 class="couple-names">Andi & Siti</h4>
+              <span class="wedding-date">12 . 10 . 2026</span>
+              <div class="phone-timer">
+                <span class="timer-col">23</span>
+                <span class="timer-col">12</span>
+                <span class="timer-col">45</span>
+                <span class="timer-col">30</span>
+              </div>
+              <button class="phone-btn-open">Buka Undangan</button>
+              <div class="phone-nav-bottom">
+                <span>📍 Lokasi</span>
+                <span>🖼️ Galeri</span>
+              </div>
+            </div>
+            <div class="floating-mini-card float-basic-event">
+              <h6>Detail Acara</h6>
+              <div class="item"><i class="fa-regular fa-calendar" style="color: #9C794A;"></i> <span>Akad Nikah<br><b>08.00 WIB</b></span></div>
+              <div class="item"><i class="fa-regular fa-clock" style="color: #9C794A;"></i> <span>Resepsi<br><b>11.00 WIB</b></span></div>
+              <div class="item"><i class="fa-solid fa-location-dot" style="color: #9C794A;"></i> <span>Gedung Serbaguna</span></div>
+              <span class="mini-maps-btn">Lihat Maps</span>
+            </div>
+          </div>
+          <div class="features-section">
+            <h5>Fitur yang didapatkan:</h5>
+            <ul class="features-list">
+              <li><i class="fa-solid fa-circle-check"></i> Pilihan template undangan</li>
+              <li><i class="fa-solid fa-circle-check"></i> Nama pengantin & detail acara lengkap</li>
+              <li><i class="fa-solid fa-circle-check"></i> Countdown menuju hari pernikahan</li>
+              <li><i class="fa-solid fa-circle-check"></i> Google Maps lokasi acara</li>
+              <li><i class="fa-solid fa-circle-check"></i> Galeri hingga 5 foto</li>
+              <li><i class="fa-solid fa-circle-check"></i> 1 kali revisi</li>
+              <li><i class="fa-solid fa-circle-check"></i> Masa aktif undangan 6 bulan</li>
+            </ul>
+          </div>
+          <button class="btn-choose btn-basic" onclick="openOrder('Paket Basic', 'Rp79.000')">
+            Pilih Paket Basic <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- CARD STANDARD -->
+        <div class="pricing-card" id="card-standard">
+          <span class="badge-best-seller">Best Seller</span>
+          <span class="card-top-pill pill-standard">Paket Standard</span>
+          <div class="card-header">
+            <h3>Paket Standard</h3>
+            <p class="card-desc">Fitur lebih lengkap untuk pengalaman undangan yang lebih berkesan dan interaktif.</p>
+          </div>
+          <div class="price-value">Rp149.000</div>
+          <div class="mockup-preview-stage" onclick="openOrder('Paket Standard', 'Rp149.000')">
+            <div class="stage-phone phone-standard">
+              <span class="wedding-text">The Wedding Of</span>
+              <div class="phone-arch-photo" style="background-image: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=200&auto=format&fit=crop&q=80');"></div>
+              <h4 class="couple-names">Andi & Siti</h4>
+              <span class="wedding-date">12 . 10 . 2026</span>
+              <div class="phone-timer">
+                <span class="timer-col">23</span>
+                <span class="timer-col">12</span>
+                <span class="timer-col">45</span>
+                <span class="timer-col">30</span>
+              </div>
+              <button class="phone-btn-open">Konfirmasi Kehadiran</button>
+              <div class="phone-nav-bottom">
+                <span>📍 Lokasi</span>
+                <span>🖼️ Galeri</span>
+                <span>🎵 Musik</span>
+              </div>
+            </div>
+            <div class="floating-mini-card float-std-story">
+              <h6>Love Story</h6>
+              <div class="story-content">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=100&auto=format&fit=crop&q=80" alt="Story">
+                <span>Pertemuan<br>12 Januari 2020<br><b style="color:#9C794A;">Selengkapnya &rarr;</b></span>
+              </div>
+            </div>
+            <div class="floating-mini-card float-std-ucapan">
+              <h6>Ucapan & Doa</h6>
+              <div class="author"><i class="fa-solid fa-circle-user" style="color:#9C794A;"></i> Dinda</div>
+              <p style="color:#6B7280; font-size:6px; line-height:1.2;">Selamat menempuh hidup baru semoga selalu bahagia bersama ❤️</p>
+            </div>
+          </div>
+          <div class="features-section">
+            <h5>Fitur yang didapatkan:</h5>
+            <ul class="features-list">
+              <li><i class="fa-solid fa-circle-check"></i> <b>Semua fitur Paket Basic</b></li>
+              <li><i class="fa-solid fa-circle-check"></i> RSVP (konfirmasi kehadiran)</li>
+              <li><i class="fa-solid fa-circle-check"></i> Love Story</li>
+              <li><i class="fa-solid fa-circle-check"></i> Galeri hingga 15 foto</li>
+              <li><i class="fa-solid fa-circle-check"></i> Musik latar</li>
+              <li><i class="fa-solid fa-circle-check"></i> Kolom ucapan & doa dari tamu</li>
+              <li><i class="fa-solid fa-circle-check"></i> Informasi rekening hadiah</li>
+              <li><i class="fa-solid fa-circle-check"></i> 3 kali revisi</li>
+              <li><i class="fa-solid fa-circle-check"></i> Masa aktif undangan 1 tahun</li>
+            </ul>
+          </div>
+          <button class="btn-choose btn-standard" onclick="openOrder('Paket Standard', 'Rp149.000')">
+            Pilih Paket Standard <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- CARD PREMIUM -->
+        <div class="pricing-card" id="card-premium">
+          <span class="card-top-pill pill-premium">Paket Premium</span>
+          <div class="card-header">
+            <h3>Paket Premium</h3>
+            <p class="card-desc">Pilihan terbaik untuk kamu yang menginginkan tampilan lebih eksklusif dan fitur paling lengkap.</p>
+          </div>
+          <div class="price-value">Rp249.000</div>
+          <div class="mockup-preview-stage" onclick="openOrder('Paket Premium', 'Rp249.000')">
+            <div class="stage-phone phone-premium">
+              <span class="wedding-text">The Wedding Of</span>
+              <div class="phone-arch-photo" style="background-image: url('https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=200&auto=format&fit=crop&q=80');"></div>
+              <h4 class="couple-names">Andi & Siti</h4>
+              <span class="wedding-date">12 . 10 . 2026</span>
+              <div class="phone-timer">
+                <span class="timer-col">23</span>
+                <span class="timer-col">12</span>
+                <span class="timer-col">45</span>
+                <span class="timer-col">30</span>
+              </div>
+              <button class="phone-btn-open" style="background:#D4AF37; color:#111;">Konfirmasi Kehadiran</button>
+              <div class="phone-nav-bottom">
+                <span>📍 Lokasi</span>
+                <span>🖼️ Galeri</span>
+                <span>🎵 Musik</span>
+              </div>
+            </div>
+            <div class="floating-mini-card float-prem-galeri">
+              <h6>🖼️ Galeri</h6>
+              <div class="gal-grid">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=80&auto=format&fit=crop&q=80" alt="g1">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=80&auto=format&fit=crop&q=80" alt="g2">
+              </div>
+              <div style="background:#111; border-radius:3px; padding:2px; text-align:center; font-size:6px; color:#D4AF37;">
+                ▶ Video Prewedding HD
+              </div>
+            </div>
+            <div class="floating-mini-card float-prem-rekening">
+              <h6>Rekening Hadiah</h6>
+              <div class="rek-row">
+                <div class="rek-icon"><i class="fa-regular fa-credit-card"></i></div>
+                <div><b>BCA</b> 1234 5678 90<br>a.n. Andi Pratama</div>
+              </div>
+              <div class="rek-row">
+                <div class="rek-icon"><i class="fa-regular fa-credit-card"></i></div>
+                <div><b>Mandiri</b> 0987 6543 21<br>a.n. Siti Nurhaliza</div>
+              </div>
+            </div>
+          </div>
+          <div class="features-section">
+            <h5>Fitur yang didapatkan:</h5>
+            <ul class="features-list">
+              <li><i class="fa-solid fa-circle-check"></i> <b>Semua fitur Paket Standard</b></li>
+              <li><i class="fa-solid fa-circle-check"></i> Template premium / eksklusif</li>
+              <li><i class="fa-solid fa-circle-check"></i> Galeri hingga 30 foto + 1 video</li>
+              <li><i class="fa-solid fa-circle-check"></i> Pengerjaan prioritas (maks. 24 jam)</li>
+              <li><i class="fa-solid fa-circle-check"></i> Revisi tanpa batas hingga selesai</li>
+              <li><i class="fa-solid fa-circle-check"></i> Masa aktif undangan 2 tahun</li>
+            </ul>
+          </div>
+          <button class="btn-choose btn-premium" onclick="openOrder('Paket Premium', 'Rp249.000')">
+            Pilih Paket Premium <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- BOTTOM BANNER -->
+      <div class="bottom-bonus-card">
+        <div class="bonus-left">
+          <div class="bonus-icon-box"><i class="fa-solid fa-gift"></i></div>
+          <div>
+            <h4>Dapatkan Bonus Menarik!</h4>
+            <p>Gratis QR Code, nama tamu di link, bantuan upload foto, dan konsultasi sampai undangan siap dibagikan.</p>
+          </div>
+        </div>
+        <div class="bonus-middle">
+          <i class="fa-regular fa-heart"></i>
+          <p>Pilih paket yang sesuai dengan cerita cintamu, dan biarkan kami membantu mewujudkannya.</p>
+        </div>
+        <svg class="bonus-right-plant" viewBox="0 0 100 100">
+          <path d="M50,95 Q48,60 52,25 M50,75 Q35,65 25,50 Q40,50 50,65 M51,60 Q65,50 75,35 Q60,35 51,50 M50,45 Q35,35 30,20 Q45,20 50,35" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </main>
   </div>
-  <div class="catalog">
-    <!-- BASIC -->
-    <div class="card">
-      <h3>Paket Basic</h3>
-      <div class="price">Rp 79.000</div>
-      <ul>
-        <li><i class="fa-solid fa-check"></i> Detail Akad & Resepsi</li>
-        <li><i class="fa-solid fa-check"></i> Countdown Acara & Navigasi Google Maps</li>
-        <li><i class="fa-solid fa-check"></i> Galeri 5 Foto Prewedding</li>
-        <li><i class="fa-solid fa-check"></i> Pengerjaan 1-2 Hari</li>
-      </ul>
-      <button class="btn-order" onclick="pesan('Paket Basic', '79.000')">Pilih Paket Basic</button>
-    </div>
-    <!-- STANDARD -->
-    <div class="card best">
-      <span class="badge">BEST SELLER</span>
-      <h3>Paket Standard</h3>
-      <div class="price">Rp 149.000</div>
-      <ul>
-        <li><i class="fa-solid fa-check"></i> <b>Semua Fitur Paket Basic</b></li>
-        <li><i class="fa-solid fa-check"></i> Konfirmasi Kehadiran Tamu (RSVP)</li>
-        <li><i class="fa-solid fa-check"></i> Kolom Ucapan & Doa Tamu</li>
-        <li><i class="fa-solid fa-check"></i> Background Musik Romantis Otomatis</li>
-        <li><i class="fa-solid fa-check"></i> Love Story & Galeri 15 Foto</li>
-      </ul>
-      <button class="btn-order" onclick="pesan('Paket Standard', '149.000')">Pilih Paket Standard</button>
-    </div>
-    <!-- PREMIUM -->
-    <div class="card">
-      <h3>Paket Premium</h3>
-      <div class="price">Rp 249.000</div>
-      <ul>
-        <li><i class="fa-solid fa-check"></i> <b>Semua Fitur Paket Standard</b></li>
-        <li><i class="fa-solid fa-check"></i> Amplop Digital Kado (BCA, Mandiri, QRIS)</li>
-        <li><i class="fa-solid fa-check"></i> Video Prewedding HD Player</li>
-        <li><i class="fa-solid fa-check"></i> Galeri Besar hingga 30 Foto</li>
-        <li><i class="fa-solid fa-check"></i> Pengerjaan Prioritas 24 Jam</li>
-      </ul>
-      <button class="btn-order" onclick="pesan('Paket Premium', '249.000')">Pilih Paket Premium</button>
+
+  <!-- ORDER MODAL -->
+  <div class="modal-backdrop" id="orderModal">
+    <div class="modal-container">
+      <div class="modal-header-bar">
+        <h3 id="orderModalTitle">Pesan Paket Undangan</h3>
+        <button class="close-btn" onclick="closeOrder()">&times;</button>
+      </div>
+      <div class="modal-body-content">
+        <form onsubmit="submitToWhatsApp(event)">
+          <div class="form-group-item">
+            <label>Paket Pilihan</label>
+            <input type="text" id="selectedTier" class="form-field" readonly style="background:#F3F4F6;">
+          </div>
+          <div class="form-group-item">
+            <label>Nama Mempelai Pria & Wanita</label>
+            <input type="text" id="groomBride" class="form-field" placeholder="Contoh: Andi & Siti" required>
+          </div>
+          <div class="form-group-item">
+            <label>Tanggal Acara Pernikahan</label>
+            <input type="date" id="eventDate" class="form-field" required>
+          </div>
+          <div class="form-group-item">
+            <label>Kota / Lokasi Acara</label>
+            <input type="text" id="eventLocation" class="form-field" placeholder="Contoh: Bandung / Jakarta" required>
+          </div>
+          <button type="submit" class="btn-submit-whatsapp">
+            <i class="fa-brands fa-whatsapp"></i> Lanjut Kirim Pesan via WhatsApp
+          </button>
+        </form>
+      </div>
     </div>
   </div>
+
   <script>
-    function pesan(paket, harga) {
-      const nama = prompt("Nama Mempelai (Contoh: Andi & Siti):", "");
-      if(!nama) return;
-      const url = "https://wa.me/6281234567890?text=" + encodeURIComponent("Halo OurInvite, saya ingin pesan " + paket + " (Rp " + harga + ") untuk mempelai " + nama);
-      window.open(url, '_blank');
+    let activeTier = '';
+    let activePrice = '';
+    function openOrder(tierName, tierPrice) {
+      activeTier = tierName;
+      activePrice = tierPrice;
+      document.getElementById('orderModalTitle').innerText = 'Pesan ' + tierName;
+      document.getElementById('selectedTier').value = tierName + ' (' + tierPrice + ')';
+      document.getElementById('orderModal').classList.add('active');
+    }
+    function closeOrder() { document.getElementById('orderModal').classList.remove('active'); }
+    function submitToWhatsApp(e) {
+      e.preventDefault();
+      const couple = document.getElementById('groomBride').value;
+      const date = document.getElementById('eventDate').value;
+      const loc = document.getElementById('eventLocation').value;
+      const text = `Halo OurInvite! Saya ingin memesan undangan digital:%0A` +
+                   `• Paket: ${encodeURIComponent(activeTier)} (${encodeURIComponent(activePrice)})%0A` +
+                   `• Mempelai: ${encodeURIComponent(couple)}%0A` +
+                   `• Tanggal: ${encodeURIComponent(date)}%0A` +
+                   `• Lokasi: ${encodeURIComponent(loc)}%0A` +
+                   `Mohon info langkah berikutnya ya. Terima kasih!`;
+      window.open(`https://wa.me/6281234567890?text=${text}`, '_blank');
+      closeOrder();
+    }
+    function scrollToCard(cardId) {
+      document.querySelectorAll('.sidebar-item').forEach(item => item.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+      const target = document.getElementById(cardId);
+      if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
     }
   </script>
 </body>
-</html>
+                                                                                                                                 </html>
