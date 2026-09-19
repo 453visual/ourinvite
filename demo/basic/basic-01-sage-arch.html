@@ -144,12 +144,12 @@
     .anim-delay-4 { animation-delay: 0.65s; }
     .anim-delay-5 { animation-delay: 0.82s; }
 
-    /* ANIMASI SCROLL REVEAL (LEBIH HALUS, LEMBUT & JELAS TERLIHAT) */
+    /* ANIMASI SCROLL REVEAL (LEBIH LAMBAT, MEWAH & ANGGUN) */
     .reveal {
       opacity: 0;
-      transform: translate3d(0, 42px, 0);
-      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), 
-                  transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translate3d(0, 46px, 0);
+      transition: opacity 1.4s cubic-bezier(0.18, 1, 0.28, 1), 
+                  transform 1.4s cubic-bezier(0.18, 1, 0.28, 1);
       will-change: opacity, transform;
       backface-visibility: hidden;
     }
@@ -590,12 +590,19 @@
 
     function checkReveals() {
       if (!isOpened) return;
-      var triggerPoint = window.innerHeight * 0.88; // Muncul saat bagian atas elemen mencapai 88% layar bawah
-      var reveals = document.querySelectorAll('.reveal:not(.active)');
+      var windowH = window.innerHeight;
+      var triggerBottom = windowH * 0.90; // Masuk area pandang saat di 90% layar
+      var triggerTop = 30;                // Masih di area pandang saat bagian bawah di atas 30px
+      var reveals = document.querySelectorAll('.reveal');
       for (var i = 0; i < reveals.length; i++) {
-        var rect = reveals[i].getBoundingClientRect();
-        if (rect.top <= triggerPoint && rect.bottom >= 0) {
-          revealElement(reveals[i]);
+        var el = reveals[i];
+        var rect = el.getBoundingClientRect();
+        if (rect.top <= triggerBottom && rect.bottom >= triggerTop) {
+          revealElement(el);
+        } else if (rect.bottom < -40 || rect.top > windowH + 40) {
+          // Reset saat elemen sudah keluar dari layar (baik ke atas maupun ke bawah)
+          // sehingga saat di-scroll ke atas (atau balik ke bawah), animasi muncul kembali!
+          el.classList.remove('active');
         }
       }
     }
@@ -606,15 +613,19 @@
           entries.forEach(function(entry) {
             if (entry.isIntersecting) {
               revealElement(entry.target);
-              observer.unobserve(entry.target);
+            } else {
+              var rect = entry.target.getBoundingClientRect();
+              if (rect.bottom < -30 || rect.top > window.innerHeight + 30) {
+                entry.target.classList.remove('active');
+              }
             }
           });
         }, {
           threshold: 0.05,
-          rootMargin: '0px 0px -50px 0px'
+          rootMargin: '0px 0px -40px 0px'
         });
 
-        document.querySelectorAll('.reveal:not(.active)').forEach(function(el) {
+        document.querySelectorAll('.reveal').forEach(function(el) {
           observer.observe(el);
         });
       }
