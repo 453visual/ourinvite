@@ -47,7 +47,6 @@
       overflow-x: hidden;
     }
 
-    /* TOP DEMO BAR */
     .demo-bar {
       position: sticky;
       top: 0;
@@ -76,7 +75,7 @@
       opacity: 0.8;
     }
 
-    /* BACKGROUND TETAP MENEMPEL DARI ATAS SAMPAI BAWAH */
+    /* BACKGROUND TEPAT KE THEME-03.JPG */
     .bg-fixed-layer {
       position: fixed;
       top: 0;
@@ -85,7 +84,7 @@
       width: 100%;
       max-width: 450px;
       height: 100vh;
-      background-image: url("https://raw.githubusercontent.com/453visual/ourinvite/main/demo/assets/themes-basic/basic-theme-03.jpg");
+      background-image: url("../assets/themes-basic/theme-03.jpg"), url("https://raw.githubusercontent.com/453visual/ourinvite/main/demo/assets/themes-basic/theme-03.jpg");
       background-size: cover;
       background-position: center top;
       background-repeat: no-repeat;
@@ -93,7 +92,6 @@
       pointer-events: none;
     }
 
-    /* OVERLAY HALUS AGAR KONTEN TETAP TERBACA DENGAN JELAS */
     .bg-overlay-tint {
       position: fixed;
       top: 0;
@@ -108,7 +106,6 @@
       pointer-events: none;
     }
 
-    /* COVER SECTION */
     .cover-section {
       min-height: 100vh;
       display: flex;
@@ -131,7 +128,6 @@
       align-items: center;
     }
 
-    /* ANIMASI ENTRANCE PADA COVER (ULTRA SMOOTH & ELEGAN) */
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -154,7 +150,6 @@
     .anim-delay-4 { animation-delay: 0.65s; }
     .anim-delay-5 { animation-delay: 0.82s; }
 
-    /* ANIMASI SCROLL REVEAL (LEBIH LAMBAT, ULTRA SMOOTH & MEWAH) */
     .reveal {
       opacity: 0;
       transform: translate3d(0, 48px, 0) scale(0.98);
@@ -250,7 +245,6 @@
       transform: scale(0.97);
     }
 
-    /* KONTEN AREA (TRANSPARAN AGAR BACKGROUND TEMBUS HINGGA BAWAH) */
     .content-area {
       padding: 50px 20px 50px;
       display: flex;
@@ -450,7 +444,6 @@
 <body>
 
   <div class="mobile-wrapper">
-    <!-- LAYER BACKGROUND TETAP MENEMPEL DARI ATAS SAMPAI BAWAH -->
     <div class="bg-fixed-layer"></div>
     <div class="bg-overlay-tint"></div>
 
@@ -459,7 +452,6 @@
       <a href="javascript:window.history.back();"><i class="fa-solid fa-arrow-left"></i> Kembali</a>
     </div>
 
-    <!-- COVER SECTION -->
     <section class="cover-section" id="cover">
       <div class="cover-content">
         <div class="tag-title anim-fade anim-delay-1">The Wedding of</div>
@@ -480,14 +472,12 @@
       </div>
     </section>
 
-    <!-- KONTEN UNDANGAN (MUNCUL DENGAN ANIMASI SAAT DI-SCROLL) -->
     <div class="content-area" id="mainContent" style="display: none;">
       <div class="quote-box reveal">
         <p class="quote-text">"Demikianlah mereka bukan lagi dua, melainkan satu. Karena itu, apa yang telah dipersatukan Allah, tidak boleh diceraikan manusia."</p>
         <span class="quote-source">(Matius 19:6)</span>
       </div>
 
-      <!-- KEDUA MEMPELAI -->
       <div class="reveal">
         <div class="section-tag">Kedua Mempelai</div>
         <h2 class="section-title">Sang Pengantin</h2>
@@ -517,7 +507,6 @@
         </div>
       </div>
 
-      <!-- HITUNG MUNDUR -->
       <div class="countdown-card reveal">
         <h4>HITUNG MUNDUR HARI BAHAGIA</h4>
         <div class="timer-grid">
@@ -540,7 +529,6 @@
         </div>
       </div>
 
-      <!-- RANGKAIAN ACARA -->
       <div class="reveal">
         <div class="section-tag">Waktu & Lokasi</div>
         <h2 class="section-title">Rangkaian Acara</h2>
@@ -591,7 +579,6 @@
   </div>
 
   <script>
-    // Ambil nama tamu dari URL param (?to=Nama+Tamu)
     try {
       var urlParams = new URLSearchParams(window.location.search);
       var guest = urlParams.get("to") || urlParams.get("u");
@@ -600,35 +587,25 @@
       }
     } catch(e) {}
 
-    // Tombol Buka Undangan
     var btn = document.getElementById("btnOpenInvite");
     var content = document.getElementById("mainContent");
     var isOpened = false;
     var observer;
 
-    function revealElement(el) {
-      if (!el.classList.contains('active')) {
-        el.classList.add('active');
-      }
-    }
-
     function checkReveals() {
       if (!isOpened) return;
       var windowH = window.innerHeight;
-      var triggerBottom = windowH - 70; // 70px dari batas bawah layar
-      var triggerTop = 70;              // 70px dari batas atas layar
+      var triggerBottom = windowH - 70;
+      var triggerTop = 70;
       var reveals = document.querySelectorAll('.reveal');
       for (var i = 0; i < reveals.length; i++) {
         var el = reveals[i];
         var rect = el.getBoundingClientRect();
-        // Berada di dalam area pandang simetris (antara 70px dari atas dan 70px dari bawah)
         if (rect.top <= triggerBottom && rect.bottom >= triggerTop) {
           if (!el.classList.contains('active')) {
             el.classList.add('active');
           }
         } else if (rect.bottom < -60 || rect.top > windowH + 60) {
-          // Reset saat elemen sudah keluar dari layar (baik ke atas maupun ke bawah)
-          // sehingga animasi konsisten dan sama persis saat scroll ke atas maupun ke bawah!
           if (el.classList.contains('active')) {
             el.classList.remove('active');
           }
@@ -651,7 +628,7 @@
           });
         }, {
           threshold: 0.05,
-          rootMargin: '-70px 0px -70px 0px' // Simetris 70px atas dan bawah agar animasi scroll naik dan turun identik!
+          rootMargin: '-70px 0px -70px 0px'
         });
 
         document.querySelectorAll('.reveal').forEach(function(el) {
@@ -666,12 +643,8 @@
 
       if (content) {
         content.style.display = "flex";
-        
-        // Scroll halus ke arah konten undangan
         content.scrollIntoView({ behavior: "smooth" });
 
-        // Aktifkan observer setelah scroll awal mulai berjalan
-        // sehingga elemen bawah tidak aktif sekaligus dan teranimasi satu per satu saat di-scroll
         setTimeout(function() {
           initScrollReveal();
           checkReveals();
@@ -685,14 +658,12 @@
       btn.addEventListener("touchend", doOpen);
     }
 
-    // Pasang scroll listener tambahan agar sangat responsif di mobile browser
     window.addEventListener('scroll', function() {
       if (isOpened) {
         checkReveals();
       }
     }, { passive: true });
 
-    // Countdown timer
     var sec = 15;
     setInterval(function() {
       sec--;
