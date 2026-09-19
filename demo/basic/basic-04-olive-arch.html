@@ -76,7 +76,7 @@
       opacity: 0.8;
     }
 
-    /* BACKGROUND TETAP MENEMPEL DARI ATAS SAMPAI BAWAH */
+    /* BACKGROUND TERSAMBUNG KE THEME-04.JPG */
     .bg-fixed-layer {
       position: fixed;
       top: 0;
@@ -85,7 +85,7 @@
       width: 100%;
       max-width: 450px;
       height: 100vh;
-      background-image: url("https://raw.githubusercontent.com/453visual/ourinvite/main/demo/assets/themes-basic/basic-theme-04.jpg");
+      background-image: url("../assets/themes-basic/theme-04.jpg"), url("https://raw.githubusercontent.com/453visual/ourinvite/main/demo/assets/themes-basic/theme-04.jpg");
       background-size: cover;
       background-position: center top;
       background-repeat: no-repeat;
@@ -450,7 +450,7 @@
 <body>
 
   <div class="mobile-wrapper">
-    <!-- LAYER BACKGROUND TETAP MENEMPEL DARI ATAS SAMPAI BAWAH -->
+    <!-- LAYER BACKGROUND TERSAMBUNG KE THEME-04.JPG -->
     <div class="bg-fixed-layer"></div>
     <div class="bg-overlay-tint"></div>
 
@@ -480,7 +480,7 @@
       </div>
     </section>
 
-    <!-- KONTEN UNDANGAN (MUNCUL DENGAN ANIMASI SAAT DI-SCROLL) -->
+    <!-- KONTEN UNDANGAN -->
     <div class="content-area" id="mainContent" style="display: none;">
       <div class="quote-box reveal">
         <p class="quote-text">"Demikianlah mereka bukan lagi dua, melainkan satu. Karena itu, apa yang telah dipersatukan Allah, tidak boleh diceraikan manusia."</p>
@@ -606,29 +606,20 @@
     var isOpened = false;
     var observer;
 
-    function revealElement(el) {
-      if (!el.classList.contains('active')) {
-        el.classList.add('active');
-      }
-    }
-
     function checkReveals() {
       if (!isOpened) return;
       var windowH = window.innerHeight;
-      var triggerBottom = windowH - 70; // 70px dari batas bawah layar
-      var triggerTop = 70;              // 70px dari batas atas layar
+      var triggerBottom = windowH - 70;
+      var triggerTop = 70;
       var reveals = document.querySelectorAll('.reveal');
       for (var i = 0; i < reveals.length; i++) {
         var el = reveals[i];
         var rect = el.getBoundingClientRect();
-        // Berada di dalam area pandang simetris (antara 70px dari atas dan 70px dari bawah)
         if (rect.top <= triggerBottom && rect.bottom >= triggerTop) {
           if (!el.classList.contains('active')) {
             el.classList.add('active');
           }
         } else if (rect.bottom < -60 || rect.top > windowH + 60) {
-          // Reset saat elemen sudah keluar dari layar (baik ke atas maupun ke bawah)
-          // sehingga animasi konsisten dan sama persis saat scroll ke atas maupun ke bawah!
           if (el.classList.contains('active')) {
             el.classList.remove('active');
           }
@@ -651,7 +642,7 @@
           });
         }, {
           threshold: 0.05,
-          rootMargin: '-70px 0px -70px 0px' // Simetris 70px atas dan bawah agar animasi scroll naik dan turun identik!
+          rootMargin: '-70px 0px -70px 0px'
         });
 
         document.querySelectorAll('.reveal').forEach(function(el) {
@@ -666,12 +657,8 @@
 
       if (content) {
         content.style.display = "flex";
-        
-        // Scroll halus ke arah konten undangan
         content.scrollIntoView({ behavior: "smooth" });
 
-        // Aktifkan observer setelah scroll awal mulai berjalan
-        // sehingga elemen bawah tidak aktif sekaligus dan teranimasi satu per satu saat di-scroll
         setTimeout(function() {
           initScrollReveal();
           checkReveals();
@@ -685,14 +672,12 @@
       btn.addEventListener("touchend", doOpen);
     }
 
-    // Pasang scroll listener tambahan agar sangat responsif di mobile browser
     window.addEventListener('scroll', function() {
       if (isOpened) {
         checkReveals();
       }
     }, { passive: true });
 
-    // Countdown timer
     var sec = 15;
     setInterval(function() {
       sec--;
