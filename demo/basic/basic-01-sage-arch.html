@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Wedding of Bagas & Alisha — Sage Botanical Arch</title>
+  <title>The Wedding of Dimas & Citra — Sage Botanical Arch</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -34,7 +34,7 @@
       width: 100%;
       max-width: 450px;
       min-height: 100vh;
-      background: #F8F9F6;
+      background: #FFFFFF;
       position: relative;
       overflow-x: hidden;
       display: flex;
@@ -92,7 +92,7 @@
       width: 100%;
       max-width: 450px;
       height: 100vh;
-      background: rgba(255, 255, 255, 0.42);
+      background: rgba(255, 255, 255, 0.45);
       backdrop-filter: blur(1px);
       z-index: 1;
       pointer-events: none;
@@ -144,24 +144,20 @@
     .anim-delay-4 { animation-delay: 0.65s; }
     .anim-delay-5 { animation-delay: 0.82s; }
 
-    /* ANIMASI SCROLL REVEAL (LEBIH HALUS, LEMBUT & MEWAH) */
+    /* ANIMASI SCROLL REVEAL (LEBIH HALUS, LEMBUT & JELAS TERLIHAT) */
     .reveal {
       opacity: 0;
-      transform: translate3d(0, 26px, 0) scale(0.985);
-      transition: opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1), 
-                  transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: translate3d(0, 42px, 0);
+      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), 
+                  transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: opacity, transform;
       backface-visibility: hidden;
     }
 
     .reveal.active {
       opacity: 1;
-      transform: translate3d(0, 0, 0) scale(1);
+      transform: translate3d(0, 0, 0);
     }
-
-    .reveal-delay-1 { transition-delay: 0.12s; }
-    .reveal-delay-2 { transition-delay: 0.24s; }
-    .reveal-delay-3 { transition-delay: 0.36s; }
 
     .tag-title {
       font-family: "Cinzel", serif;
@@ -253,11 +249,10 @@
     }
 
     .quote-box {
-      background: rgba(255, 255, 255, 0.94);
+      background: rgba(255, 255, 255, 0.95);
       border-radius: 20px;
       padding: 24px 20px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-      backdrop-filter: blur(6px);
     }
     .quote-text {
       font-family: var(--font-serif);
@@ -290,12 +285,11 @@
     }
 
     .mempelai-card {
-      background: rgba(255, 255, 255, 0.94);
+      background: rgba(255, 255, 255, 0.95);
       border-radius: 22px;
       padding: 24px 16px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.05);
       margin-bottom: 16px;
-      backdrop-filter: blur(6px);
     }
     .mempelai-img {
       width: 100px;
@@ -362,12 +356,11 @@
     }
 
     .event-card {
-      background: rgba(255, 255, 255, 0.94);
+      background: rgba(255, 255, 255, 0.95);
       border-radius: 22px;
       padding: 26px 18px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.05);
       margin-bottom: 18px;
-      backdrop-filter: blur(6px);
     }
     .event-badge {
       width: 44px;
@@ -474,30 +467,30 @@
       <div class="reveal">
         <div class="section-tag">Kedua Mempelai</div>
         <h2 class="section-title">Sang Pengantin</h2>
+      </div>
 
-        <div class="mempelai-card reveal reveal-delay-1">
-          <div class="mempelai-img">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&auto=format&fit=crop&q=80" alt="Bagas Wicaksana, M.M.">
-          </div>
-          <h3 class="mempelai-name">Bagas Wicaksana, M.M.</h3>
-          <p class="mempelai-parents">
-            Putra pertama dari pasangan<br>
-            <strong>Bpk. Kusuma Wicaksana & Ibu Indah Pertiwi</strong>
-          </p>
+      <div class="mempelai-card reveal">
+        <div class="mempelai-img">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&auto=format&fit=crop&q=80" alt="Bagas Wicaksana, M.M.">
         </div>
+        <h3 class="mempelai-name">Bagas Wicaksana, M.M.</h3>
+        <p class="mempelai-parents">
+          Putra pertama dari pasangan<br>
+          <strong>Bpk. Kusuma Wicaksana & Ibu Indah Pertiwi</strong>
+        </p>
+      </div>
 
-        <div class="reveal reveal-delay-2" style="font-family: var(--font-script); font-size: 38px; color: var(--primary); margin: 6px 0;">&</div>
+      <div class="reveal" style="font-family: var(--font-script); font-size: 38px; color: var(--primary); margin: 6px 0;">&</div>
 
-        <div class="mempelai-card reveal reveal-delay-3">
-          <div class="mempelai-img">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80" alt="Alisha Danira, S.Ked.">
-          </div>
-          <h3 class="mempelai-name">Alisha Danira, S.Ked.</h3>
-          <p class="mempelai-parents">
-            Putri dari pasangan<br>
-            <strong>Bpk. Hartono Danira & Ibu Ratna Sari</strong>
-          </p>
+      <div class="mempelai-card reveal">
+        <div class="mempelai-img">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80" alt="Alisha Danira, S.Ked.">
         </div>
+        <h3 class="mempelai-name">Alisha Danira, S.Ked.</h3>
+        <p class="mempelai-parents">
+          Putri dari pasangan<br>
+          <strong>Bpk. Hartono Danira & Ibu Ratna Sari</strong>
+        </p>
       </div>
 
       <!-- HITUNG MUNDUR -->
@@ -527,34 +520,34 @@
       <div class="reveal">
         <div class="section-tag">Waktu & Lokasi</div>
         <h2 class="section-title">Rangkaian Acara</h2>
+      </div>
 
-        <div class="event-card reveal reveal-delay-1">
-          <div class="event-badge"><i class="fa-solid fa-ring"></i></div>
-          <h3>Pemberkatan Pernikahan</h3>
-          <div class="event-meta">
-            <div><i class="fa-regular fa-calendar"></i> Sabtu, 24 Oktober 2026</div>
-            <div><i class="fa-regular fa-clock"></i> 09.00 - 11.00 WIB</div>
-            <div style="font-weight: 700; color: #222;"><i class="fa-solid fa-location-dot"></i> Gereja Katedral / Tempat Ibadah</div>
-            <div>Jl. Katedral No. 12, Kota Bandung</div>
-          </div>
-          <a href="https://maps.google.com" target="_blank" class="btn-maps">
-            <i class="fa-solid fa-location-arrow"></i> Petunjuk Google Maps
-          </a>
+      <div class="event-card reveal">
+        <div class="event-badge"><i class="fa-solid fa-ring"></i></div>
+        <h3>Pemberkatan Pernikahan</h3>
+        <div class="event-meta">
+          <div><i class="fa-regular fa-calendar"></i> Sabtu, 24 Oktober 2026</div>
+          <div><i class="fa-regular fa-clock"></i> 09.00 - 11.00 WIB</div>
+          <div style="font-weight: 700; color: #222;"><i class="fa-solid fa-location-dot"></i> Gereja Katedral / Tempat Ibadah</div>
+          <div>Jl. Katedral No. 12, Kota Bandung</div>
         </div>
+        <a href="https://maps.google.com" target="_blank" class="btn-maps">
+          <i class="fa-solid fa-location-arrow"></i> Petunjuk Google Maps
+        </a>
+      </div>
 
-        <div class="event-card reveal reveal-delay-2">
-          <div class="event-badge"><i class="fa-solid fa-champagne-glasses"></i></div>
-          <h3>Resepsi Pernikahan</h3>
-          <div class="event-meta">
-            <div><i class="fa-regular fa-calendar"></i> Sabtu, 24 Oktober 2026</div>
-            <div><i class="fa-regular fa-clock"></i> 18.30 - 21.00 WIB</div>
-            <div style="font-weight: 700; color: #222;"><i class="fa-solid fa-location-dot"></i> Sky Ballroom & Terrace</div>
-            <div>Jl. Ir. H. Juanda No. 88, Kota Bandung</div>
-          </div>
-          <a href="https://maps.google.com" target="_blank" class="btn-maps">
-            <i class="fa-solid fa-location-arrow"></i> Petunjuk Google Maps
-          </a>
+      <div class="event-card reveal">
+        <div class="event-badge"><i class="fa-solid fa-champagne-glasses"></i></div>
+        <h3>Resepsi Pernikahan</h3>
+        <div class="event-meta">
+          <div><i class="fa-regular fa-calendar"></i> Sabtu, 24 Oktober 2026</div>
+          <div><i class="fa-regular fa-clock"></i> 18.30 - 21.00 WIB</div>
+          <div style="font-weight: 700; color: #222;"><i class="fa-solid fa-location-dot"></i> Sky Ballroom & Terrace</div>
+          <div>Jl. Ir. H. Juanda No. 88, Kota Bandung</div>
         </div>
+        <a href="https://maps.google.com" target="_blank" class="btn-maps">
+          <i class="fa-solid fa-location-arrow"></i> Petunjuk Google Maps
+        </a>
       </div>
 
       <div class="reveal" style="padding: 10px 0;">
@@ -586,50 +579,63 @@
     // Tombol Buka Undangan
     var btn = document.getElementById("btnOpenInvite");
     var content = document.getElementById("mainContent");
-
-    // Inisialisasi IntersectionObserver untuk Animasi Scroll Reveal
+    var isOpened = false;
     var observer;
+
+    function revealElement(el) {
+      if (!el.classList.contains('active')) {
+        el.classList.add('active');
+      }
+    }
+
+    function checkReveals() {
+      if (!isOpened) return;
+      var triggerPoint = window.innerHeight * 0.88; // Muncul saat bagian atas elemen mencapai 88% layar bawah
+      var reveals = document.querySelectorAll('.reveal:not(.active)');
+      for (var i = 0; i < reveals.length; i++) {
+        var rect = reveals[i].getBoundingClientRect();
+        if (rect.top <= triggerPoint && rect.bottom >= 0) {
+          revealElement(reveals[i]);
+        }
+      }
+    }
+
     function initScrollReveal() {
       if ('IntersectionObserver' in window) {
         observer = new IntersectionObserver(function(entries) {
           entries.forEach(function(entry) {
             if (entry.isIntersecting) {
-              entry.target.classList.add('active');
+              revealElement(entry.target);
+              observer.unobserve(entry.target);
             }
           });
         }, {
-          threshold: 0.1,
-          rootMargin: '0px 0px -40px 0px'
+          threshold: 0.05,
+          rootMargin: '0px 0px -50px 0px'
         });
 
-        document.querySelectorAll('.reveal').forEach(function(el) {
+        document.querySelectorAll('.reveal:not(.active)').forEach(function(el) {
           observer.observe(el);
-        });
-      } else {
-        // Fallback untuk browser lama
-        document.querySelectorAll('.reveal').forEach(function(el) {
-          el.classList.add('active');
         });
       }
     }
 
-    function checkRevealsInView() {
-      document.querySelectorAll('.reveal').forEach(function(el) {
-        var rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 30) {
-          el.classList.add('active');
-        }
-      });
-    }
-
     function doOpen() {
+      if (isOpened) return;
+      isOpened = true;
+
       if (content) {
         content.style.display = "flex";
+        
+        // Scroll halus ke arah konten undangan
+        content.scrollIntoView({ behavior: "smooth" });
+
+        // Aktifkan observer setelah scroll awal mulai berjalan
+        // sehingga elemen bawah tidak aktif sekaligus dan teranimasi satu per satu saat di-scroll
         setTimeout(function() {
           initScrollReveal();
-          checkRevealsInView();
-          content.scrollIntoView({ behavior: "smooth" });
-        }, 120);
+          checkReveals();
+        }, 300);
       }
     }
 
@@ -639,9 +645,11 @@
       btn.addEventListener("touchend", doOpen);
     }
 
-    // Scroll listener pendukung agar animasi responsif di browser mobile
+    // Pasang scroll listener tambahan agar sangat responsif di mobile browser
     window.addEventListener('scroll', function() {
-      checkRevealsInView();
+      if (isOpened) {
+        checkReveals();
+      }
     }, { passive: true });
 
     // Countdown timer
