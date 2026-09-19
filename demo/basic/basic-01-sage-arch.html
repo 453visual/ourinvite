@@ -144,19 +144,19 @@
     .anim-delay-4 { animation-delay: 0.65s; }
     .anim-delay-5 { animation-delay: 0.82s; }
 
-    /* ANIMASI SCROLL REVEAL (LEBIH LAMBAT, MEWAH & ANGGUN) */
+    /* ANIMASI SCROLL REVEAL (LEBIH LAMBAT, ULTRA SMOOTH & MEWAH) */
     .reveal {
       opacity: 0;
-      transform: translate3d(0, 46px, 0);
-      transition: opacity 1.4s cubic-bezier(0.18, 1, 0.28, 1), 
-                  transform 1.4s cubic-bezier(0.18, 1, 0.28, 1);
+      transform: translate3d(0, 48px, 0) scale(0.98);
+      transition: opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                  transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: opacity, transform;
       backface-visibility: hidden;
     }
 
     .reveal.active {
       opacity: 1;
-      transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0) scale(1);
     }
 
     .tag-title {
@@ -591,18 +591,23 @@
     function checkReveals() {
       if (!isOpened) return;
       var windowH = window.innerHeight;
-      var triggerBottom = windowH * 0.90; // Masuk area pandang saat di 90% layar
-      var triggerTop = 30;                // Masih di area pandang saat bagian bawah di atas 30px
+      var triggerBottom = windowH - 70; // 70px dari batas bawah layar
+      var triggerTop = 70;              // 70px dari batas atas layar
       var reveals = document.querySelectorAll('.reveal');
       for (var i = 0; i < reveals.length; i++) {
         var el = reveals[i];
         var rect = el.getBoundingClientRect();
+        // Berada di dalam area pandang simetris (antara 70px dari atas dan 70px dari bawah)
         if (rect.top <= triggerBottom && rect.bottom >= triggerTop) {
-          revealElement(el);
-        } else if (rect.bottom < -40 || rect.top > windowH + 40) {
+          if (!el.classList.contains('active')) {
+            el.classList.add('active');
+          }
+        } else if (rect.bottom < -60 || rect.top > windowH + 60) {
           // Reset saat elemen sudah keluar dari layar (baik ke atas maupun ke bawah)
-          // sehingga saat di-scroll ke atas (atau balik ke bawah), animasi muncul kembali!
-          el.classList.remove('active');
+          // sehingga animasi konsisten dan sama persis saat scroll ke atas maupun ke bawah!
+          if (el.classList.contains('active')) {
+            el.classList.remove('active');
+          }
         }
       }
     }
@@ -612,17 +617,17 @@
         observer = new IntersectionObserver(function(entries) {
           entries.forEach(function(entry) {
             if (entry.isIntersecting) {
-              revealElement(entry.target);
+              entry.target.classList.add('active');
             } else {
-              var rect = entry.target.getBoundingClientRect();
-              if (rect.bottom < -30 || rect.top > window.innerHeight + 30) {
+              var rect = entry.boundingClientRect;
+              if (rect.bottom < -60 || rect.top > window.innerHeight + 60) {
                 entry.target.classList.remove('active');
               }
             }
           });
         }, {
           threshold: 0.05,
-          rootMargin: '0px 0px -40px 0px'
+          rootMargin: '-70px 0px -70px 0px' // Simetris 70px atas dan bawah agar animasi scroll naik dan turun identik!
         });
 
         document.querySelectorAll('.reveal').forEach(function(el) {
