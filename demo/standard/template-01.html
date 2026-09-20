@@ -590,6 +590,11 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
+      transition: opacity 0.2s;
+    }
+    .btn-submit-rsvp:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
     }
 
     .wishes-stream {
@@ -655,11 +660,10 @@
   <button class="music-btn" id="musicToggle" onclick="toggleAudio()" style="display: none;">
     <i class="fa-solid fa-music"></i>
   </button>
- <audio id="bgMusic" loop preload="auto">
-  <source src="../assets/music/song-01.mp3" type="audio/mp3">
-  <source src="https://raw.githubusercontent.com/453visual/ourinvite/main/demo/assets/
-Marry Your Daughter – Brian McKnight.mp3" type="audio/mp3">
- </audio>
+  <audio id="bgMusic" loop preload="auto">
+    <source src="../assets/music/song-01.mp3" type="audio/mp3">
+    <source src="https://raw.githubusercontent.com/453visual/ourinvite/main/demo/assets/Marry Your Daughter – Brian McKnight.mp3" type="audio/mp3">
+  </audio>
 
   <div class="mobile-wrapper">
     <!-- LAYER BACKGROUND TERSAMBUNG KE THEME -->
@@ -884,7 +888,7 @@ Marry Your Daughter – Brian McKnight.mp3" type="audio/mp3">
               <label>Ucapan & Doa Restu</label>
               <textarea id="rsvpMsg" class="form-input" rows="3" placeholder="Tulis doa untuk mempelai..." required></textarea>
             </div>
-            <button type="submit" class="btn-submit-rsvp">
+            <button type="submit" class="btn-submit-rsvp" id="btnSubmitRSVP">
               <i class="fa-solid fa-paper-plane"></i> Kirim Ucapan
             </button>
           </form>
@@ -927,6 +931,9 @@ Marry Your Daughter – Brian McKnight.mp3" type="audio/mp3">
   </div>
 
   <script>
+    // URL Google Apps Script yang tersambung ke Google Spreadsheet Anda
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzzj2oYiOh4yQMbVv6re5lnzR-E67vsCXhy2lqatv05k_CDSrdS_GHWOFXnddpQjEs40Q/exec";
+
     try {
       const urlParams = new URLSearchParams(window.location.search);
       const guest = urlParams.get('to') || urlParams.get('u');
@@ -1037,23 +1044,54 @@ Marry Your Daughter – Brian McKnight.mp3" type="audio/mp3">
 
     function handleRSVP(e) {
       e.preventDefault();
-      const name = document.getElementById('rsvpName').value;
+      const submitBtn = document.getElementById('btnSubmitRSVP');
+      const name = document.getElementById('rsvpName').value.trim();
       const status = document.getElementById('rsvpAttendance').value;
-      const msg = document.getElementById('rsvpMsg').value;
+      const msg = document.getElementById('rsvpMsg').value.trim();
 
-      const container = document.getElementById('wishesContainer');
-      const newCard = document.createElement('div');
-      newCard.className = 'wish-item';
-      newCard.innerHTML = `
-        <div class="wish-header">
-          <span class="wish-name">${name}</span>
-          <span class="wish-status" style="${status === 'Tidak Hadir' ? 'background:#FFEBEE; color:#C62828;' : ''}">${status}</span>
-        </div>
-        <p class="wish-text">${msg}</p>
-      `;
-      container.prepend(newCard);
-      document.getElementById('rsvpMsg').value = '';
-      alert('Terima kasih! Ucapan dan doa restu Anda telah berhasil terkirim.');
+      if (!name || !msg) {
+        alert('Mohon lengkapi nama dan ucapan Anda.');
+        return;
+      }
+
+      // Animasi tombol sedang mengirim
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Mengirim ke Spreadsheet...';
+
+      // Kirim data langsung ke Google Apps Script / Spreadsheet
+      fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name,
+          attendance: status,
+          message: msg
+        })
+      }).then(() => {
+        // Tampilkan ucapan di daftar ucapan layar secara langsung
+        const container = document.getElementById('wishesContainer');
+        const newCard = document.createElement('div');
+        newCard.className = 'wish-item';
+        newCard.innerHTML = `
+          <div class="wish-header">
+            <span class="wish-name">${name}</span>
+            <span class="wish-status" style="${status === 'Tidak Hadir' ? 'background:#FFEBEE; color:#C62828;' : ''}">${status}</span>
+          </div>
+          <p class="wish-text">${msg}</p>
+        `;
+        container.prepend(newCard);
+
+        // Reset form
+        document.getElementById('rsvpMsg').value = '';
+        alert('Terima kasih! Ucapan dan konfirmasi kehadiran Anda telah berhasil tersimpan di Google Spreadsheet.');
+      }).catch((err) => {
+        console.error("Gagal kirim ke spreadsheet:", err);
+        alert('Ucapan berhasil dicatat di layar.');
+      }).finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Kirim Ucapan';
+      });
     }
 
     let sec = 20;
@@ -1065,4 +1103,4 @@ Marry Your Daughter – Brian McKnight.mp3" type="audio/mp3">
     }, 1000);
   </script>
 </body>
-</html>
+          </html>
