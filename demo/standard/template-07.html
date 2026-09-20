@@ -3,36 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="color-scheme" content="dark light">
+  <meta name="color-scheme" content="light">
   <title>The Wedding of Ryan & Nadia — Standard 07</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@400;500;600;700&family=Pinyon+Script&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
     :root {
-      --burgundy-bg: #140407;
-      --card-bg: rgba(36, 10, 16, 0.84);
-      --card-border: rgba(229, 195, 120, 0.38);
-      --gold-primary: #E5C378;
-      --gold-light: #FFF0D0;
-      --gold-dark: #A67D28;
-      --burgundy-accent: #8E2034;
-      --gold-gradient: linear-gradient(135deg, #E5C378 0%, #FFF2D6 50%, #A67D28 100%);
-      --royal-gradient: linear-gradient(135deg, #8E2034 0%, #BA324C 50%, #5E101E 100%);
-      --text-main: #FFF5F6;
-      --text-muted: #E2BEC4;
-      --font-serif: 'Playfair Display', Georgia, serif;
-      --font-script: 'Alex Brush', cursive;
-      --font-sans: 'Plus Jakarta Sans', sans-serif;
-      --font-cinzel: 'Cinzel', serif;
+      --rose-bg: #FAF5F2;
+      --card-bg: rgba(255, 255, 255, 0.94);
+      --card-border: rgba(163, 114, 114, 0.35);
+      --rose-primary: #8C4848;
+      --rose-dark: #572929;
+      --rose-soft: #D9A8A8;
+      --gold-accent: #C5A059;
+      --rose-gradient: linear-gradient(135deg, #8C4848 0%, #A96262 50%, #6E3232 100%);
+      --text-main: #332020;
+      --text-muted: #6E5353;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-script: 'Pinyon Script', cursive;
+      --font-sans: 'Montserrat', sans-serif;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
     
     body {
-      background-color: var(--burgundy-bg);
+      background-color: #EEE6E2;
       color: var(--text-main);
       font-family: var(--font-sans);
       display: flex;
@@ -45,18 +43,18 @@
       width: 100%;
       max-width: 450px;
       min-height: 100vh;
-      box-shadow: 0 0 50px rgba(0,0,0,0.8);
+      box-shadow: 0 0 50px rgba(0,0,0,0.12);
       position: relative;
       overflow-x: hidden;
       display: flex;
       flex-direction: column;
+      background-color: var(--rose-bg);
     }
 
-    /* TOP DEMO BAR */
     .demo-bar {
-      background: rgba(20, 4, 7, 0.94);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
-      color: #FFF;
+      color: var(--rose-dark);
       font-size: 11px;
       font-weight: 700;
       padding: 11px 18px;
@@ -67,17 +65,16 @@
       top: 0;
       z-index: 100;
       border-bottom: 1px solid var(--card-border);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.5);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
     }
     .demo-bar a {
-      color: var(--gold-light);
+      color: var(--rose-primary);
       text-decoration: none;
       display: flex;
       align-items: center;
       gap: 6px;
     }
 
-    /* BACKGROUND THEME LAYER MATCH THEME 07 */
     .bg-fixed-layer {
       position: fixed;
       top: 0;
@@ -102,41 +99,33 @@
       width: 100%;
       max-width: 450px;
       height: 100vh;
-      background: radial-gradient(circle at center, rgba(20, 4, 7, 0.2) 0%, rgba(20, 4, 7, 0.72) 100%);
-      backdrop-filter: blur(1px);
+      background: rgba(250, 245, 242, 0.35);
       z-index: 1;
       pointer-events: none;
     }
 
-    /* FLOATING MUSIC BUTTON */
     .music-btn {
       position: fixed;
       bottom: 24px;
       right: 20px;
       width: 46px;
       height: 46px;
-      background: var(--gold-gradient);
-      color: #1F060B;
+      background: var(--rose-gradient);
+      color: #FFF;
       border-radius: 50%;
       border: 2px solid #FFF;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 16px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 12px rgba(229, 195, 120, 0.4);
+      box-shadow: 0 6px 20px rgba(140, 72, 72, 0.35);
       cursor: pointer;
       z-index: 90;
       transition: all 0.3s;
     }
-    .music-btn.spinning {
-      animation: rotateMusic 4s linear infinite;
-    }
-    @keyframes rotateMusic {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
+    .music-btn.spinning { animation: rotateMusic 4s linear infinite; }
+    @keyframes rotateMusic { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-    /* COVER SECTION */
     .cover-section {
       min-height: 100vh;
       display: flex;
@@ -153,67 +142,68 @@
       from { opacity: 0; transform: translate3d(0, 24px, 0) scale(0.985); }
       to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
     }
-    .anim-fade {
-      animation: fadeInUp 1.15s cubic-bezier(0.22, 1, 0.36, 1) both;
-      backface-visibility: hidden;
-    }
+    .anim-fade { animation: fadeInUp 1.15s cubic-bezier(0.22, 1, 0.36, 1) both; }
     .anim-delay-1 { animation-delay: 0.1s; }
     .anim-delay-2 { animation-delay: 0.28s; }
     .anim-delay-3 { animation-delay: 0.46s; }
     .anim-delay-4 { animation-delay: 0.65s; }
     .anim-delay-5 { animation-delay: 0.82s; }
 
-    /* ANIMASI SCROLL REVEAL MEWAH 2.5s BOLAK-BALIK */
     .reveal {
       opacity: 0;
       transform: translate3d(0, 44px, 0) scale(0.98);
-      transition: opacity 2.5s cubic-bezier(0.16, 1, 0.3, 1), 
-                  transform 2.5s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: opacity 2.5s cubic-bezier(0.16, 1, 0.3, 1), transform 2.5s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: opacity, transform;
-      backface-visibility: hidden;
     }
-    .reveal.active {
-      opacity: 1;
-      transform: translate3d(0, 0, 0) scale(1);
-    }
+    .reveal.active { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
 
     .tag-title {
-      font-family: var(--font-cinzel);
+      font-family: var(--font-sans);
       font-size: 11px;
       letter-spacing: 5px;
-      color: var(--gold-primary);
+      color: var(--rose-primary);
       text-transform: uppercase;
-      font-weight: 700;
-      margin-bottom: 8px;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      font-weight: 600;
+      margin-bottom: 6px;
     }
 
     .couple-title {
-      font-family: var(--font-script);
-      font-size: 58px;
-      color: var(--gold-light);
-      line-height: 1.12;
+      font-family: var(--font-serif);
+      font-size: 40px;
+      font-weight: 600;
+      color: var(--rose-dark);
+      letter-spacing: 2px;
       margin-bottom: 22px;
-      text-shadow: 0 4px 18px rgba(0,0,0,0.8), 0 0 12px rgba(229, 195, 120, 0.4);
+      text-shadow: 0 2px 8px rgba(255,255,255,0.85);
+    }
+    .couple-title span {
+      font-family: var(--font-script);
+      font-weight: 400;
+      color: var(--gold-accent);
+      font-size: 42px;
+      margin: 0 4px;
     }
 
-    /* BINGKAI FOTO KHUSUS TEMPLATE 07: BAROQUE SCALLOPED ROYAL ARCH */
-    .photo-baroque-frame {
+    /* BINGKAI FOTO WAVE LENGKUNGAN ORGANIK (REFERENSI АЛЕКСАНДР & ВИКТОРИЯ) */
+    .wave-arch-frame {
       position: relative;
+      width: 210px;
+      height: 265px;
       padding: 6px;
-      border-radius: 95px 95px 22px 22px;
-      background: linear-gradient(135deg, rgba(229, 195, 120, 0.7) 0%, rgba(74, 18, 26, 0.8) 50%, rgba(229, 195, 120, 0.8) 100%);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), 0 0 18px rgba(229, 195, 120, 0.35);
+      border-radius: 90px 90px 18px 18px;
+      background: #FFFFFF;
+      border: 2px solid var(--rose-primary);
+      box-shadow: 0 16px 36px rgba(140, 72, 72, 0.2), 0 0 0 5px rgba(197, 160, 89, 0.25);
       margin-bottom: 24px;
     }
-    .photo-baroque-inner {
-      width: 176px;
-      height: 242px;
-      border-radius: 90px 90px 18px 18px;
+    .wave-arch-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 84px 84px 12px 12px;
       overflow: hidden;
-      border: 2px solid rgba(255, 255, 255, 0.85);
+      border: 1px dashed var(--rose-primary);
     }
-    .photo-baroque-inner img {
+    .wave-arch-inner img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -222,49 +212,46 @@
     .guest-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-radius: 18px;
-      padding: 16px 24px;
-      margin-bottom: 24px;
+      border-radius: 14px;
+      padding: 16px 26px;
+      margin-bottom: 22px;
       width: 90%;
       max-width: 320px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      box-shadow: 0 8px 24px rgba(140, 72, 72, 0.08);
     }
     .guest-card p {
       font-size: 11px;
       color: var(--text-muted);
       margin-bottom: 5px;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
     }
     .guest-name {
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 700;
-      color: var(--gold-light);
-      text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+      color: var(--rose-dark);
+      font-family: var(--font-serif);
     }
 
     .btn-open-invite {
-      background: var(--gold-gradient);
-      color: #1F060B;
-      font-size: 13.5px;
+      background: var(--rose-gradient);
+      color: #FFFFFF;
+      font-size: 13px;
       font-weight: 700;
       padding: 13px 34px;
-      border-radius: 30px;
-      border: 1px solid rgba(255,255,255,0.7);
+      border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.4);
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.4), 0 0 14px rgba(229, 195, 120, 0.35);
+      box-shadow: 0 8px 22px rgba(140, 72, 72, 0.3);
+      letter-spacing: 1px;
+      text-transform: uppercase;
       transition: all 0.25s;
     }
-    .btn-open-invite:active {
-      transform: scale(0.97);
-    }
+    .btn-open-invite:active { transform: scale(0.97); }
 
-    /* MAIN CONTENT */
     .content-area {
       padding: 40px 20px 40px;
       display: flex;
@@ -275,175 +262,128 @@
       z-index: 2;
     }
 
-    /* KOTAK KONTEN KHUSUS (BURGUNDY VELVET GLASS) */
-    .burgundy-card {
+    .rose-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-radius: 20px;
-      padding: 24px 20px;
-      box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+      border-radius: 16px;
+      padding: 26px 20px;
+      box-shadow: 0 8px 26px rgba(140, 72, 72, 0.07);
     }
 
     .quote-text {
       font-family: var(--font-serif);
-      font-size: 14px;
+      font-size: 16px;
       font-style: italic;
       color: var(--text-main);
-      line-height: 1.7;
+      line-height: 1.75;
       margin-bottom: 12px;
     }
 
     .section-tag {
-      font-family: var(--font-cinzel);
+      font-family: var(--font-sans);
       font-size: 11px;
       letter-spacing: 4px;
       text-transform: uppercase;
-      color: var(--gold-primary);
+      color: var(--rose-primary);
       font-weight: 700;
       margin-bottom: 6px;
     }
     .section-title {
       font-family: var(--font-serif);
-      font-size: 27px;
+      font-size: 32px;
       font-weight: 700;
-      color: var(--gold-light);
+      color: var(--rose-dark);
       margin-bottom: 16px;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
 
-    /* KEDUA MEMPELAI */
-    .mempelai-card {
-      margin-bottom: 16px;
+    .mempelai-card { margin-bottom: 16px; position: relative; }
+    .mempelai-img-wrap {
+      width: 128px;
+      height: 160px;
+      margin: 0 auto 16px;
+      padding: 4px;
+      border-radius: 64px 64px 8px 8px;
+      border: 1px solid var(--rose-primary);
+      background: #FFF;
+      box-shadow: 0 6px 16px rgba(140, 72, 72, 0.12);
     }
     .mempelai-img {
-      width: 124px;
-      height: 124px;
-      border-radius: 50%;
-      margin: 0 auto 16px;
-      overflow: hidden;
-      border: 3px solid var(--gold-primary);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.4), 0 0 12px rgba(229, 195, 120, 0.4);
-    }
-    .mempelai-img img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      border-radius: 60px 60px 6px 6px;
+      overflow: hidden;
     }
+    .mempelai-img img { width: 100%; height: 100%; object-fit: cover; }
     .mempelai-name {
       font-family: var(--font-serif);
-      font-size: 21px;
+      font-size: 24px;
       font-weight: 700;
-      color: var(--gold-light);
+      color: var(--rose-dark);
       margin-bottom: 6px;
     }
-    .mempelai-parents {
-      font-size: 12.5px;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
+    .mempelai-parents { font-size: 12.5px; color: var(--text-muted); line-height: 1.6; }
 
-    /* COUNTDOWN */
     .countdown-card h4 {
-      font-family: var(--font-cinzel);
+      font-family: var(--font-sans);
       font-size: 11px;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: var(--gold-primary);
-      margin-bottom: 14px;
+      color: var(--rose-dark);
+      font-weight: 700;
+      margin-bottom: 16px;
     }
-    .timer-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-    }
+    .timer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
     .timer-item {
-      background: rgba(20, 4, 7, 0.65);
+      background: #FFFFFF;
       border: 1px solid var(--card-border);
-      border-radius: 14px;
+      border-radius: 8px;
       padding: 12px 4px;
     }
     .timer-item span {
       display: block;
-      font-size: 22px;
+      font-family: var(--font-serif);
+      font-size: 26px;
       font-weight: 700;
-      color: var(--gold-light);
+      color: var(--rose-dark);
       line-height: 1;
       margin-bottom: 4px;
     }
-    .timer-item small {
-      font-size: 10px;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
+    .timer-item small { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
 
-    /* RANGKAIAN ACARA */
     .event-badge {
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      background: var(--gold-gradient);
-      color: #1F060B;
+      background: rgba(140, 72, 72, 0.12);
+      color: var(--rose-primary);
       display: inline-flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 14px;
       font-size: 20px;
-      box-shadow: 0 4px 14px rgba(229, 195, 120, 0.35);
+      border: 1px solid var(--card-border);
     }
-    .event-card h3 {
-      font-family: var(--font-serif);
-      font-size: 21px;
-      color: var(--gold-light);
-      margin-bottom: 10px;
-    }
-    .event-meta {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 18px;
-    }
-    .event-meta i {
-      color: var(--gold-primary);
-      margin-right: 6px;
-    }
+    .event-card h3 { font-family: var(--font-serif); font-size: 24px; color: var(--rose-dark); margin-bottom: 10px; }
+    .event-meta { font-size: 13px; color: var(--text-muted); line-height: 1.7; margin-bottom: 18px; }
+    .event-meta i { color: var(--rose-primary); margin-right: 6px; }
     .btn-maps {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 10px 22px;
-      border-radius: 22px;
-      background: rgba(229, 195, 120, 0.12);
-      color: var(--gold-light);
+      border-radius: 4px;
+      background: #FFFFFF;
+      color: var(--rose-dark);
       border: 1px solid var(--card-border);
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 700;
       text-decoration: none;
       transition: all 0.2s;
     }
 
-    /* KISAH CINTA TIMELINE */
-    .timeline {
-      position: relative;
-      padding-left: 20px;
-      text-align: left;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 7px;
-      top: 10px;
-      bottom: 10px;
-      width: 2px;
-      background: var(--card-border);
-    }
-    .timeline-item {
-      position: relative;
-      margin-bottom: 22px;
-      padding-left: 20px;
-    }
+    .timeline { position: relative; padding-left: 20px; text-align: left; }
+    .timeline::before { content: ''; position: absolute; left: 7px; top: 10px; bottom: 10px; width: 2px; background: var(--card-border); }
+    .timeline-item { position: relative; margin-bottom: 22px; padding-left: 20px; }
     .timeline-dot {
       position: absolute;
       left: -20px;
@@ -451,85 +391,31 @@
       width: 14px;
       height: 14px;
       border-radius: 50%;
-      background: var(--gold-primary);
-      border: 3px solid #140407;
-      box-shadow: 0 0 8px rgba(229, 195, 120, 0.6);
+      background: var(--rose-primary);
+      border: 3px solid #FFF;
+      box-shadow: 0 0 6px rgba(140, 72, 72, 0.4);
     }
-    .timeline-year {
-      font-family: var(--font-cinzel);
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--gold-primary);
-      letter-spacing: 1.5px;
-    }
-    .timeline-title {
-      font-family: var(--font-serif);
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--gold-light);
-      margin: 3px 0 4px;
-    }
-    .timeline-desc {
-      font-size: 12px;
-      color: var(--text-muted);
-      line-height: 1.55;
-    }
+    .timeline-year { font-family: var(--font-sans); font-size: 11px; font-weight: 700; color: var(--rose-primary); letter-spacing: 1.5px; }
+    .timeline-title { font-family: var(--font-serif); font-size: 18px; font-weight: 700; color: var(--rose-dark); margin: 3px 0 4px; }
+    .timeline-desc { font-size: 12px; color: var(--text-muted); line-height: 1.55; }
 
-    /* GALERI FOTO */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-    }
-    .gallery-item {
-      height: 154px;
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid var(--card-border);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
-    }
-    .gallery-item.tall {
-      grid-column: span 2;
-      height: 190px;
-    }
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .gallery-item { height: 154px; border-radius: 8px; overflow: hidden; border: 2px solid #FFF; box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+    .gallery-item.tall { grid-column: span 2; height: 190px; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
 
-    /* AMPLOP DIGITAL */
-    .gift-card {
-      margin-bottom: 14px;
-    }
-    .bank-logo {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--gold-light);
-      margin-bottom: 4px;
-      letter-spacing: 1px;
-    }
-    .bank-number {
-      font-family: monospace;
-      font-size: 19px;
-      font-weight: 700;
-      color: var(--gold-primary);
-      letter-spacing: 1.5px;
-      margin: 6px 0;
-    }
-    .bank-owner {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-bottom: 14px;
-    }
+    .gift-card { margin-bottom: 14px; }
+    .bank-logo { font-size: 15px; font-weight: 700; color: var(--rose-dark); margin-bottom: 4px; letter-spacing: 1px; }
+    .bank-number { font-family: monospace; font-size: 19px; font-weight: 700; color: var(--rose-dark); letter-spacing: 1.5px; margin: 6px 0; }
+    .bank-owner { font-size: 12px; color: var(--text-muted); margin-bottom: 14px; }
     .btn-copy {
-      background: rgba(229, 195, 120, 0.12);
+      background: #FFFFFF;
       border: 1px solid var(--card-border);
-      color: var(--gold-light);
+      color: var(--rose-dark);
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 700;
       padding: 9px 22px;
-      border-radius: 20px;
+      border-radius: 4px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
@@ -537,42 +423,28 @@
       transition: all 0.2s;
     }
 
-    /* BUKU TAMU & RSVP */
-    .rsvp-box {
-      text-align: left;
-    }
-    .form-group {
-      margin-bottom: 14px;
-    }
-    .form-group label {
-      display: block;
-      font-size: 11.5px;
-      font-weight: 600;
-      color: var(--gold-light);
-      margin-bottom: 6px;
-    }
+    .rsvp-box { text-align: left; }
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 11.5px; font-weight: 700; color: var(--rose-dark); margin-bottom: 6px; }
     .form-input {
       width: 100%;
       padding: 11px 14px;
       border: 1px solid var(--card-border);
-      border-radius: 12px;
+      border-radius: 6px;
       font-family: var(--font-sans);
       font-size: 12.5px;
-      background: rgba(20, 4, 7, 0.65);
+      background: #FFFFFF;
       color: var(--text-main);
       outline: none;
     }
-    .form-input:focus {
-      border-color: var(--gold-primary);
-      box-shadow: 0 0 8px rgba(229, 195, 120, 0.35);
-    }
+    .form-input:focus { border-color: var(--rose-primary); box-shadow: 0 0 8px rgba(140, 72, 72, 0.2); }
     .btn-submit-rsvp {
       width: 100%;
-      background: var(--gold-gradient);
-      color: #1F060B;
+      background: var(--rose-gradient);
+      color: #FFF;
       border: none;
       padding: 13px;
-      border-radius: 14px;
+      border-radius: 6px;
       font-weight: 700;
       font-size: 13px;
       cursor: pointer;
@@ -580,57 +452,18 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      box-shadow: 0 6px 18px rgba(229, 195, 120, 0.3);
-      transition: opacity 0.2s;
-    }
-    .btn-submit-rsvp:disabled {
-      opacity: 0.65;
-      cursor: not-allowed;
+      box-shadow: 0 6px 18px rgba(140, 72, 72, 0.25);
     }
 
-    .wishes-stream {
-      margin-top: 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      max-height: 250px;
-      overflow-y: auto;
-    }
-    .wish-item {
-      background: rgba(20, 4, 7, 0.65);
-      border: 1px solid var(--card-border);
-      border-radius: 14px;
-      padding: 12px 14px;
-    }
-    .wish-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 4px;
-    }
-    .wish-name {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--gold-light);
-    }
-    .wish-status {
-      font-size: 10px;
-      padding: 2px 8px;
-      border-radius: 10px;
-      background: rgba(46, 125, 50, 0.3);
-      border: 1px solid rgba(129, 199, 132, 0.5);
-      color: #A5D6A7;
-      font-weight: 600;
-    }
-    .wish-text {
-      font-size: 11.5px;
-      color: var(--text-muted);
-      line-height: 1.45;
-    }
+    .wishes-stream { margin-top: 18px; display: flex; flex-direction: column; gap: 10px; max-height: 250px; overflow-y: auto; }
+    .wish-item { background: #FFFFFF; border: 1px solid var(--card-border); border-radius: 8px; padding: 12px 14px; }
+    .wish-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+    .wish-name { font-size: 12px; font-weight: 700; color: var(--rose-dark); }
+    .wish-status { font-size: 10px; padding: 2px 8px; border-radius: 10px; background: rgba(140, 72, 72, 0.15); color: var(--rose-dark); font-weight: 600; }
+    .wish-text { font-size: 11.5px; color: var(--text-muted); line-height: 1.45; }
 
-    /* FOOTER */
     .footer-section {
-      background: #0D0204;
+      background: #2D1A1A;
       border-top: 1px solid var(--card-border);
       color: #FFF;
       padding: 32px 20px;
@@ -639,18 +472,11 @@
       position: relative;
       z-index: 2;
     }
-    .footer-section h5 {
-      font-family: var(--font-cinzel);
-      font-size: 15px;
-      letter-spacing: 4px;
-      margin-bottom: 6px;
-      color: var(--gold-light);
-    }
+    .footer-section h5 { font-family: var(--font-serif); font-size: 16px; letter-spacing: 4px; margin-bottom: 6px; color: var(--rose-soft); }
   </style>
 </head>
 <body>
 
-  <!-- FLOATING MUSIC BUTTON -->
   <button class="music-btn" id="musicToggle" onclick="toggleAudio()" style="display: none;">
     <i class="fa-solid fa-music"></i>
   </button>
@@ -660,24 +486,22 @@
   </audio>
 
   <div class="mobile-wrapper">
-    <!-- LAYER BACKGROUND TERSAMBUNG KE THEME 07 STANDAR -->
     <div class="bg-fixed-layer"></div>
     <div class="bg-overlay-tint"></div>
 
-    <!-- TOP DEMO BAR -->
     <div class="demo-bar">
-      <span>PAKET STANDARD: 07. BURGUNDY CRIMSON & GOLD</span>
+      <span>PAKET STANDARD: 07. CHAMPAGNE ROSE ARCH</span>
       <a href="javascript:window.history.back();"><i class="fa-solid fa-arrow-left"></i> Kembali</a>
     </div>
 
     <!-- COVER SECTION -->
     <section class="cover-section" id="cover">
       <div class="tag-title anim-fade anim-delay-1">The Wedding of</div>
-      <h1 class="couple-title anim-fade anim-delay-2">Ryan & Nadia</h1>
+      <h1 class="couple-title anim-fade anim-delay-2">Ryan <span>&amp;</span> Nadia</h1>
 
-      <!-- BINGKAI FOTO KHUSUS TEMPLATE 07 (BAROQUE ROYAL ARCH) -->
-      <div class="photo-baroque-frame anim-fade anim-delay-3">
-        <div class="photo-baroque-inner">
+      <!-- BINGKAI FOTO WAVE ARCH ORGANIK -->
+      <div class="wave-arch-frame anim-fade anim-delay-3">
+        <div class="wave-arch-inner">
           <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&auto=format&fit=crop&q=80" alt="Ryan & Nadia">
         </div>
       </div>
@@ -692,81 +516,71 @@
       </button>
     </section>
 
-    <!-- CONTENT AREA -->
+    <!-- MAIN CONTENT -->
     <div class="content-area" id="mainContent" style="display: none;">
-      <!-- KUTIPAN -->
-      <div class="burgundy-card reveal">
+      <div class="rose-card reveal">
         <p class="quote-text">
-          "Demikianlah mereka bukan lagi dua, melainkan satu. Karena itu, apa yang telah dipersatukan Allah, tidak boleh diceraikan manusia."
+          "Cinta bukanlah tentang saling menatap satu sama lain, melainkan melihat bersama ke arah yang sama."
         </p>
-        <span style="font-family: var(--font-cinzel); font-size: 11px; font-weight: 700; color: var(--gold-primary); letter-spacing: 1px;">(Matius 19:6)</span>
+        <span style="font-family: var(--font-sans); font-size: 11px; font-weight: 700; color: var(--rose-primary); letter-spacing: 1.5px;">(Antoine de Saint-Exupéry)</span>
       </div>
 
-      <!-- KEDUA MEMPELAI -->
       <div class="reveal">
         <div class="section-tag">Kedua Mempelai</div>
         <h2 class="section-title">Sang Mempelai</h2>
 
-        <div class="burgundy-card mempelai-card reveal">
-          <div class="mempelai-img">
-            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&auto=format&fit=crop&q=80" alt="Ryan Pratama">
+        <div class="rose-card mempelai-card reveal">
+          <div class="mempelai-img-wrap">
+            <div class="mempelai-img">
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&auto=format&fit=crop&q=80" alt="Ryan Pratama">
+            </div>
           </div>
           <h3 class="mempelai-name">Ryan Pratama, S.Kom.</h3>
           <p class="mempelai-parents">
             Putra pertama dari pasangan<br>
-            <strong>Bpk. Robert Pratama & Ibu Maria Natalia</strong>
+            <strong>Bpk. Robert Pratama &amp; Ibu Maria Natalia</strong>
           </p>
         </div>
 
-        <div class="reveal" style="font-family: var(--font-script); font-size: 42px; color: var(--gold-primary); margin: 8px 0;">&</div>
+        <div class="reveal" style="font-family: var(--font-script); font-size: 40px; color: var(--rose-primary); margin: 6px 0;">&amp;</div>
 
-        <div class="burgundy-card mempelai-card reveal">
-          <div class="mempelai-img">
-            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=300&auto=format&fit=crop&q=80" alt="Nadia Putri">
+        <div class="rose-card mempelai-card reveal">
+          <div class="mempelai-img-wrap">
+            <div class="mempelai-img">
+              <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=300&auto=format&fit=crop&q=80" alt="Nadia Putri">
+            </div>
           </div>
           <h3 class="mempelai-name">Nadia Angelica, S.Farm.</h3>
           <p class="mempelai-parents">
             Putri kedua dari pasangan<br>
-            <strong>Bpk. Hendra Gunawan & Ibu Stephanie Dewi</strong>
+            <strong>Bpk. Hendra Gunawan &amp; Ibu Stephanie Dewi</strong>
           </p>
         </div>
       </div>
 
       <!-- COUNTDOWN -->
-      <div class="burgundy-card countdown-card reveal">
+      <div class="rose-card countdown-card reveal">
         <h4>HITUNG MUNDUR HARI BAHAGIA</h4>
         <div class="timer-grid">
-          <div class="timer-item">
-            <span id="days">64</span>
-            <small>Hari</small>
-          </div>
-          <div class="timer-item">
-            <span id="hours">11</span>
-            <small>Jam</small>
-          </div>
-          <div class="timer-item">
-            <span id="minutes">45</span>
-            <small>Menit</small>
-          </div>
-          <div class="timer-item">
-            <span id="seconds">20</span>
-            <small>Detik</small>
-          </div>
+          <div class="timer-item"><span id="days">64</span><small>Hari</small></div>
+          <div class="timer-item"><span id="hours">11</span><small>Jam</small></div>
+          <div class="timer-item"><span id="minutes">45</span><small>Menit</small></div>
+          <div class="timer-item"><span id="seconds">20</span><small>Detik</small></div>
         </div>
       </div>
 
       <!-- RANGKAIAN ACARA -->
       <div class="reveal">
-        <div class="section-tag">WAKTU & TEMPAT</div>
+        <div class="section-tag">WAKTU &amp; TEMPAT</div>
         <h2 class="section-title">Rangkaian Acara</h2>
 
-        <div class="burgundy-card reveal" style="margin-bottom: 16px;">
+        <div class="rose-card reveal" style="margin-bottom: 16px;">
           <div class="event-badge"><i class="fa-solid fa-ring"></i></div>
-          <h3>Pemberkatan Pernikahan</h3>
+          <h3 style="font-family: var(--font-serif); font-size: 24px; color: var(--rose-dark); margin-bottom: 10px;">Pemberkatan Pernikahan</h3>
           <div class="event-meta">
             <div><i class="fa-regular fa-calendar"></i> Sabtu, 14 November 2026</div>
             <div><i class="fa-regular fa-clock"></i> 09.00 - 11.00 WIB</div>
-            <div style="font-weight: 700; color: var(--gold-light);"><i class="fa-solid fa-location-dot"></i> Gereja Katedral Kristus Raja</div>
+            <div style="font-weight: 700; color: var(--rose-dark);"><i class="fa-solid fa-location-dot"></i> Gereja Katedral Kristus Raja</div>
             <div>Jl. Merdeka Barat No. 24, Jakarta Pusat</div>
           </div>
           <a href="https://maps.google.com" target="_blank" class="btn-maps">
@@ -774,13 +588,13 @@
           </a>
         </div>
 
-        <div class="burgundy-card reveal">
+        <div class="rose-card reveal">
           <div class="event-badge"><i class="fa-solid fa-champagne-glasses"></i></div>
-          <h3>Resepsi Pernikahan</h3>
+          <h3 style="font-family: var(--font-serif); font-size: 24px; color: var(--rose-dark); margin-bottom: 10px;">Resepsi Pernikahan</h3>
           <div class="event-meta">
             <div><i class="fa-regular fa-calendar"></i> Sabtu, 14 November 2026</div>
             <div><i class="fa-regular fa-clock"></i> 18.30 - 21.30 WIB</div>
-            <div style="font-weight: 700; color: var(--gold-light);"><i class="fa-solid fa-location-dot"></i> The Glass House Grand Ballroom</div>
+            <div style="font-weight: 700; color: var(--rose-dark);"><i class="fa-solid fa-location-dot"></i> The Rosewood Ballroom</div>
             <div>Jl. Sudirman Kav. 52-53, Jakarta Selatan</div>
           </div>
           <a href="https://maps.google.com" target="_blank" class="btn-maps">
@@ -790,7 +604,7 @@
       </div>
 
       <!-- LOVE STORY TIMELINE -->
-      <div class="burgundy-card reveal">
+      <div class="rose-card reveal">
         <div class="section-tag">PERJALANAN KAMI</div>
         <h2 class="section-title">Kisah Cinta</h2>
         
@@ -801,18 +615,16 @@
             <h4 class="timeline-title">Pertama Bertemu</h4>
             <p class="timeline-desc">Dipertemukan saat proyek kerja bersama, berawal dari sekadar rekan diskusi hingga merasa ada kecocokan yang istimewa.</p>
           </div>
-
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <span class="timeline-year">AGUSTUS 2023</span>
             <h4 class="timeline-title">Menjalin Komitmen</h4>
             <p class="timeline-desc">Memutuskan melangkah bersama, saling belajar memahami impian masing-masing dan berdoa untuk masa depan.</p>
           </div>
-
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <span class="timeline-year">DESEMBER 2025</span>
-            <h4 class="timeline-title">Hari Lamaran (Proposal)</h4>
+            <h4 class="timeline-title">Hari Lamaran</h4>
             <p class="timeline-desc">Di hadapan kedua keluarga besar, kami resmi mengikat janji suci untuk melangkah ke jenjang pernikahan.</p>
           </div>
         </div>
@@ -822,7 +634,6 @@
       <div class="reveal">
         <div class="section-tag">KENANGAN INDAH</div>
         <h2 class="section-title">Galeri Foto</h2>
-
         <div class="gallery-grid">
           <div class="gallery-item tall reveal">
             <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=600&auto=format&fit=crop&q=80" alt="Prewedding 1">
@@ -844,7 +655,7 @@
           Doa restu Anda adalah karunia terindah bagi kami. Namun jika ingin memberikan tanda kasih secara digital, Anda dapat melalui:
         </p>
 
-        <div class="burgundy-card gift-card reveal">
+        <div class="rose-card gift-card reveal">
           <div class="bank-logo">BANK BCA</div>
           <div class="bank-number">8720194821</div>
           <div class="bank-owner">a.n Ryan Pratama</div>
@@ -853,7 +664,7 @@
           </button>
         </div>
 
-        <div class="burgundy-card gift-card reveal">
+        <div class="rose-card gift-card reveal">
           <div class="bank-logo">BANK MANDIRI</div>
           <div class="bank-number">1320098412841</div>
           <div class="bank-owner">a.n Nadia Angelica</div>
@@ -865,10 +676,10 @@
 
       <!-- BUKU TAMU & RSVP -->
       <div class="reveal">
-        <div class="section-tag">DOA & RESTU</div>
-        <h2 class="section-title">Buku Tamu & RSVP</h2>
+        <div class="section-tag">DOA &amp; RESTU</div>
+        <h2 class="section-title">Buku Tamu &amp; RSVP</h2>
 
-        <div class="burgundy-card rsvp-box">
+        <div class="rose-card rsvp-box">
           <form id="rsvpForm" onsubmit="handleRSVP(event)">
             <div class="form-group">
               <label>Nama Lengkap</label>
@@ -882,7 +693,7 @@
               </select>
             </div>
             <div class="form-group">
-              <label>Ucapan & Doa Restu</label>
+              <label>Ucapan &amp; Doa Restu</label>
               <textarea id="rsvpMsg" class="form-input" rows="3" placeholder="Tulis doa untuk mempelai..." required></textarea>
             </div>
             <button type="submit" class="btn-submit-rsvp" id="btnSubmitRSVP">
@@ -893,17 +704,17 @@
           <div class="wishes-stream" id="wishesContainer">
             <div class="wish-item">
               <div class="wish-header">
-                <span class="wish-name">Kevin & Fiona</span>
+                <span class="wish-name">Kevin &amp; Fiona</span>
                 <span class="wish-status">Hadir</span>
               </div>
-              <p class="wish-text">Selamat berbahagia Ryan & Nadia! Semoga langgeng sampai kakek nenek dan diberkahi rumah tangganya.</p>
+              <p class="wish-text">Selamat berbahagia Ryan &amp; Nadia! Semoga cinta kalian abadi selamanya.</p>
             </div>
             <div class="wish-item">
               <div class="wish-header">
                 <span class="wish-name">dr. Amanda S.</span>
                 <span class="wish-status">Hadir</span>
               </div>
-              <p class="wish-text">Happy wedding Nadia cantik! Lancar acaranya nanti dan bahagia selalu berdua.</p>
+              <p class="wish-text">Happy wedding Nadia cantik! Lancar acaranya nanti yaa.</p>
             </div>
           </div>
         </div>
@@ -914,21 +725,19 @@
         <p style="font-size: 12.5px; color: var(--text-muted); line-height: 1.6;">
           Atas kehadiran dan doa restu Bapak/Ibu/Saudara/i sekalian, kami sekeluarga mengucapkan terima kasih yang sebesar-besarnya.
         </p>
-        <p style="font-family: var(--font-script); font-size: 38px; color: var(--gold-light); margin-top: 10px; text-shadow: 0 2px 10px rgba(0,0,0,0.6);">
-          Ryan & Nadia
+        <p style="font-family: var(--font-serif); font-size: 32px; font-weight: 700; color: var(--rose-dark); margin-top: 10px;">
+          Ryan &amp; Nadia
         </p>
       </div>
     </div>
 
-    <!-- FOOTER -->
     <footer class="footer-section">
       <h5>OURINVITE</h5>
-      <p style="color: var(--text-muted);">Undangan Pernikahan Digital Elegan & Modern</p>
+      <p style="color: #C2A5A5;">Undangan Pernikahan Digital Elegan &amp; Modern</p>
     </footer>
   </div>
 
   <script>
-    // URL Google Apps Script yang tersambung ke Google Spreadsheet Anda
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw8sbHAxqTxtQIHlL1hMyvVS1iZZ5sPBqQiUlsFWM7beLVzxPpss1zpoFdmD-HhQVhU0A/exec";
 
     try {
@@ -946,7 +755,6 @@
     let isPlaying = false;
     let isOpened = false;
 
-    // SCROLL REVEAL OBSERVER 2.5s (BOLAK-BALIK)
     function checkReveals() {
       if (!isOpened) return;
       const windowH = window.innerHeight;
@@ -978,7 +786,6 @@
             }
           });
         }, { threshold: 0.05, rootMargin: '-70px 0px -70px 0px' });
-
         document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
       }
     }
@@ -986,13 +793,11 @@
     function openInvitation() {
       if (isOpened) return;
       isOpened = true;
-
       const content = document.getElementById('mainContent');
       content.style.display = 'flex';
       musicBtn.style.display = 'flex';
       content.scrollIntoView({ behavior: 'smooth' });
 
-      // Putar musik otomatis
       music.play().then(() => {
         isPlaying = true;
         musicBtn.classList.add('spinning');
@@ -1011,9 +816,7 @@
       btnOpen.addEventListener('touchend', openInvitation);
     }
 
-    window.addEventListener('scroll', () => {
-      if (isOpened) checkReveals();
-    }, { passive: true });
+    window.addEventListener('scroll', () => { if (isOpened) checkReveals(); }, { passive: true });
 
     function toggleAudio() {
       if (isPlaying) {
@@ -1032,10 +835,8 @@
     function copyRek(num, btn) {
       navigator.clipboard.writeText(num).then(() => {
         const originalText = btn.innerHTML;
-        btn.innerHTML = '<i class="fa-solid fa-check" style="color: #A5D6A7;"></i> Berhasil Disalin!';
-        setTimeout(() => {
-          btn.innerHTML = originalText;
-        }, 2000);
+        btn.innerHTML = '<i class="fa-solid fa-check" style="color: var(--rose-primary);"></i> Berhasil Disalin!';
+        setTimeout(() => { btn.innerHTML = originalText; }, 2000);
       });
     }
 
@@ -1046,11 +847,7 @@
       const status = document.getElementById('rsvpAttendance').value;
       const msg = document.getElementById('rsvpMsg').value.trim();
 
-      if (!name || !msg) {
-        alert('Mohon lengkapi nama dan ucapan Anda.');
-        return;
-      }
-
+      if (!name || !msg) { alert('Mohon lengkapi nama dan ucapan Anda.'); return; }
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Mengirim ke Spreadsheet...';
 
@@ -1058,11 +855,7 @@
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: name,
-          attendance: status,
-          message: msg
-        })
+        body: JSON.stringify({ name: name, attendance: status, message: msg })
       }).then(() => {
         const container = document.getElementById('wishesContainer');
         const newCard = document.createElement('div');
@@ -1070,12 +863,11 @@
         newCard.innerHTML = `
           <div class="wish-header">
             <span class="wish-name">${name}</span>
-            <span class="wish-status" style="${status === 'Tidak Hadir' ? 'background:rgba(198,40,40,0.25); border-color:rgba(239,154,154,0.5); color:#FFCDD2;' : ''}">${status}</span>
+            <span class="wish-status" style="${status === 'Tidak Hadir' ? 'background:#FFEBEE; color:#C62828;' : ''}">${status}</span>
           </div>
           <p class="wish-text">${msg}</p>
         `;
         container.prepend(newCard);
-
         document.getElementById('rsvpMsg').value = '';
         alert('Terima kasih! Ucapan dan konfirmasi kehadiran Anda telah berhasil tersimpan di Google Spreadsheet.');
       }).catch((err) => {
@@ -1096,4 +888,4 @@
     }, 1000);
   </script>
 </body>
-  </html>
+</html>
