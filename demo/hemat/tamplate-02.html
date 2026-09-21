@@ -15,20 +15,21 @@
 
   <style>
     /* ==========================================================================
-       RESET & ROOT VARIABLES (TAMPLAT 2: LUXURY TEAL / EMERALD CYAN & GOLD)
+       ROOT VARIABLES & THEME (TEMPLATE 2: LUXURY PEACOCK TEAL / CYAN & GOLD)
+       Presisi sesuai mockup referensi
        ========================================================================== */
     :root {
-      --bg-deep-teal: #05191f;
-      --bg-dark-emerald: #0b2d35;
-      --bg-card-teal: #092329;
-      --gold-primary: #e6ca7b;
-      --gold-secondary: #c59b3f;
-      --gold-dark: #987224;
-      --gold-gradient: linear-gradient(135deg, #fceda2 0%, #d8b152 45%, #ae832a 100%);
-      --gold-btn-gradient: linear-gradient(180deg, #d3ab4e 0%, #a87d29 100%);
+      --bg-deep-teal: #021217;
+      --bg-radial-teal: radial-gradient(circle at 50% 38%, #0f5263 0%, #072a33 52%, #021217 100%);
+      --bg-card-teal: radial-gradient(circle at 50% 20%, #0e4452 0%, #041a20 100%);
+      --gold-primary: #f0d588;
+      --gold-secondary: #d4af37;
+      --gold-dark: #916e22;
+      --gold-gradient: linear-gradient(135deg, #fff2be 0%, #e5be5a 40%, #b28526 100%);
+      --gold-btn-gradient: linear-gradient(180deg, #dfba5c 0%, #b18428 100%);
       --text-white: #ffffff;
-      --text-cream: #f4edd8;
-      --text-gold: #e2c069;
+      --text-cream: #f6eedb;
+      --text-gold: #e7ca76;
     }
 
     * {
@@ -38,7 +39,7 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    /* KUNCI SCROLL: Jika belum klik "Buka Undangan", halaman terkunci total */
+    /* KUNCI SCROLL: Halaman terkunci total sebelum tombol "Buka Undangan" diklik */
     html.locked, body.locked {
       overflow: hidden !important;
       height: 100vh !important;
@@ -47,7 +48,7 @@
     }
 
     html, body {
-      background-color: #030f14;
+      background-color: #010a0d;
       color: var(--text-cream);
       font-family: 'Montserrat', sans-serif;
       overflow-x: hidden;
@@ -59,44 +60,44 @@
     }
 
     /* ==========================================================================
-       MOBILE FRAME WRAPPER (PRESISI MOCKUP SMARTPHONE - TEAL / CYAN NIGHT)
+       MOBILE FRAME WRAPPER (PRESISI MOCKUP SMARTPHONE TEAL / CYAN)
        ========================================================================== */
     .mobile-wrapper {
       width: 100%;
       max-width: 440px;
       min-height: 100vh;
       position: relative;
-      background: radial-gradient(circle at 50% 30%, #0d3842 0%, #08242c 55%, #031318 100%);
-      box-shadow: 0 0 50px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(216, 177, 82, 0.25);
+      background: var(--bg-radial-teal);
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(212, 175, 55, 0.3);
       overflow: hidden;
     }
 
-    /* Decorative Gold Outer Border line */
+    /* Garis Lis Emas Ganda Luar Sesuai Gambar Mockup */
     .gold-outer-border {
       position: absolute;
-      top: 8px;
-      left: 8px;
-      right: 8px;
-      bottom: 8px;
-      border: 1px solid rgba(216, 177, 82, 0.28);
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      border: 1px solid rgba(229, 190, 90, 0.35);
       pointer-events: none;
-      z-index: 5;
-      border-radius: 12px;
+      z-index: 6;
+      border-radius: 14px;
     }
 
     /* ==========================================================================
-       ANIMASI LATAR BELAKANG BERGERAK & MUNCUL PERLAHAN (DURASI 2.5S)
+       ANIMASI LATAR BELAKANG & GLOW BERGERAK (DURASI 2.5S)
        ========================================================================== */
     .bg-aura-glow {
       position: absolute;
-      width: 320px;
-      height: 320px;
+      width: 340px;
+      height: 340px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(14, 82, 97, 0.45) 0%, rgba(6, 44, 52, 0.2) 50%, transparent 70%);
+      background: radial-gradient(circle, rgba(16, 92, 110, 0.5) 0%, rgba(8, 48, 58, 0.25) 50%, transparent 75%);
       pointer-events: none;
       z-index: 1;
       opacity: 0;
-      transform: scale(0.65) translateY(30px);
+      transform: scale(0.7) translateY(30px);
       transition: opacity 2.5s cubic-bezier(0.22, 1, 0.36, 1),
                   transform 2.5s cubic-bezier(0.22, 1, 0.36, 1);
       will-change: opacity, transform;
@@ -107,7 +108,6 @@
       transform: scale(1.15) translateY(0);
     }
 
-    /* Latar Belakang Garis & Ornamen Mandala Bergerak Dinamis 2.5s */
     .bg-ornament-layer {
       position: absolute;
       top: 0;
@@ -115,21 +115,21 @@
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: 1;
+      z-index: 2;
       opacity: 0;
-      transform: scale(0.85) rotate(-4deg);
+      transform: scale(0.9) rotate(-3deg);
       transition: opacity 2.5s cubic-bezier(0.22, 1, 0.36, 1),
                   transform 2.5s cubic-bezier(0.22, 1, 0.36, 1);
       will-change: opacity, transform;
     }
 
     .bg-ornament-layer.active {
-      opacity: 0.85;
+      opacity: 0.95;
       transform: scale(1) rotate(0deg);
     }
 
     /* ==========================================================================
-       ANIMASI SCROLL HALUS & ELEGAN (DURASI 2.5 DETIK - MUNCUL & BERGERAK)
+       ANIMASI KONTEN MUNCUL & BERGERAK HALUS (DURASI 2.5 DETIK)
        ========================================================================== */
     .reveal {
       opacity: 0;
@@ -144,7 +144,6 @@
       transform: translateY(0) scale(1);
     }
 
-    /* Khusus Elemen Cover Awal (Animasi 2.5 Detik Masuk Saat Pertama Dibuka) */
     .reveal-initial {
       opacity: 0;
       transform: translateY(35px) scale(0.95);
@@ -164,7 +163,7 @@
     .screen-section {
       position: relative;
       width: 100%;
-      padding: 50px 24px 60px 24px;
+      padding: 55px 24px 60px 24px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -175,60 +174,83 @@
     }
 
     /* ==========================================================================
-       LUXURY MANDALA SVG ORNAMENTS
+       MOTIF ORNAMEN LATAR BELAKANG KHUSUS PERSIS GAMBAR MOCKUP
        ========================================================================== */
-    .mandala-corner {
+    /* 1. Motif Sudut Dedaunan & Sulur Palem Emas (Seperti Cover Tengah pada Gambar) */
+    .cover-motif-flourish {
       position: absolute;
-      width: 210px;
-      height: 210px;
+      width: 185px;
+      height: 185px;
       pointer-events: none;
-      z-index: 1;
-      opacity: 0.85;
+      z-index: 2;
+      opacity: 0.88;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
     }
 
-    .mandala-top-left {
-      top: -20px;
-      left: -20px;
+    .motif-top-left {
+      top: -10px;
+      left: -10px;
     }
 
-    .mandala-top-right {
-      top: -20px;
-      right: -20px;
+    .motif-bottom-right {
+      bottom: -10px;
+      right: -10px;
+      transform: rotate(180deg);
+    }
+
+    /* 2. Motif Mandala Kubah & Renda Klasik (Seperti di Kartu Akad & Save The Date) */
+    .mandala-full-corner {
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0.82;
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.7));
+    }
+
+    .mandala-corner-tl {
+      top: -15px;
+      left: -15px;
+    }
+
+    .mandala-corner-tr {
+      top: -15px;
+      right: -15px;
       transform: scaleX(-1);
     }
 
-    .mandala-bottom-left {
-      bottom: -20px;
-      left: -20px;
+    .mandala-corner-bl {
+      bottom: -15px;
+      left: -15px;
       transform: scaleY(-1);
     }
 
-    .mandala-bottom-right {
-      bottom: -20px;
-      right: -20px;
+    .mandala-corner-br {
+      bottom: -15px;
+      right: -15px;
       transform: scale(-1);
     }
 
-    .mandala-side-left {
+    .mandala-side-edge {
       position: absolute;
-      left: -45px;
-      top: 45%;
-      transform: translateY(-50%);
-      width: 140px;
-      height: 220px;
+      width: 130px;
+      height: 240px;
       pointer-events: none;
       opacity: 0.75;
+      z-index: 2;
     }
 
-    .mandala-side-right {
-      position: absolute;
-      right: -45px;
-      top: 45%;
+    .mandala-side-edge-left {
+      left: -35px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .mandala-side-edge-right {
+      right: -35px;
+      top: 50%;
       transform: translateY(-50%) scaleX(-1);
-      width: 140px;
-      height: 220px;
-      pointer-events: none;
-      opacity: 0.75;
     }
 
     /* ==========================================================================
@@ -244,7 +266,7 @@
       margin-bottom: 24px;
       opacity: 0.95;
       text-shadow: 0 1px 4px rgba(0,0,0,0.8);
-      z-index: 2;
+      z-index: 3;
     }
 
     .names-script {
@@ -254,13 +276,13 @@
       background: var(--gold-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
       font-weight: 400;
       margin-bottom: 4px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      z-index: 2;
+      z-index: 3;
     }
 
     .ampersand-luxury {
@@ -272,7 +294,7 @@
       background: var(--gold-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      z-index: 2;
+      z-index: 3;
     }
 
     .interlocking-rings {
@@ -280,18 +302,18 @@
       height: 44px;
       margin-bottom: 16px;
       filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
-      z-index: 2;
+      z-index: 3;
     }
 
     /* ==========================================================================
-       GUEST BOX & CTA BUTTON
+       GUEST BOX & TOMBOL BUKA UNDANGAN (PERSIS MOCKUP)
        ========================================================================== */
     .guest-card-container {
-      margin-top: 48px;
+      margin-top: 52px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      z-index: 2;
+      z-index: 3;
       width: 100%;
     }
 
@@ -299,14 +321,14 @@
       font-size: 11.5px;
       font-weight: 400;
       letter-spacing: 1px;
-      color: #eeddb0;
+      color: #dfceb0;
       line-height: 1.5;
       margin-bottom: 6px;
     }
 
     .guest-name-box {
       font-family: 'Cinzel', serif;
-      font-size: 20px;
+      font-size: 21px;
       font-weight: 600;
       letter-spacing: 2px;
       color: #ffffff;
@@ -317,7 +339,7 @@
     .btn-open-invitation {
       background: var(--gold-btn-gradient);
       border: 1px solid #ffea9e;
-      color: #072228;
+      color: #07232b;
       font-family: 'Cinzel', serif;
       font-size: 11.5px;
       font-weight: 700;
@@ -328,14 +350,14 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6), 0 0 10px rgba(216, 177, 82, 0.35);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6), 0 0 10px rgba(212, 175, 55, 0.4);
       transition: all 0.3s ease;
       text-decoration: none;
     }
 
     .btn-open-invitation:hover, .btn-open-invitation:active {
       transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8), 0 0 15px rgba(216, 177, 82, 0.6);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8), 0 0 15px rgba(212, 175, 55, 0.6);
     }
 
     /* ==========================================================================
@@ -344,7 +366,7 @@
     .verse-container {
       padding: 24px 16px;
       position: relative;
-      z-index: 2;
+      z-index: 3;
     }
 
     .verse-arabic {
@@ -361,7 +383,7 @@
       font-size: 11.5px;
       font-style: italic;
       line-height: 1.8;
-      color: #eedcc0;
+      color: #e5d7be;
       margin-bottom: 16px;
       text-shadow: 0 1px 3px rgba(0,0,0,0.8);
     }
@@ -375,19 +397,19 @@
     }
 
     /* ==========================================================================
-       COUPLE PROFILE SECTION (ARCH CARDS PERSIS MOCKUP - TEAL ELEGANT)
+       COUPLE PROFILE SECTION (ARCH CARDS PERSIS MOCKUP TEAL)
        ========================================================================== */
     .couple-card {
       position: relative;
       width: 100%;
       max-width: 320px;
-      background: radial-gradient(circle at 50% 30%, #0c3943 0%, #061e24 100%);
-      border: 1px solid rgba(216, 177, 82, 0.45);
+      background: var(--bg-card-teal);
+      border: 1px solid rgba(229, 190, 90, 0.45);
       border-radius: 160px 160px 20px 20px;
       padding: 42px 20px 32px 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(0,0,0,0.5);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), inset 0 0 25px rgba(0,0,0,0.6);
       margin-bottom: 28px;
-      z-index: 2;
+      z-index: 3;
     }
 
     .couple-ornament-icon {
@@ -434,21 +456,21 @@
     }
 
     /* ==========================================================================
-       LOVE STORY SECTION (DI BAWAH PROFILE MEMPELAI & DI ATAS SAVE THE DATE)
+       LOVE STORY SECTION (DI BAWAH MEMPELAI & DI ATAS SAVE THE DATE)
        ========================================================================== */
     .story-card-wrapper {
       position: relative;
       width: 100%;
       max-width: 340px;
-      z-index: 2;
+      z-index: 3;
       display: flex;
       flex-direction: column;
       gap: 20px;
     }
 
     .story-item {
-      background: rgba(7, 33, 40, 0.75);
-      border: 1px solid rgba(216, 177, 82, 0.35);
+      background: rgba(6, 32, 39, 0.8);
+      border: 1px solid rgba(229, 190, 90, 0.35);
       border-radius: 12px;
       padding: 22px 18px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.5);
@@ -464,7 +486,7 @@
       color: var(--text-gold);
       text-transform: uppercase;
       margin-bottom: 10px;
-      border-bottom: 1px dashed rgba(216, 177, 82, 0.4);
+      border-bottom: 1px dashed rgba(229, 190, 90, 0.4);
       padding-bottom: 6px;
       display: inline-block;
     }
@@ -472,7 +494,7 @@
     .story-text {
       font-size: 11px;
       line-height: 1.7;
-      color: #e6d8c3;
+      color: #e5d7c2;
     }
 
     /* ==========================================================================
@@ -480,7 +502,7 @@
        ========================================================================== */
     .save-the-date-header {
       margin-bottom: 24px;
-      z-index: 2;
+      z-index: 3;
     }
 
     .std-date-badge {
@@ -490,7 +512,7 @@
       gap: 16px;
       margin: 20px 0;
       width: 100%;
-      z-index: 2;
+      z-index: 3;
     }
 
     .std-month, .std-year {
@@ -499,15 +521,15 @@
       font-weight: 600;
       letter-spacing: 2.5px;
       color: var(--text-gold);
-      border-top: 1px solid rgba(216, 177, 82, 0.4);
-      border-bottom: 1px solid rgba(216, 177, 82, 0.4);
+      border-top: 1px solid rgba(229, 190, 90, 0.4);
+      border-bottom: 1px solid rgba(229, 190, 90, 0.4);
       padding: 5px 12px;
     }
 
     .std-day-number {
       width: 60px;
       height: 60px;
-      border: 1.5px solid #e2c069;
+      border: 1.5px solid #e7ca76;
       border-radius: 8px;
       display: flex;
       align-items: center;
@@ -516,7 +538,7 @@
       font-size: 26px;
       font-weight: 700;
       color: #ffffff;
-      background: rgba(9, 36, 43, 0.8);
+      background: rgba(8, 36, 44, 0.85);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
     }
 
@@ -526,7 +548,7 @@
       letter-spacing: 3px;
       color: #fce79f;
       margin-top: 10px;
-      z-index: 2;
+      z-index: 3;
     }
 
     .countdown-grid {
@@ -536,7 +558,7 @@
       width: 100%;
       max-width: 320px;
       margin-top: 24px;
-      z-index: 2;
+      z-index: 3;
     }
 
     .countdown-box {
@@ -544,8 +566,8 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: rgba(7, 32, 38, 0.75);
-      border: 1px solid rgba(216, 177, 82, 0.35);
+      background: rgba(6, 31, 38, 0.8);
+      border: 1px solid rgba(229, 190, 90, 0.35);
       border-radius: 8px;
       padding: 12px 4px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
@@ -567,7 +589,7 @@
     }
 
     /* ==========================================================================
-       EVENT CARDS (AKAD & RESEPSI ARCH WINDOWS - TEAL)
+       EVENT CARDS (AKAD & RESEPSI ARCH WINDOWS - PEACOCK TEAL)
        ========================================================================== */
     .event-header-title {
       font-family: 'Cinzel', serif;
@@ -576,7 +598,7 @@
       letter-spacing: 4px;
       color: #fff;
       margin-bottom: 2px;
-      z-index: 2;
+      z-index: 3;
     }
 
     .event-header-subtitle {
@@ -585,20 +607,20 @@
       font-size: 15px;
       color: var(--text-gold);
       margin-bottom: 28px;
-      z-index: 2;
+      z-index: 3;
     }
 
     .arch-card {
       position: relative;
       width: 100%;
       max-width: 330px;
-      background: radial-gradient(circle at 50% 20%, #0d3b45 0%, #051a20 100%);
-      border: 1px solid rgba(216, 177, 82, 0.5);
+      background: var(--bg-card-teal);
+      border: 1px solid rgba(229, 190, 90, 0.5);
       border-radius: 170px 170px 18px 18px;
       padding: 44px 22px 30px 22px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
       margin-bottom: 30px;
-      z-index: 2;
+      z-index: 3;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -636,8 +658,8 @@
       font-weight: 600;
       letter-spacing: 2px;
       color: var(--text-gold);
-      border-top: 1px solid rgba(216, 177, 82, 0.35);
-      border-bottom: 1px solid rgba(216, 177, 82, 0.35);
+      border-top: 1px solid rgba(229, 190, 90, 0.35);
+      border-bottom: 1px solid rgba(229, 190, 90, 0.35);
       padding: 4px 8px;
     }
 
@@ -646,10 +668,10 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      border: 1px solid #d8b152;
+      border: 1px solid #e5be5a;
       border-radius: 6px;
       padding: 5px 12px;
-      background: rgba(4, 25, 31, 0.7);
+      background: rgba(4, 25, 32, 0.75);
     }
 
     .event-day-name {
@@ -697,7 +719,7 @@
 
     .btn-maps {
       background: var(--gold-btn-gradient);
-      color: #072228;
+      color: #07232b;
       border: 1px solid #ffea9e;
       border-radius: 4px;
       padding: 7px 18px;
@@ -722,15 +744,15 @@
        WEDDING GIFT / AMPLOP DIGITAL (2 AMPLOP + 1 ALAMAT KADO)
        ========================================================================== */
     .gift-card {
-      background: radial-gradient(circle at 50% 20%, #0d3b45 0%, #051a20 100%);
-      border: 1px solid rgba(216, 177, 82, 0.45);
+      background: var(--bg-card-teal);
+      border: 1px solid rgba(229, 190, 90, 0.45);
       border-radius: 14px;
       padding: 24px 20px;
       width: 100%;
       max-width: 330px;
       margin-bottom: 20px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.6);
-      z-index: 2;
+      z-index: 3;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -762,7 +784,7 @@
 
     .btn-copy {
       background: var(--gold-btn-gradient);
-      color: #072228;
+      color: #07232b;
       border: 1px solid #ffea9e;
       border-radius: 4px;
       padding: 6px 16px;
@@ -788,13 +810,13 @@
     .form-box {
       width: 100%;
       max-width: 340px;
-      background: rgba(6, 29, 36, 0.85);
-      border: 1px solid rgba(216, 177, 82, 0.4);
+      background: rgba(5, 28, 35, 0.88);
+      border: 1px solid rgba(229, 190, 90, 0.4);
       border-radius: 14px;
       padding: 24px 20px;
       margin-bottom: 24px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.6);
-      z-index: 2;
+      z-index: 3;
       text-align: left;
     }
 
@@ -814,8 +836,8 @@
     .form-input, .form-select, .form-textarea {
       width: 100%;
       padding: 10px 12px;
-      background: rgba(3, 16, 20, 0.85);
-      border: 1px solid rgba(216, 177, 82, 0.35);
+      background: rgba(2, 14, 18, 0.85);
+      border: 1px solid rgba(229, 190, 90, 0.35);
       border-radius: 6px;
       color: #ffffff;
       font-family: 'Montserrat', sans-serif;
@@ -826,18 +848,18 @@
 
     .form-input:focus, .form-select:focus, .form-textarea:focus {
       border-color: #fceda2;
-      box-shadow: 0 0 8px rgba(216, 177, 82, 0.4);
+      box-shadow: 0 0 8px rgba(229, 190, 90, 0.4);
     }
 
     .form-select option {
-      background: #061e25;
+      background: #051e25;
       color: #fff;
     }
 
     .btn-submit {
       width: 100%;
       background: var(--gold-btn-gradient);
-      color: #072228;
+      color: #07232b;
       border: 1px solid #ffea9e;
       border-radius: 6px;
       padding: 11px;
@@ -863,13 +885,13 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
-      z-index: 2;
+      z-index: 3;
       padding-right: 4px;
     }
 
     .wish-item {
-      background: rgba(5, 25, 31, 0.75);
-      border: 1px solid rgba(216, 177, 82, 0.25);
+      background: rgba(4, 24, 30, 0.8);
+      border: 1px solid rgba(229, 190, 90, 0.25);
       border-radius: 8px;
       padding: 12px 14px;
       text-align: left;
@@ -929,9 +951,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #072228;
+      color: #07232b;
       cursor: pointer;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.7), 0 0 10px rgba(216, 177, 82, 0.5);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.7), 0 0 10px rgba(229, 190, 90, 0.5);
       z-index: 99;
       transition: all 0.3s ease;
     }
@@ -956,10 +978,10 @@
        ========================================================================== */
     .footer-text {
       font-size: 10.5px;
-      color: rgba(226, 192, 105, 0.7);
+      color: rgba(231, 202, 118, 0.75);
       letter-spacing: 1px;
       margin-top: 30px;
-      z-index: 2;
+      z-index: 3;
     }
   </style>
 </head>
@@ -975,77 +997,80 @@
     <i id="audioIcon" class="fas fa-music"></i>
   </div>
 
-  <!-- Mobile Frame Container (Plek Ketiplek Mockup - Cyan / Emerald Theme) -->
+  <!-- Mobile Frame Container (Persis Desain Mockup Peacock Teal) -->
   <div class="mobile-wrapper">
     <div class="gold-outer-border"></div>
+
+    <!-- Definisi Gradasi Warna Emas Bersama -->
+    <svg width="0" height="0" style="position: absolute;">
+      <defs>
+        <linearGradient id="goldGradMockup" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#fff4c8"/>
+          <stop offset="35%" stop-color="#e5be5a"/>
+          <stop offset="70%" stop-color="#b88d2f"/>
+          <stop offset="100%" stop-color="#805b18"/>
+        </linearGradient>
+      </defs>
+    </svg>
 
     <!-- ==================== SCREEN 1: COVER / WELCOME (ANIMASI AWAL 2.5S) ==================== -->
     <section class="screen-section" id="coverScreen" style="min-height: 100vh;">
       
-      <!-- Latar Belakang Bergerak & Bersinar Lembut Teal / Emerald (2.5s) -->
-      <div class="bg-aura-glow" style="top: 20%; left: 15%;"></div>
+      <!-- Latar Cahaya Teal Glow Halus Bergerak (2.5s) -->
+      <div class="bg-aura-glow" style="top: 25%; left: 12%;"></div>
       
-      <!-- Latar Ornamen Sudut Mandala dengan Transisi Halus 2.5s -->
+      <!-- Latar Belakang Motif Dedaunan & Sulur Palem Emas Persis Mockup Tengah -->
       <div class="bg-ornament-layer">
-        <svg class="mandala-corner mandala-top-left" viewBox="0 0 200 200">
-          <defs>
-            <linearGradient id="goldGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#fff0b3"/>
-              <stop offset="50%" stop-color="#d8b152"/>
-              <stop offset="100%" stop-color="#9a7122"/>
-            </linearGradient>
-          </defs>
-          <path fill="none" stroke="url(#goldGrad1)" stroke-width="1.2" d="M0,0 C60,10 100,50 110,110 C120,170 170,200 200,200"/>
-          <path fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" d="M0,40 C50,45 85,80 90,130 C95,175 140,200 160,200"/>
-          <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
-          <circle cx="0" cy="0" r="70" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
-          <circle cx="0" cy="0" r="100" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
-          <circle cx="0" cy="0" r="140" fill="none" stroke="url(#goldGrad1)" stroke-width="0.7"/>
-          <circle cx="0" cy="0" r="170" fill="none" stroke="url(#goldGrad1)" stroke-width="1" stroke-dasharray="4,4"/>
-          <g stroke="url(#goldGrad1)" stroke-width="0.9" fill="none">
-            <path d="M0,0 Q60,20 80,80 Q20,60 0,0"/>
-            <path d="M0,0 Q80,10 120,50 Q60,60 0,0"/>
-            <path d="M0,0 Q10,80 50,120 Q60,60 0,0"/>
-            <circle cx="70" cy="70" r="8"/>
-            <circle cx="110" cy="40" r="6"/>
-            <circle cx="40" cy="110" r="6"/>
+        <!-- Motif Sudut Kiri Atas (Rangkaian Sulur Daun Emas Radial) -->
+        <svg class="cover-motif-flourish motif-top-left" viewBox="0 0 200 200">
+          <g fill="none" stroke="url(#goldGradMockup)">
+            <!-- Batang Busur Utama -->
+            <path d="M0,0 Q120,20 170,120 Q120,70 0,0" fill="url(#goldGradMockup)" fill-opacity="0.12" stroke-width="1.2"/>
+            <path d="M0,0 Q80,40 135,160 Q80,80 0,0" fill="url(#goldGradMockup)" fill-opacity="0.08" stroke-width="1"/>
+            <!-- Daun-daun Palem Radial Melengkung Persis Mockup -->
+            <path d="M10,5 Q45,25 75,18 Q40,10 10,5" fill="url(#goldGradMockup)" fill-opacity="0.6" stroke-width="0.8"/>
+            <path d="M25,12 Q65,42 98,30 Q58,20 25,12" fill="url(#goldGradMockup)" fill-opacity="0.7" stroke-width="0.8"/>
+            <path d="M42,22 Q85,62 120,44 Q78,32 42,22" fill="url(#goldGradMockup)" fill-opacity="0.8" stroke-width="0.8"/>
+            <path d="M60,35 Q108,82 142,60 Q98,46 60,35" fill="url(#goldGradMockup)" fill-opacity="0.85" stroke-width="0.8"/>
+            <path d="M78,52 Q125,108 160,82 Q115,64 78,52" fill="url(#goldGradMockup)" fill-opacity="0.85" stroke-width="0.8"/>
+            <path d="M92,72 Q138,135 170,110 Q128,84 92,72" fill="url(#goldGradMockup)" fill-opacity="0.8" stroke-width="0.8"/>
+            <path d="M102,96 Q142,160 172,138 Q135,108 102,96" fill="url(#goldGradMockup)" fill-opacity="0.75" stroke-width="0.8"/>
+            <!-- Butiran Mutiara Emas Menjalar -->
+            <circle cx="172" cy="120" r="3" fill="url(#goldGradMockup)"/>
+            <circle cx="162" cy="82" r="2.5" fill="url(#goldGradMockup)"/>
+            <circle cx="144" cy="60" r="2.5" fill="url(#goldGradMockup)"/>
+            <circle cx="122" cy="44" r="2" fill="url(#goldGradMockup)"/>
+            <circle cx="100" cy="30" r="2" fill="url(#goldGradMockup)"/>
+            <!-- Garis Lengkung Spiral Anggun -->
+            <path d="M0,30 Q60,35 110,85 T165,165" stroke-width="0.9" stroke-dasharray="3,3"/>
+            <path d="M30,0 Q35,60 85,110 T165,165" stroke-width="0.9" stroke-dasharray="3,3"/>
           </g>
         </svg>
 
-        <svg class="mandala-corner mandala-top-right" viewBox="0 0 200 200">
-          <path fill="none" stroke="url(#goldGrad1)" stroke-width="1.2" d="M0,0 C60,10 100,50 110,110 C120,170 170,200 200,200"/>
-          <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
-          <circle cx="0" cy="0" r="70" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
-          <circle cx="0" cy="0" r="100" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
-        </svg>
-
-        <svg class="mandala-corner mandala-bottom-left" viewBox="0 0 200 200">
-          <path fill="none" stroke="url(#goldGrad1)" stroke-width="1.2" d="M0,0 C60,10 100,50 110,110 C120,170 170,200 200,200"/>
-          <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
-          <circle cx="0" cy="0" r="70" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
-          <circle cx="0" cy="100" r="100" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
-        </svg>
-
-        <svg class="mandala-corner mandala-bottom-right" viewBox="0 0 200 200">
-          <path fill="none" stroke="url(#goldGrad1)" stroke-width="1.2" d="M0,0 C60,10 100,50 110,110 C120,170 170,200 200,200"/>
-          <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
-          <circle cx="0" cy="0" r="70" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
-          <circle cx="0" cy="100" r="100" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
+        <!-- Motif Sudut Kanan Bawah (Simetris Mengelilingi Bingkai) -->
+        <svg class="cover-motif-flourish motif-bottom-right" viewBox="0 0 200 200">
+          <g fill="none" stroke="url(#goldGradMockup)">
+            <path d="M0,0 Q120,20 170,120 Q120,70 0,0" fill="url(#goldGradMockup)" fill-opacity="0.12" stroke-width="1.2"/>
+            <path d="M0,0 Q80,40 135,160 Q80,80 0,0" fill="url(#goldGradMockup)" fill-opacity="0.08" stroke-width="1"/>
+            <path d="M10,5 Q45,25 75,18 Q40,10 10,5" fill="url(#goldGradMockup)" fill-opacity="0.6" stroke-width="0.8"/>
+            <path d="M25,12 Q65,42 98,30 Q58,20 25,12" fill="url(#goldGradMockup)" fill-opacity="0.7" stroke-width="0.8"/>
+            <path d="M42,22 Q85,62 120,44 Q78,32 42,22" fill="url(#goldGradMockup)" fill-opacity="0.8" stroke-width="0.8"/>
+            <path d="M60,35 Q108,82 142,60 Q98,46 60,35" fill="url(#goldGradMockup)" fill-opacity="0.85" stroke-width="0.8"/>
+            <path d="M78,52 Q125,108 160,82 Q115,64 78,52" fill="url(#goldGradMockup)" fill-opacity="0.85" stroke-width="0.8"/>
+            <path d="M92,72 Q138,135 170,110 Q128,84 92,72" fill="url(#goldGradMockup)" fill-opacity="0.8" stroke-width="0.8"/>
+            <circle cx="172" cy="120" r="3" fill="url(#goldGradMockup)"/>
+            <circle cx="162" cy="82" r="2.5" fill="url(#goldGradMockup)"/>
+            <circle cx="144" cy="60" r="2.5" fill="url(#goldGradMockup)"/>
+            <path d="M0,30 Q60,35 110,85 T165,165" stroke-width="0.9" stroke-dasharray="3,3"/>
+          </g>
         </svg>
       </div>
 
       <!-- Interlocking Wedding Rings Monogram (Animasi Muncul Awal 2.5s) -->
       <div class="reveal-initial">
         <svg class="interlocking-rings" viewBox="0 0 100 70">
-          <defs>
-            <linearGradient id="ringGold" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#fff2be"/>
-              <stop offset="50%" stop-color="#d8af4b"/>
-              <stop offset="100%" stop-color="#8a5f15"/>
-            </linearGradient>
-          </defs>
-          <circle cx="40" cy="35" r="24" fill="none" stroke="url(#ringGold)" stroke-width="4.5"/>
-          <circle cx="60" cy="35" r="24" fill="none" stroke="url(#ringGold)" stroke-width="4.5"/>
+          <circle cx="40" cy="35" r="24" fill="none" stroke="url(#goldGradMockup)" stroke-width="4.5"/>
+          <circle cx="60" cy="35" r="24" fill="none" stroke="url(#goldGradMockup)" stroke-width="4.5"/>
         </svg>
       </div>
 
@@ -1073,18 +1098,30 @@
       
       <!-- SCREEN 2: AYAT SUCI (QS. AR-RUM: 21) -->
       <section class="screen-section">
-        <!-- Latar Belakang Aura Bergerak & Ornamen Mengikuti Scroll 2.5s -->
         <div class="bg-aura-glow" style="top: 15%; right: 10%;"></div>
+        
+        <!-- Motif Sisi Renda Mandala Persis Mockup Layar Ayat Suci -->
         <div class="bg-ornament-layer">
-          <svg class="mandala-side-left" viewBox="0 0 100 200">
-            <path fill="none" stroke="url(#goldGrad1)" stroke-width="1" d="M0,20 C50,40 80,70 80,100 C80,130 50,160 0,180"/>
-            <circle cx="0" cy="100" r="50" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
-            <circle cx="0" cy="100" r="75" fill="none" stroke="url(#goldGrad1)" stroke-width="1"/>
+          <svg class="mandala-side-edge mandala-side-edge-left" viewBox="0 0 120 220">
+            <g fill="none" stroke="url(#goldGradMockup)">
+              <circle cx="0" cy="110" r="105" stroke-width="1"/>
+              <circle cx="0" cy="110" r="95" stroke-width="0.8" stroke-dasharray="3,3"/>
+              <circle cx="0" cy="110" r="75" stroke-width="1.2"/>
+              <circle cx="0" cy="110" r="50" stroke-width="0.8"/>
+              <!-- Mahkota Kelopak Renda Mandala -->
+              <path d="M0,15 Q40,35 60,60 Q30,75 0,75" fill="url(#goldGradMockup)" fill-opacity="0.1" stroke-width="0.9"/>
+              <path d="M0,75 Q50,85 75,110 Q50,135 0,145" fill="url(#goldGradMockup)" fill-opacity="0.15" stroke-width="0.9"/>
+              <path d="M0,145 Q30,145 60,160 Q40,185 0,205" fill="url(#goldGradMockup)" fill-opacity="0.1" stroke-width="0.9"/>
+            </g>
           </svg>
-          <svg class="mandala-side-right" viewBox="0 0 100 200">
-            <path fill="none" stroke="url(#goldGrad1)" stroke-width="1" d="M0,20 C50,40 80,70 80,100 C80,130 50,160 0,180"/>
-            <circle cx="0" cy="100" r="50" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
-            <circle cx="0" cy="100" r="75" fill="none" stroke="url(#goldGrad1)" stroke-width="1"/>
+          <svg class="mandala-side-edge mandala-side-edge-right" viewBox="0 0 120 220">
+            <g fill="none" stroke="url(#goldGradMockup)">
+              <circle cx="0" cy="110" r="105" stroke-width="1"/>
+              <circle cx="0" cy="110" r="95" stroke-width="0.8" stroke-dasharray="3,3"/>
+              <circle cx="0" cy="110" r="75" stroke-width="1.2"/>
+              <circle cx="0" cy="110" r="50" stroke-width="0.8"/>
+              <path d="M0,75 Q50,85 75,110 Q50,135 0,145" fill="url(#goldGradMockup)" fill-opacity="0.15" stroke-width="0.9"/>
+            </g>
           </svg>
         </div>
 
@@ -1102,15 +1139,15 @@
         <!-- Mempelai Wanita -->
         <div class="couple-card reveal">
           <svg class="couple-ornament-icon" viewBox="0 0 60 60">
-            <circle cx="26" cy="30" r="16" fill="none" stroke="url(#goldGrad1)" stroke-width="2.5"/>
-            <circle cx="36" cy="30" r="16" fill="none" stroke="url(#goldGrad1)" stroke-width="2.5"/>
+            <circle cx="26" cy="30" r="16" fill="none" stroke="url(#goldGradMockup)" stroke-width="2.5"/>
+            <circle cx="36" cy="30" r="16" fill="none" stroke="url(#goldGradMockup)" stroke-width="2.5"/>
           </svg>
 
           <h2 class="couple-nickname">Milea</h2>
           <h3 class="couple-fullname">Milea Dewi</h3>
           <p class="couple-birth">Bandung, 29 Agustus 1998</p>
           
-          <div style="width: 40px; height: 1px; background: rgba(216,177,82,0.4); margin: 12px auto;"></div>
+          <div style="width: 40px; height: 1px; background: rgba(229,190,90,0.4); margin: 12px auto;"></div>
 
           <p class="couple-parents">
             Putri pertama dari<br>
@@ -1125,15 +1162,15 @@
         <!-- Mempelai Pria -->
         <div class="couple-card reveal" style="margin-top: 10px;">
           <svg class="couple-ornament-icon" viewBox="0 0 60 60">
-            <circle cx="26" cy="30" r="16" fill="none" stroke="url(#goldGrad1)" stroke-width="2.5"/>
-            <circle cx="36" cy="30" r="16" fill="none" stroke="url(#goldGrad1)" stroke-width="2.5"/>
+            <circle cx="26" cy="30" r="16" fill="none" stroke="url(#goldGradMockup)" stroke-width="2.5"/>
+            <circle cx="36" cy="30" r="16" fill="none" stroke="url(#goldGradMockup)" stroke-width="2.5"/>
           </svg>
 
           <h2 class="couple-nickname">Dilan</h2>
           <h3 class="couple-fullname">Dilan Saputra</h3>
           <p class="couple-birth">Bogor, 14 Desember 1997</p>
 
-          <div style="width: 40px; height: 1px; background: rgba(216,177,82,0.4); margin: 12px auto;"></div>
+          <div style="width: 40px; height: 1px; background: rgba(229,190,90,0.4); margin: 12px auto;"></div>
 
           <p class="couple-parents">
             Putra pertama dari<br>
@@ -1178,17 +1215,38 @@
         </div>
       </section>
 
-      <!-- ==================== SCREEN 5: SAVE THE DATE & COUNTDOWN ==================== -->
+      <!-- ==================== SCREEN 5: SAVE THE DATE & COUNTDOWN (PERSIS MOCKUP) ==================== -->
       <section class="screen-section">
         <div class="bg-aura-glow" style="top: 20%; left: 15%;"></div>
+        
+        <!-- Motif Renda Mandala Sudut Bawah Persis Mockup Save The Date -->
         <div class="bg-ornament-layer">
-          <svg class="mandala-corner mandala-top-left" viewBox="0 0 200 200">
-            <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
-            <circle cx="0" cy="0" r="90" fill="none" stroke="url(#goldGrad1)" stroke-width="1"/>
+          <svg class="mandala-full-corner mandala-corner-tl" viewBox="0 0 200 200">
+            <g fill="none" stroke="url(#goldGradMockup)">
+              <circle cx="0" cy="0" r="140" stroke-width="1.2"/>
+              <circle cx="0" cy="0" r="115" stroke-width="0.8" stroke-dasharray="3,3"/>
+              <circle cx="0" cy="0" r="85" stroke-width="1.2"/>
+              <circle cx="0" cy="0" r="55" stroke-width="0.8"/>
+              <!-- Pola Kelopak Renda Bunga Khas Indian/Arabic Wedding -->
+              <path d="M0,0 Q60,15 85,85 Q15,60 0,0" fill="url(#goldGradMockup)" fill-opacity="0.12" stroke-width="0.9"/>
+              <path d="M0,0 Q85,15 125,55 Q55,55 0,0" fill="url(#goldGradMockup)" fill-opacity="0.08" stroke-width="0.8"/>
+              <path d="M0,0 Q15,85 55,125 Q55,55 0,0" fill="url(#goldGradMockup)" fill-opacity="0.08" stroke-width="0.8"/>
+            </g>
           </svg>
-          <svg class="mandala-corner mandala-bottom-right" viewBox="0 0 200 200">
-            <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
-            <circle cx="0" cy="0" r="90" fill="none" stroke="url(#goldGrad1)" stroke-width="1"/>
+
+          <!-- Renda Kipas Mandala Lebar di Bawah Kanan (Persis Mockup Save the Date) -->
+          <svg class="mandala-full-corner mandala-corner-br" viewBox="0 0 220 220">
+            <g fill="none" stroke="url(#goldGradMockup)">
+              <circle cx="0" cy="0" r="185" stroke-width="1.2"/>
+              <circle cx="0" cy="0" r="160" stroke-width="0.8" stroke-dasharray="3,3"/>
+              <circle cx="0" cy="0" r="130" stroke-width="1.2"/>
+              <circle cx="0" cy="0" r="95" stroke-width="0.8" stroke-dasharray="2,2"/>
+              <circle cx="0" cy="0" r="65" stroke-width="1.2"/>
+              <!-- Mahkota Lotus Fan Petals -->
+              <path d="M0,0 Q80,20 115,115 Q20,80 0,0" fill="url(#goldGradMockup)" fill-opacity="0.15" stroke-width="1"/>
+              <path d="M0,0 Q120,25 160,75 Q75,75 0,0" fill="url(#goldGradMockup)" fill-opacity="0.1" stroke-width="0.9"/>
+              <path d="M0,0 Q25,120 75,160 Q75,75 0,0" fill="url(#goldGradMockup)" fill-opacity="0.1" stroke-width="0.9"/>
+            </g>
           </svg>
         </div>
 
@@ -1229,9 +1287,29 @@
         </div>
       </section>
 
-      <!-- ==================== SCREEN 6: ACARA (AKAD & RESEPSI) ==================== -->
+      <!-- ==================== SCREEN 6: ACARA (AKAD & RESEPSI - PERSIS MOCKUP) ==================== -->
       <section class="screen-section">
         <div class="bg-aura-glow" style="top: 30%; right: 15%;"></div>
+
+        <!-- Renda Mandala Mengintip di Luar Kubah Lengkung Akad Sesuai Gambar Mockup Bawah -->
+        <div class="bg-ornament-layer">
+          <svg class="mandala-full-corner mandala-corner-tr" viewBox="0 0 200 200">
+            <g fill="none" stroke="url(#goldGradMockup)">
+              <circle cx="0" cy="0" r="160" stroke-width="1.2"/>
+              <circle cx="0" cy="0" r="130" stroke-width="0.8" stroke-dasharray="3,3"/>
+              <circle cx="0" cy="0" r="95" stroke-width="1.2"/>
+              <path d="M0,0 Q80,20 115,115 Q20,80 0,0" fill="url(#goldGradMockup)" fill-opacity="0.14" stroke-width="1"/>
+            </g>
+          </svg>
+          <svg class="mandala-full-corner mandala-corner-bl" viewBox="0 0 200 200">
+            <g fill="none" stroke="url(#goldGradMockup)">
+              <circle cx="0" cy="0" r="160" stroke-width="1.2"/>
+              <circle cx="0" cy="0" r="130" stroke-width="0.8" stroke-dasharray="3,3"/>
+              <circle cx="0" cy="0" r="95" stroke-width="1.2"/>
+              <path d="M0,0 Q80,20 115,115 Q20,80 0,0" fill="url(#goldGradMockup)" fill-opacity="0.14" stroke-width="1"/>
+            </g>
+          </svg>
+        </div>
 
         <h2 class="event-header-title reveal">WEDDING</h2>
         <p class="event-header-subtitle reveal">Event</p>
@@ -1307,7 +1385,7 @@
 
         <h2 class="event-header-title reveal">WEDDING GIFT</h2>
         <p class="event-header-subtitle reveal">Tanda Kasih & Amplop Digital</p>
-        <p class="reveal" style="font-size: 11px; color: #eeddb0; max-width: 320px; margin-bottom: 24px; line-height: 1.6; z-index: 2;">
+        <p class="reveal" style="font-size: 11px; color: #dfceb0; max-width: 320px; margin-bottom: 24px; line-height: 1.6; z-index: 3;">
           Doa restu Anda merupakan karunia terindah bagi kami. Namun jika ingin memberikan tanda kasih secara cashless, dapat melalui rekening berikut:
         </p>
 
@@ -1437,7 +1515,7 @@
         if (rsvpNameInput) rsvpNameInput.value = decodedName;
       }
 
-      // FITUR ANIMASI 2.5s saat pertama kali dibuka di Halaman Awal (Cover)
+      // Animasi 2.5s Elemen Awal (Cover) & Motif Latar Belakang
       setTimeout(() => {
         const initialReveals = document.querySelectorAll('.reveal-initial');
         initialReveals.forEach((el, index) => {
@@ -1511,7 +1589,7 @@
         audioToggle.addEventListener('click', toggleAudio);
       }
 
-      // FITUR ANIMASI Scrolling 2.5s (Konten & Latar Belakang Ikut Bergerak & Muncul)
+      // Animasi Scrolling 2.5s (Konten & Latar Belakang Ikut Bergerak & Muncul)
       function handleScrollAnimation() {
         const reveals = document.querySelectorAll('.reveal');
         const bgAuras = document.querySelectorAll('.bg-aura-glow');
@@ -1540,7 +1618,7 @@
           }
         });
 
-        // Latar Belakang Ornamen Mandala
+        // Latar Belakang Ornamen Motif
         bgOrnaments.forEach(ornament => {
           const rect = ornament.getBoundingClientRect();
           if (rect.top < triggerBottom && rect.bottom > triggerTop) {
