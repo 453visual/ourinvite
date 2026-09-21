@@ -63,7 +63,7 @@
       overflow: hidden;
     }
 
-    /* Decorative Gold Outer Border line as seen in mockup */
+    /* Decorative Gold Outer Border line */
     .gold-outer-border {
       position: absolute;
       top: 8px;
@@ -82,8 +82,7 @@
     .screen-section {
       position: relative;
       width: 100%;
-      min-height: 100vh;
-      padding: 40px 24px 60px 24px;
+      padding: 50px 24px 60px 24px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -294,7 +293,7 @@
     }
 
     /* ==========================================================================
-       COUPLE PROFILE SECTION (ARCH CARDS PERSIS MOCKUP)
+       COUPLE PROFILE SECTION (ARCH CARDS)
        ========================================================================== */
     .couple-card {
       position: relative;
@@ -302,7 +301,7 @@
       max-width: 320px;
       background: radial-gradient(circle at 50% 30%, #460610 0%, #280308 100%);
       border: 1px solid rgba(216, 177, 82, 0.45);
-      border-radius: 160px 160px 20px 20px; /* Arch / kubah shape */
+      border-radius: 160px 160px 20px 20px;
       padding: 42px 20px 32px 20px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(0,0,0,0.5);
       margin-bottom: 28px;
@@ -353,7 +352,7 @@
     }
 
     /* ==========================================================================
-       SAVE THE DATE & COUNTDOWN (PERSIS MOCKUP KANAN TENGAH)
+       SAVE THE DATE & COUNTDOWN
        ========================================================================== */
     .save-the-date-header {
       margin-bottom: 24px;
@@ -444,7 +443,7 @@
     }
 
     /* ==========================================================================
-       EVENT CARDS (AKAD & RESEPSI ARCH WINDOWS)
+       EVENT CARDS (AKAD & RESEPSI)
        ========================================================================== */
     .event-header-title {
       font-family: 'Cinzel', serif;
@@ -471,7 +470,7 @@
       max-width: 330px;
       background: radial-gradient(circle at 50% 20%, #460610 0%, #250207 100%);
       border: 1px solid rgba(216, 177, 82, 0.5);
-      border-radius: 170px 170px 18px 18px; /* Bentuk kubah arsitektur persis mockup */
+      border-radius: 170px 170px 18px 18px;
       padding: 44px 22px 30px 22px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
       margin-bottom: 30px;
@@ -596,6 +595,244 @@
     }
 
     /* ==========================================================================
+       LOVE STORY SECTION (PERSIS SCREENSHOT SHOPEE)
+       ========================================================================== */
+    .story-card-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 340px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .story-item {
+      background: rgba(38, 3, 9, 0.7);
+      border: 1px solid rgba(216, 177, 82, 0.35);
+      border-radius: 12px;
+      padding: 22px 18px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+      text-align: center;
+      position: relative;
+    }
+
+    .story-title-date {
+      font-family: 'Cinzel', serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--text-gold);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      border-bottom: 1px dashed rgba(216, 177, 82, 0.4);
+      padding-bottom: 6px;
+      display: inline-block;
+    }
+
+    .story-text {
+      font-size: 11px;
+      line-height: 1.7;
+      color: #e6d8c3;
+    }
+
+    /* ==========================================================================
+       WEDDING GIFT / AMPLOP DIGITAL (2 AMPLOP + 1 ALAMAT KADO)
+       ========================================================================== */
+    .gift-card {
+      background: radial-gradient(circle at 50% 20%, #460610 0%, #250207 100%);
+      border: 1px solid rgba(216, 177, 82, 0.45);
+      border-radius: 14px;
+      padding: 24px 20px;
+      width: 100%;
+      max-width: 330px;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .bank-logo-text {
+      font-family: 'Cinzel', serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .acc-number {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-gold);
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+
+    .acc-holder {
+      font-size: 11.5px;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+
+    .btn-copy {
+      background: var(--gold-btn-gradient);
+      color: #2b040a;
+      border: 1px solid #ffea9e;
+      border-radius: 4px;
+      padding: 6px 16px;
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.5);
+      transition: all 0.2s ease;
+    }
+
+    .btn-copy:active {
+      transform: scale(0.96);
+    }
+
+    /* ==========================================================================
+       RSVP & UCAPAN FORM + COMMENTS LIST
+       ========================================================================== */
+    .form-box {
+      width: 100%;
+      max-width: 340px;
+      background: rgba(35, 3, 8, 0.85);
+      border: 1px solid rgba(216, 177, 82, 0.4);
+      border-radius: 14px;
+      padding: 24px 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+      z-index: 2;
+      text-align: left;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-gold);
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 10px 12px;
+      background: rgba(18, 1, 4, 0.8);
+      border: 1px solid rgba(216, 177, 82, 0.35);
+      border-radius: 6px;
+      color: #ffffff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11.5px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: #fceda2;
+      box-shadow: 0 0 8px rgba(216, 177, 82, 0.4);
+    }
+
+    .form-select option {
+      background: #250207;
+      color: #fff;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--gold-btn-gradient);
+      color: #2b040a;
+      border: 1px solid #ffea9e;
+      border-radius: 6px;
+      padding: 11px;
+      font-family: 'Cinzel', serif;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+      margin-top: 10px;
+    }
+
+    /* Ucapan / Wishes Feed */
+    .wishes-container {
+      width: 100%;
+      max-width: 340px;
+      max-height: 280px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 2;
+      padding-right: 4px;
+    }
+
+    .wish-item {
+      background: rgba(28, 2, 6, 0.75);
+      border: 1px solid rgba(216, 177, 82, 0.25);
+      border-radius: 8px;
+      padding: 12px 14px;
+      text-align: left;
+    }
+
+    .wish-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .wish-author {
+      font-family: 'Cinzel', serif;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--text-gold);
+    }
+
+    .wish-badge {
+      font-size: 9px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .badge-hadir {
+      background: rgba(46, 125, 50, 0.3);
+      color: #81c784;
+      border: 1px solid #81c784;
+    }
+
+    .badge-tidak {
+      background: rgba(198, 40, 40, 0.3);
+      color: #e57373;
+      border: 1px solid #e57373;
+    }
+
+    .wish-body {
+      font-size: 11px;
+      line-height: 1.5;
+      color: #e0d0b8;
+    }
+
+    /* ==========================================================================
        FLOATING MUSIC CONTROLLER
        ========================================================================== */
     .floating-audio-btn {
@@ -656,13 +893,12 @@
     <i id="audioIcon" class="fas fa-music"></i>
   </div>
 
-  <!-- Mobile Frame Container (Plek Ketiplek Mockup) -->
+  <!-- Mobile Frame Container -->
   <div class="mobile-wrapper">
     <div class="gold-outer-border"></div>
 
     <!-- ==================== SCREEN 1: COVER / WELCOME ==================== -->
-    <section class="screen-section" id="coverScreen">
-      <!-- Luxury Gold Mandala Ornaments di 4 Sudut -->
+    <section class="screen-section" id="coverScreen" style="min-height: 100vh;">
       <svg class="mandala-corner mandala-top-left" viewBox="0 0 200 200">
         <defs>
           <linearGradient id="goldGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -682,13 +918,9 @@
           <path d="M0,0 Q60,20 80,80 Q20,60 0,0"/>
           <path d="M0,0 Q80,10 120,50 Q60,60 0,0"/>
           <path d="M0,0 Q10,80 50,120 Q60,60 0,0"/>
-          <path d="M40,0 C60,40 100,60 140,0"/>
-          <path d="M0,40 C40,60 60,100 0,140"/>
           <circle cx="70" cy="70" r="8"/>
           <circle cx="110" cy="40" r="6"/>
           <circle cx="40" cy="110" r="6"/>
-          <circle cx="130" cy="90" r="5"/>
-          <circle cx="90" cy="130" r="5"/>
         </g>
       </svg>
 
@@ -697,16 +929,6 @@
         <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
         <circle cx="0" cy="0" r="70" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
         <circle cx="0" cy="0" r="100" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
-        <circle cx="0" cy="0" r="140" fill="none" stroke="url(#goldGrad1)" stroke-width="0.7"/>
-        <circle cx="0" cy="0" r="170" fill="none" stroke="url(#goldGrad1)" stroke-width="1" stroke-dasharray="4,4"/>
-        <g stroke="url(#goldGrad1)" stroke-width="0.9" fill="none">
-          <path d="M0,0 Q60,20 80,80 Q20,60 0,0"/>
-          <path d="M0,0 Q80,10 120,50 Q60,60 0,0"/>
-          <path d="M0,0 Q10,80 50,120 Q60,60 0,0"/>
-          <circle cx="70" cy="70" r="8"/>
-          <circle cx="110" cy="40" r="6"/>
-          <circle cx="40" cy="110" r="6"/>
-        </g>
       </svg>
 
       <svg class="mandala-corner mandala-bottom-left" viewBox="0 0 200 200">
@@ -714,14 +936,6 @@
         <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
         <circle cx="0" cy="0" r="70" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
         <circle cx="0" cy="0" r="100" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
-        <circle cx="0" cy="0" r="140" fill="none" stroke="url(#goldGrad1)" stroke-width="0.7"/>
-        <circle cx="0" cy="0" r="170" fill="none" stroke="url(#goldGrad1)" stroke-width="1" stroke-dasharray="4,4"/>
-        <g stroke="url(#goldGrad1)" stroke-width="0.9" fill="none">
-          <path d="M0,0 Q60,20 80,80 Q20,60 0,0"/>
-          <circle cx="70" cy="70" r="8"/>
-          <circle cx="110" cy="40" r="6"/>
-          <circle cx="40" cy="110" r="6"/>
-        </g>
       </svg>
 
       <svg class="mandala-corner mandala-bottom-right" viewBox="0 0 200 200">
@@ -729,14 +943,6 @@
         <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
         <circle cx="0" cy="0" r="70" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
         <circle cx="0" cy="0" r="100" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
-        <circle cx="0" cy="0" r="140" fill="none" stroke="url(#goldGrad1)" stroke-width="0.7"/>
-        <circle cx="0" cy="0" r="170" fill="none" stroke="url(#goldGrad1)" stroke-width="1" stroke-dasharray="4,4"/>
-        <g stroke="url(#goldGrad1)" stroke-width="0.9" fill="none">
-          <path d="M0,0 Q60,20 80,80 Q20,60 0,0"/>
-          <circle cx="70" cy="70" r="8"/>
-          <circle cx="110" cy="40" r="6"/>
-          <circle cx="40" cy="110" r="6"/>
-        </g>
       </svg>
 
       <!-- Interlocking Wedding Rings Monogram -->
@@ -752,17 +958,14 @@
         <circle cx="60" cy="35" r="24" fill="none" stroke="url(#ringGold)" stroke-width="4.5"/>
       </svg>
 
-      <!-- Header Title -->
       <p class="title-the-wedding">THE WEDDING OF</p>
 
-      <!-- Couple Names Persis Mockup -->
       <div class="names-script">
         <span>Milea</span>
         <span class="ampersand-luxury">&</span>
         <span>Dilan</span>
       </div>
 
-      <!-- Salutation & Guest Name -->
       <div class="guest-card-container">
         <p class="guest-salutation">Kepada Yth.<br>Bapak/Ibu/Saudara/i</p>
         <div class="guest-name-box" id="guestNameDisplay">Tamu Undangan</div>
@@ -778,8 +981,7 @@
     <div id="contentSection">
       
       <!-- SCREEN 2: AYAT SUCI (QS. AR-RUM: 21) -->
-      <section class="screen-section" style="min-height: auto; padding-top: 60px;">
-        <!-- Side Mandalas -->
+      <section class="screen-section" style="padding-top: 60px;">
         <svg class="mandala-side-left" viewBox="0 0 100 200">
           <path fill="none" stroke="url(#goldGrad1)" stroke-width="1" d="M0,20 C50,40 80,70 80,100 C80,130 50,160 0,180"/>
           <circle cx="0" cy="100" r="50" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
@@ -798,10 +1000,10 @@
         </div>
       </section>
 
-      <!-- SCREEN 3: MEMPELAI WANITA (MILEA DEWI) -->
+      <!-- SCREEN 3: MEMPELAI (MILEA DEWI & DILAN SAPUTRA) -->
       <section class="screen-section">
+        <!-- Mempelai Wanita -->
         <div class="couple-card">
-          <!-- Monogram Ring Icon -->
           <svg class="couple-ornament-icon" viewBox="0 0 60 60">
             <circle cx="26" cy="30" r="16" fill="none" stroke="url(#goldGrad1)" stroke-width="2.5"/>
             <circle cx="36" cy="30" r="16" fill="none" stroke="url(#goldGrad1)" stroke-width="2.5"/>
@@ -821,12 +1023,10 @@
           </p>
         </div>
 
-        <!-- Luxury Separator Glyph & -->
         <span class="ampersand-luxury" style="font-size: 48px; margin: 10px 0;">&</span>
 
-        <!-- SCREEN 4: MEMPELAI PRIA (DILAN SAPUTRA) -->
+        <!-- Mempelai Pria -->
         <div class="couple-card" style="margin-top: 10px;">
-          <!-- Monogram Ring Icon -->
           <svg class="couple-ornament-icon" viewBox="0 0 60 60">
             <circle cx="26" cy="30" r="16" fill="none" stroke="url(#goldGrad1)" stroke-width="2.5"/>
             <circle cx="36" cy="30" r="16" fill="none" stroke="url(#goldGrad1)" stroke-width="2.5"/>
@@ -847,18 +1047,16 @@
         </div>
       </section>
 
-      <!-- SCREEN 5: SAVE THE DATE & COUNTDOWN (PERSIS MOCKUP KANAN TENGAH) -->
+      <!-- SCREEN 4: SAVE THE DATE & COUNTDOWN -->
       <section class="screen-section">
         <svg class="mandala-corner mandala-top-left" viewBox="0 0 200 200">
           <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
           <circle cx="0" cy="0" r="90" fill="none" stroke="url(#goldGrad1)" stroke-width="1"/>
-          <circle cx="0" cy="0" r="130" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="4,4"/>
         </svg>
 
         <svg class="mandala-corner mandala-bottom-right" viewBox="0 0 200 200">
           <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
           <circle cx="0" cy="0" r="90" fill="none" stroke="url(#goldGrad1)" stroke-width="1"/>
-          <circle cx="0" cy="0" r="130" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="4,4"/>
         </svg>
 
         <div class="save-the-date-header">
@@ -898,7 +1096,7 @@
         </div>
       </section>
 
-      <!-- SCREEN 6: ACARA (AKAD & RESEPSI - ARCH WINDOW STYLE PERSIS MOCKUP) -->
+      <!-- SCREEN 5: ACARA (AKAD & RESEPSI) -->
       <section class="screen-section">
         <h2 class="event-header-title">WEDDING</h2>
         <p class="event-header-subtitle">Event</p>
@@ -966,6 +1164,147 @@
             <span>GOOGLE MAPS</span>
           </a>
         </div>
+      </section>
+
+      <!-- ==================== SCREEN 6: LOVE STORY (PERSIS SCREENSHOT) ==================== -->
+      <section class="screen-section">
+        <h2 class="event-header-title">LOVE STORY</h2>
+        <p class="event-header-subtitle">Kisah Cinta Kami</p>
+
+        <div class="story-card-wrapper">
+          <!-- Story 1 -->
+          <div class="story-item">
+            <div class="story-title-date">PERKENALAN — 10 MARET 2021</div>
+            <p class="story-text">
+              Awal perkenalan kami berdua berawal dari Ospek jurusan di kampus, kemudian mulai berkenalan lewat daring di salah satu sosial media. Dilan merupakan kakak tingkat yang menjadi panitia Ospek tersebut. Seiring berjalannya waktu kami pun semakin dekat.
+            </p>
+          </div>
+
+          <!-- Story 2 -->
+          <div class="story-item">
+            <div class="story-title-date">AWAL BERTEMU — 17 APRIL 2021</div>
+            <p class="story-text">
+              Awal pertemuan kami di salah satu acara angkatan Milea dan mengundang kakak tingkat, salah satunya angkatan Dilan. Momen pertama bertatap muka langsung yang menumbuhkan rasa saling mengasihi.
+            </p>
+          </div>
+
+          <!-- Story 3 -->
+          <div class="story-item">
+            <div class="story-title-date">LAMARAN — 3 JANUARI 2024</div>
+            <p class="story-text">
+              Setelah menjalin hubungan lebih dari hampir 3 tahun, akhirnya kami memutuskan untuk melanjutkan ke jenjang yang lebih serius dengan ikatan pertunangan dan restu dari kedua keluarga tercinta.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SCREEN 7: WEDDING GIFT (2 AMPLOP + 1 KADO) ==================== -->
+      <section class="screen-section">
+        <h2 class="event-header-title">WEDDING GIFT</h2>
+        <p class="event-header-subtitle">Tanda Kasih & Amplop Digital</p>
+        <p style="font-size: 11px; color: #eeddb0; max-width: 320px; margin-bottom: 24px; line-height: 1.6; z-index: 2;">
+          Doa restu Anda merupakan karunia terindah bagi kami. Namun jika ingin memberikan tanda kasih secara cashless, dapat melalui rekening berikut:
+        </p>
+
+        <!-- Amplop Digital 1: BCA -->
+        <div class="gift-card">
+          <p class="bank-logo-text">BANK BCA</p>
+          <p class="acc-number" id="accBCA">5420981234</p>
+          <p class="acc-holder">a.n Dilan Saputra</p>
+          <button class="btn-copy" onclick="copyText('accBCA')">
+            <i class="far fa-copy"></i>
+            <span>SALIN REKENING</span>
+          </button>
+        </div>
+
+        <!-- Amplop Digital 2: MANDIRI -->
+        <div class="gift-card">
+          <p class="bank-logo-text">BANK MANDIRI</p>
+          <p class="acc-number" id="accMandiri">1370019283741</p>
+          <p class="acc-holder">a.n Milea Dewi</p>
+          <button class="btn-copy" onclick="copyText('accMandiri')">
+            <i class="far fa-copy"></i>
+            <span>SALIN REKENING</span>
+          </button>
+        </div>
+
+        <!-- 1 Alamat Kado Fisik -->
+        <div class="gift-card">
+          <div style="color: var(--gold-primary); font-size: 20px; margin-bottom: 8px;">
+            <i class="fas fa-gift"></i>
+          </div>
+          <p class="bank-logo-text" style="font-size: 15px;">KIRIM KADO FISIK</p>
+          <p class="acc-holder" style="margin-bottom: 6px; font-weight: 600;">Kediaman Mempelai Pria & Wanita</p>
+          <p class="story-text" id="giftAddress" style="margin-bottom: 14px; font-size: 11px;">
+            Jl. Keramat Jati No. 45 RT 04/RW 02, Kec. Kramat, Kota Bandung, Jawa Barat (Kode Pos: 40123)
+          </p>
+          <button class="btn-copy" onclick="copyText('giftAddress')">
+            <i class="far fa-copy"></i>
+            <span>SALIN ALAMAT</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ==================== SCREEN 8: RSVP & KOLOM UCAPAN ==================== -->
+      <section class="screen-section">
+        <h2 class="event-header-title">RSVP & UCAPAN</h2>
+        <p class="event-header-subtitle">Konfirmasi Kehadiran & Doa Restu</p>
+
+        <!-- Form RSVP & Ucapan -->
+        <div class="form-box">
+          <form id="rsvpForm">
+            <div class="form-group">
+              <label for="rsvpName">Nama Lengkap</label>
+              <input type="text" id="rsvpName" class="form-input" placeholder="Masukkan nama Anda..." required>
+            </div>
+
+            <div class="form-group">
+              <label for="rsvpStatus">Konfirmasi Kehadiran</label>
+              <select id="rsvpStatus" class="form-select" required>
+                <option value="Hadir">Saya akan Hadir</option>
+                <option value="Tidak Hadir">Maaf, Tidak Dapat Hadir</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="rsvpCount">Jumlah Tamu</label>
+              <select id="rsvpCount" class="form-select">
+                <option value="1">1 Orang</option>
+                <option value="2">2 Orang</option>
+                <option value="3">3 Orang</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="rsvpWish">Ucapan & Doa Restu</label>
+              <textarea id="rsvpWish" class="form-textarea" rows="3" placeholder="Tuliskan doa restu untuk kedua mempelai..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">
+              <i class="fas fa-paper-plane"></i>
+              <span>KIRIM KONFIRMASI</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Daftar Ucapan Masuk -->
+        <div class="wishes-container" id="wishesList">
+          <div class="wish-item">
+            <div class="wish-header">
+              <span class="wish-author">Fikri & Keluarga</span>
+              <span class="wish-badge badge-hadir">Hadir</span>
+            </div>
+            <p class="wish-body">Selamat menempuh hidup baru untuk Dilan dan Milea. Semoga selalu diberikan keberkahan dan kebahagiaan hingga maut memisahkan!</p>
+          </div>
+
+          <div class="wish-item">
+            <div class="wish-header">
+              <span class="wish-author">Sarah Melati</span>
+              <span class="wish-badge badge-hadir">Hadir</span>
+            </div>
+            <p class="wish-body">Happy wedding Milea! Cantik banget undangannya. Insya Allah hadir di acara akadnya nanti.</p>
+          </div>
+        </div>
 
         <p class="footer-text">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</p>
         <p class="footer-text" style="margin-top: 10px; font-weight: 600; color: var(--text-gold);">Milea & Dilan</p>
@@ -975,17 +1314,20 @@
   </div>
 
   <!-- ==========================================================================
-       JAVASCRIPT LOGIC (INLINE SINGLE FILE)
-       ========================================================================== */
+       JAVASCRIPT LOGIC
+       ========================================================================== -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // 1. Ambil Nama Tamu dari URL Parameter (?to=Nama+Tamu atau ?u=Nama+Tamu)
+      // 1. URL Query Param untuk Nama Tamu (?to=Nama+Tamu atau ?u=Nama+Tamu)
       const urlParams = new URLSearchParams(window.location.search);
       const guestParam = urlParams.get('to') || urlParams.get('u') || urlParams.get('guest');
       const guestDisplay = document.getElementById('guestNameDisplay');
+      const rsvpNameInput = document.getElementById('rsvpName');
       
       if (guestParam && guestDisplay) {
-        guestDisplay.textContent = decodeURIComponent(guestParam);
+        const decodedName = decodeURIComponent(guestParam);
+        guestDisplay.textContent = decodedName;
+        if (rsvpNameInput) rsvpNameInput.value = decodedName;
       }
 
       // 2. Audio Background Music Controller
@@ -1008,7 +1350,7 @@
             audioToggle.classList.add('spinning');
             isPlaying = true;
           }).catch(err => {
-            console.log('Audio playback interaction needed:', err);
+            console.log('Autoplay issue:', err);
           });
         }
       }
@@ -1021,7 +1363,7 @@
               audioIcon.className = 'fas fa-music';
               audioToggle.classList.add('spinning');
             }).catch(err => {
-              console.log('Autoplay policy caught:', err);
+              console.log('Autoplay audio caught:', err);
             });
           }
         });
@@ -1066,7 +1408,53 @@
 
       updateCountdown();
       setInterval(updateCountdown, 1000);
+
+      // 4. RSVP Form Submission Handler
+      const rsvpForm = document.getElementById('rsvpForm');
+      const wishesList = document.getElementById('wishesList');
+
+      if (rsvpForm) {
+        rsvpForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('rsvpName').value;
+          const status = document.getElementById('rsvpStatus').value;
+          const wish = document.getElementById('rsvpWish').value;
+
+          const badgeClass = status === 'Hadir' ? 'badge-hadir' : 'badge-tidak';
+
+          const newWish = document.createElement('div');
+          newWish.className = 'wish-item';
+          newWish.innerHTML = `
+            <div class="wish-header">
+              <span class="wish-author">${escapeHtml(name)}</span>
+              <span class="wish-badge ${badgeClass}">${escapeHtml(status)}</span>
+            </div>
+            <p class="wish-body">${escapeHtml(wish)}</p>
+          `;
+
+          wishesList.prepend(newWish);
+          alert('Terima kasih! Konfirmasi kehadiran dan ucapan Anda telah berhasil terkirim.');
+          document.getElementById('rsvpWish').value = '';
+        });
+      }
     });
+
+    // Helper Copy Text to Clipboard
+    function copyText(elementId) {
+      const textToCopy = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        alert('Tersalin ke clipboard: ' + textToCopy);
+      }).catch(err => {
+        console.error('Gagal menyalin:', err);
+      });
+    }
+
+    // XSS Sanitizer Helper
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
   </script>
 </body>
-</html>
+            </html>
