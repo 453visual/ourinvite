@@ -14,39 +14,41 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
-    /* ==========================================================================
-       ROOT VARIABLES & THEME (TEMPLATE 9: EMERALD PINE GREEN & SOFT IVORY / GOLD LINE BOTANICAL)
-       Persis sesuai gambar mockup referensi Template 9:
-       - Warna latar belakang Cover: Soft Clean Ivory Off-White (#f9fbf9) dengan Frame Border Deep Emerald Green (#0e463a / #135547)
-       - Garis Luar Border: Emerald Green solid dengan list garis emas halus di sekelilingnya (#c4a165 / #dfc493)
-       - Aksen Motif Botani: Daun Monstera & Palm Fan Line Art Emas (#d4af6a, #b88f4e) di sudut-sudut kartu
-       - Kartu Acara (Akad Nikah & Resepsi): Format Split Box Modern:
-           * Kiri/Atas: Emerald Pine Green (#0e463a) dengan tulisan putih
-           * Kanan/Bawah: Latar Bersih Putih dengan angka tanggal besar
-       - Tombol: Deep Emerald Green (#0e463a ke #165b4e) dengan teks putih & aksen emas
-       - Countdown: Gradasi Halus Emerald Teal Mist (#135547 ke #257060)
-       ========================================================================== */
+    /* ============================================================
+       BACKGROUND & MOTIF - BOTANICAL GREEN GOLD (TEMPLATE 9)
+       Warna diambil dari referensi undangan pernikahan bertema
+       hijau tua & emas dengan motif daun di setiap sudut.
+       ============================================================ */
     :root {
-      --bg-emerald-deep: #0e463a;
-      --bg-emerald-dark: #09332a;
-      --bg-emerald-medium: #14594c;
-      --bg-emerald-gradient: linear-gradient(135deg, #0e463a 0%, #175d4f 100%);
-      --bg-ivory-clean: #f9fbf9;
-      --bg-card-white: #ffffff;
+      /* Palette dari style.css Botanical Green Gold */
+      --color-dark-green:  #1f4d3e;   /* hijau tua utama (motif daun) */
+      --color-mid-green:   #2d6b52;   /* hijau sedang (gradasi daun) */
+      --color-gold:        #c9a24b;   /* emas (garis bingkai & urat daun) */
+      --color-gold-light:  #e8d8a8;   /* emas muda (aksen tambahan) */
+      --color-bg-base:     #ffffff;   /* putih dasar background */
+      --color-bg-cream:    #faf8f3;   /* krem lembut sekitar bingkai */
+
+      /* Integrasi variabel turunan UI & komponen */
+      --bg-emerald-deep:   var(--color-dark-green);
+      --bg-emerald-dark:   #14352b;
+      --bg-emerald-medium: var(--color-mid-green);
+      --bg-emerald-gradient: linear-gradient(135deg, var(--color-dark-green) 0%, var(--color-mid-green) 100%);
+      --bg-ivory-clean:    var(--color-bg-cream);
+      --bg-card-white:     var(--color-bg-base);
       
-      --gold-line: #cda869;
-      --gold-bright: #dfc493;
-      --gold-dark: #a98042;
-      --gold-gradient: linear-gradient(135deg, #dfc493 0%, #cda869 50%, #b38b47 100%);
+      --gold-line:         var(--color-gold);
+      --gold-bright:       var(--color-gold-light);
+      --gold-dark:         #9e7b2e;
+      --gold-gradient:     linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold) 50%, #9e7b2e 100%);
       
-      --text-emerald: #0e463a;
-      --text-dark: #1b2623;
-      --text-muted: #576762;
-      --text-white: #ffffff;
-      --text-gold: #cda869;
+      --text-emerald:      var(--color-dark-green);
+      --text-dark:         #1a2420;
+      --text-muted:        #55635e;
+      --text-white:        #ffffff;
+      --text-gold:         var(--color-gold);
       
-      --btn-emerald-gradient: linear-gradient(135deg, #0e463a 0%, #15574a 100%);
-      --btn-gold-gradient: linear-gradient(135deg, #dfc493 0%, #cda869 100%);
+      --btn-emerald-gradient: linear-gradient(135deg, var(--color-dark-green) 0%, var(--color-mid-green) 100%);
+      --btn-gold-gradient:    linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold) 100%);
     }
 
     * {
@@ -65,9 +67,9 @@
     }
 
     html, body {
-      background-color: #081f1a;
+      background-color: #0d271f;
       color: var(--text-dark);
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Montserrat', Georgia, 'Times New Roman', serif;
       overflow-x: hidden;
       scroll-behavior: smooth;
       display: flex;
@@ -77,41 +79,89 @@
     }
 
     /* ==========================================================================
-       MOBILE FRAME WRAPPER
+       BINGKAI & WRAPPER - Garis emas ganda sesuai style.css
        ========================================================================== */
     .mobile-wrapper {
       width: 100%;
       max-width: 440px;
       min-height: 100vh;
       position: relative;
-      background: var(--bg-ivory-clean);
-      box-shadow: 0 12px 50px rgba(5, 26, 21, 0.7), 0 0 0 1px rgba(205, 168, 105, 0.35);
+      background: var(--color-bg-cream);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
       overflow: hidden;
     }
 
-    /* Border Ganda Emerald & Emas Khas Mockup Template 9 */
-    .emerald-outer-frame {
+    /* Border bingkai ganda emas sesuai .motif-frame di style.css */
+    .motif-frame-border {
       position: absolute;
       top: 14px;
       left: 14px;
       right: 14px;
       bottom: 14px;
-      border: 1.5px solid var(--bg-emerald-deep);
+      border: 2px solid var(--color-gold);
+      outline: 1px solid var(--color-gold);
+      outline-offset: 6px;
       pointer-events: none;
       z-index: 6;
-      border-radius: 20px;
+      border-radius: 12px;
     }
 
-    .emerald-inner-gold-line {
+    /* Motif daun SVG 4 sudut sesuai style.css */
+    .leaf-motif {
       position: absolute;
-      top: 18px;
-      left: 18px;
-      right: 18px;
-      bottom: 18px;
-      border: 1px solid rgba(205, 168, 105, 0.65);
+      width: 150px;
+      height: 200px;
+      z-index: 2;
       pointer-events: none;
-      z-index: 6;
-      border-radius: 16px;
+      transition: opacity 2.5s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 2.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .leaf-top-left {
+      top: -15px;
+      left: -20px;
+    }
+
+    .leaf-top-right {
+      top: -15px;
+      right: -20px;
+      transform: scaleX(-1);
+    }
+
+    .leaf-bottom-left {
+      bottom: -15px;
+      left: -20px;
+      transform: scaleY(-1);
+    }
+
+    .leaf-bottom-right {
+      bottom: -15px;
+      right: -20px;
+      transform: scale(-1, -1);
+    }
+
+    /* Warna & gradasi tiap lapisan daun sesuai style.css */
+    .leaf-shape-1 {
+      fill: var(--color-dark-green);
+      opacity: 1;
+    }
+
+    .leaf-shape-2 {
+      fill: var(--color-mid-green);
+      opacity: 0.85;
+    }
+
+    .leaf-shape-3 {
+      fill: var(--color-dark-green);
+      opacity: 0.7;
+    }
+
+    /* Garis urat daun berwarna emas sesuai style.css */
+    .leaf-veins {
+      fill: none;
+      stroke: var(--color-gold);
+      stroke-width: 1.4;
+      opacity: 0.9;
     }
 
     /* ==========================================================================
@@ -122,7 +172,7 @@
       width: 320px;
       height: 320px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(20, 89, 76, 0.2) 0%, rgba(205, 168, 105, 0.1) 50%, transparent 75%);
+      background: radial-gradient(circle, rgba(31, 77, 62, 0.22) 0%, rgba(201, 162, 75, 0.12) 50%, transparent 75%);
       pointer-events: none;
       z-index: 1;
       opacity: 0;
@@ -204,7 +254,7 @@
 
     /* Background Layar Emerald Gradient (Countdown & Aksen pada Mockup) */
     .section-emerald-theme {
-      background: radial-gradient(circle at 50% 30%, #155d4f 0%, #0e463a 60%, #072a23 100%);
+      background: radial-gradient(circle at 50% 30%, #2d6b52 0%, #1f4d3e 60%, #123329 100%);
       color: #ffffff;
     }
 
@@ -216,7 +266,7 @@
       font-size: 11px;
       font-weight: 600;
       letter-spacing: 4px;
-      color: var(--bg-emerald-deep);
+      color: var(--color-dark-green);
       text-transform: uppercase;
       margin-bottom: 22px;
       opacity: 0.95;
@@ -240,7 +290,7 @@
       font-family: 'Playfair Display', serif;
       font-size: 26px;
       font-weight: 400;
-      color: var(--gold-line);
+      color: var(--color-gold);
       margin: -4px 0;
     }
 
@@ -276,14 +326,14 @@
       font-size: 26px;
       font-weight: 600;
       letter-spacing: 1px;
-      color: var(--bg-emerald-deep);
+      color: var(--color-dark-green);
       margin-bottom: 24px;
     }
 
     /* Tombol Deep Emerald Green persis gambar */
     .btn-open-invitation {
       background: var(--btn-emerald-gradient);
-      border: 1px solid var(--gold-line);
+      border: 1px solid var(--color-gold);
       color: #ffffff;
       font-family: 'Cinzel', serif;
       font-size: 11px;
@@ -295,14 +345,14 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      box-shadow: 0 6px 20px rgba(14, 70, 58, 0.35);
+      box-shadow: 0 6px 20px rgba(31, 77, 62, 0.35);
       transition: all 0.3s ease;
       text-decoration: none;
     }
 
     .btn-open-invitation:hover, .btn-open-invitation:active {
       transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 8px 24px rgba(14, 70, 58, 0.45);
+      box-shadow: 0 8px 24px rgba(31, 77, 62, 0.45);
     }
 
     /* ==========================================================================
@@ -336,7 +386,7 @@
       font-size: 11.5px;
       font-weight: 600;
       letter-spacing: 2px;
-      color: var(--bg-emerald-deep);
+      color: var(--color-dark-green);
     }
 
     /* ==========================================================================
@@ -347,10 +397,10 @@
       width: 100%;
       max-width: 320px;
       background: rgba(255, 255, 255, 0.96);
-      border: 1px solid rgba(14, 70, 58, 0.3);
+      border: 1px solid rgba(31, 77, 62, 0.3);
       border-radius: 18px;
       padding: 38px 20px 32px 20px;
-      box-shadow: 0 8px 25px rgba(14, 70, 58, 0.08);
+      box-shadow: 0 8px 25px rgba(31, 77, 62, 0.08);
       margin-bottom: 28px;
       z-index: 3;
     }
@@ -358,7 +408,7 @@
     .couple-nickname {
       font-family: 'Alex Brush', cursive;
       font-size: 48px;
-      color: var(--bg-emerald-deep);
+      color: var(--color-dark-green);
       margin-bottom: 2px;
     }
 
@@ -405,10 +455,10 @@
 
     .story-item {
       background: rgba(255, 255, 255, 0.94);
-      border: 1px solid rgba(205, 168, 105, 0.45);
+      border: 1px solid rgba(201, 162, 75, 0.45);
       border-radius: 12px;
       padding: 22px 18px;
-      box-shadow: 0 4px 16px rgba(14, 70, 58, 0.06);
+      box-shadow: 0 4px 16px rgba(31, 77, 62, 0.06);
       text-align: center;
       position: relative;
     }
@@ -418,10 +468,10 @@
       font-size: 11.5px;
       font-weight: 700;
       letter-spacing: 2px;
-      color: var(--bg-emerald-deep);
+      color: var(--color-dark-green);
       text-transform: uppercase;
       margin-bottom: 10px;
-      border-bottom: 1px dashed rgba(205, 168, 105, 0.7);
+      border-bottom: 1px dashed rgba(201, 162, 75, 0.7);
       padding-bottom: 6px;
       display: inline-block;
     }
@@ -450,16 +500,16 @@
       font-size: 12px;
       font-weight: 600;
       letter-spacing: 2.5px;
-      color: var(--gold-bright);
-      border-top: 1px solid rgba(223, 196, 147, 0.45);
-      border-bottom: 1px solid rgba(223, 196, 147, 0.45);
+      color: var(--color-gold-light);
+      border-top: 1px solid rgba(232, 216, 168, 0.45);
+      border-bottom: 1px solid rgba(232, 216, 168, 0.45);
       padding: 5px 12px;
     }
 
     .std-day-number {
       width: 60px;
       height: 60px;
-      border: 1.5px solid var(--gold-bright);
+      border: 1.5px solid var(--color-gold-light);
       border-radius: 8px;
       display: flex;
       align-items: center;
@@ -477,7 +527,7 @@
       font-family: 'Cinzel', serif;
       font-size: 11px;
       letter-spacing: 3px;
-      color: var(--gold-bright);
+      color: var(--color-gold-light);
       margin-top: 10px;
       z-index: 3;
     }
@@ -498,7 +548,7 @@
       align-items: center;
       justify-content: center;
       background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(223, 196, 147, 0.4);
+      border: 1px solid rgba(232, 216, 168, 0.4);
       border-radius: 8px;
       padding: 12px 4px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -515,7 +565,7 @@
     .countdown-box .label {
       font-size: 9.5px;
       letter-spacing: 1px;
-      color: var(--gold-bright);
+      color: var(--color-gold-light);
       text-transform: uppercase;
       font-weight: 500;
     }
@@ -537,7 +587,7 @@
       font-family: 'Cinzel', serif;
       font-size: 13px;
       letter-spacing: 3px;
-      color: var(--bg-emerald-deep);
+      color: var(--color-dark-green);
       margin-bottom: 28px;
       z-index: 3;
     }
@@ -548,9 +598,9 @@
       width: 100%;
       max-width: 330px;
       background: #ffffff;
-      border: 1px solid rgba(14, 70, 58, 0.35);
+      border: 1px solid rgba(31, 77, 62, 0.35);
       border-radius: 14px;
-      box-shadow: 0 10px 30px rgba(14, 70, 58, 0.12);
+      box-shadow: 0 10px 30px rgba(31, 77, 62, 0.12);
       margin-bottom: 30px;
       z-index: 3;
       overflow: hidden;
@@ -559,7 +609,7 @@
     }
 
     .split-card-header {
-      background: var(--bg-emerald-deep);
+      background: var(--color-dark-green);
       padding: 16px 20px;
       color: #ffffff;
       display: flex;
@@ -581,7 +631,7 @@
       gap: 5px;
       font-size: 10px;
       letter-spacing: 1px;
-      color: var(--gold-bright);
+      color: var(--color-gold-light);
       text-transform: uppercase;
       font-weight: 600;
     }
@@ -606,7 +656,7 @@
       font-family: 'Playfair Display', serif;
       font-size: 46px;
       font-weight: 700;
-      color: var(--bg-emerald-deep);
+      color: var(--color-dark-green);
       line-height: 1;
     }
 
@@ -636,11 +686,11 @@
       align-items: center;
       gap: 6px;
       font-size: 11.5px;
-      color: var(--bg-emerald-deep);
+      color: var(--color-dark-green);
       font-weight: 600;
       margin-bottom: 14px;
       padding: 4px 12px;
-      background: rgba(14, 70, 58, 0.08);
+      background: rgba(31, 77, 62, 0.08);
       border-radius: 20px;
     }
 
@@ -661,9 +711,9 @@
     }
 
     .btn-maps {
-      background: var(--bg-emerald-deep);
+      background: var(--color-dark-green);
       color: #ffffff;
-      border: 1px solid var(--gold-line);
+      border: 1px solid var(--color-gold);
       border-radius: 4px;
       padding: 8px 18px;
       font-family: 'Cinzel', serif;
@@ -674,7 +724,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      box-shadow: 0 4px 12px rgba(14, 70, 58, 0.25);
+      box-shadow: 0 4px 12px rgba(31, 77, 62, 0.25);
       cursor: pointer;
       transition: transform 0.2s ease;
     }
@@ -688,13 +738,13 @@
        ========================================================================== */
     .gift-card {
       background: rgba(255, 255, 255, 0.95);
-      border: 1px solid rgba(205, 168, 105, 0.45);
+      border: 1px solid rgba(201, 162, 75, 0.45);
       border-radius: 14px;
       padding: 24px 20px;
       width: 100%;
       max-width: 330px;
       margin-bottom: 20px;
-      box-shadow: 0 6px 20px rgba(14, 70, 58, 0.08);
+      box-shadow: 0 6px 20px rgba(31, 77, 62, 0.08);
       z-index: 3;
       display: flex;
       flex-direction: column;
@@ -714,7 +764,7 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 16px;
       font-weight: 700;
-      color: var(--bg-emerald-deep);
+      color: var(--color-dark-green);
       letter-spacing: 2px;
       margin-bottom: 4px;
     }
@@ -728,7 +778,7 @@
     .btn-copy {
       background: var(--btn-emerald-gradient);
       color: #ffffff;
-      border: 1px solid var(--gold-line);
+      border: 1px solid var(--color-gold);
       border-radius: 4px;
       padding: 7px 18px;
       font-family: 'Cinzel', serif;
@@ -739,7 +789,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      box-shadow: 0 4px 10px rgba(14, 70, 58, 0.25);
+      box-shadow: 0 4px 10px rgba(31, 77, 62, 0.25);
       transition: all 0.2s ease;
     }
 
@@ -754,11 +804,11 @@
       width: 100%;
       max-width: 340px;
       background: rgba(255, 255, 255, 0.95);
-      border: 1px solid rgba(205, 168, 105, 0.45);
+      border: 1px solid rgba(201, 162, 75, 0.45);
       border-radius: 14px;
       padding: 24px 20px;
       margin-bottom: 24px;
-      box-shadow: 0 6px 20px rgba(14, 70, 58, 0.08);
+      box-shadow: 0 6px 20px rgba(31, 77, 62, 0.08);
       z-index: 3;
       text-align: left;
     }
@@ -780,7 +830,7 @@
       width: 100%;
       padding: 10px 12px;
       background: #f9fbf9;
-      border: 1px solid rgba(14, 70, 58, 0.35);
+      border: 1px solid rgba(31, 77, 62, 0.35);
       border-radius: 6px;
       color: var(--text-dark);
       font-family: 'Montserrat', sans-serif;
@@ -790,15 +840,15 @@
     }
 
     .form-input:focus, .form-select:focus, .form-textarea:focus {
-      border-color: var(--bg-emerald-deep);
-      box-shadow: 0 0 8px rgba(14, 70, 58, 0.35);
+      border-color: var(--color-dark-green);
+      box-shadow: 0 0 8px rgba(31, 77, 62, 0.35);
     }
 
     .btn-submit {
       width: 100%;
       background: var(--btn-emerald-gradient);
       color: #ffffff;
-      border: 1px solid var(--gold-line);
+      border: 1px solid var(--color-gold);
       border-radius: 6px;
       padding: 11px;
       font-family: 'Cinzel', serif;
@@ -810,7 +860,7 @@
       justify-content: center;
       align-items: center;
       gap: 8px;
-      box-shadow: 0 4px 14px rgba(14, 70, 58, 0.3);
+      box-shadow: 0 4px 14px rgba(31, 77, 62, 0.3);
       margin-top: 10px;
     }
 
@@ -828,7 +878,7 @@
 
     .wish-item {
       background: rgba(255, 255, 255, 0.95);
-      border: 1px solid rgba(205, 168, 105, 0.4);
+      border: 1px solid rgba(201, 162, 75, 0.4);
       border-radius: 8px;
       padding: 12px 14px;
       text-align: left;
@@ -856,9 +906,9 @@
     }
 
     .badge-hadir {
-      background: rgba(14, 70, 58, 0.15);
-      color: #0e463a;
-      border: 1px solid #175d4f;
+      background: rgba(31, 77, 62, 0.15);
+      color: #1f4d3e;
+      border: 1px solid #2d6b52;
     }
 
     .badge-tidak {
@@ -884,13 +934,13 @@
       height: 42px;
       border-radius: 50%;
       background: var(--btn-emerald-gradient);
-      border: 1.5px solid var(--gold-bright);
+      border: 1.5px solid var(--color-gold-light);
       display: flex;
       align-items: center;
       justify-content: center;
       color: #ffffff;
       cursor: pointer;
-      box-shadow: 0 4px 14px rgba(14, 70, 58, 0.45);
+      box-shadow: 0 4px 14px rgba(31, 77, 62, 0.45);
       z-index: 99;
       transition: all 0.3s ease;
     }
@@ -917,6 +967,19 @@
       margin-top: 30px;
       z-index: 3;
     }
+
+    /* ==========================================================================
+       RESPONSIVE RULES (dari style.css)
+       ========================================================================== */
+    @media (max-width: 480px) {
+      .motif-frame-border {
+        outline-offset: 4px;
+      }
+      .leaf-motif {
+        width: 120px;
+        height: 165px;
+      }
+    }
   </style>
 </head>
 <body class="locked">
@@ -931,142 +994,124 @@
     <i id="audioIcon" class="fas fa-music"></i>
   </div>
 
-  <!-- Mobile Frame Container (Template 9: Emerald Pine Green & Gold Line Botanical) -->
+  <!-- Mobile Frame Container (Template 9: Botanical Green Gold Motif Frame) -->
   <div class="mobile-wrapper">
-    <!-- Border Ganda Emerald & Emas Persis Mockup -->
-    <div class="emerald-outer-frame"></div>
-    <div class="emerald-inner-gold-line"></div>
+    <!-- Bingkai Luar Garis Emas Ganda sesuai style.css (.motif-frame) -->
+    <div class="motif-frame-border"></div>
 
-    <!-- Definisi Simbol Ornamen Motif Latar Belakang Template 9 (Persis Mockup Hijau Emerald & Daun Palem Garis Emas) -->
+    <!-- Definisi Simbol Ornamen Motif Latar Belakang (Botanical Green Gold Motif Daun & Urat Emas) -->
     <svg width="0" height="0" style="position: absolute;">
       <defs>
-        <!-- Gradien Garis Emas Halus -->
+        <!-- Gradien Emas style.css -->
         <linearGradient id="goldLineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stop-color="#faebd0"/>
-          <stop offset="35%" stop-color="#dfc493"/>
-          <stop offset="70%" stop-color="#cda869"/>
-          <stop offset="100%" stop-color="#a47d3c"/>
+          <stop offset="35%" stop-color="#e8d8a8"/>
+          <stop offset="70%" stop-color="#c9a24b"/>
+          <stop offset="100%" stop-color="#9e7b2e"/>
         </linearGradient>
 
-        <!-- Gradien Daun Emerald Hijau Pinus -->
+        <!-- Gradien Daun Hijau Tua & Hijau Sedang style.css -->
         <linearGradient id="emeraldLeafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#1f695a"/>
-          <stop offset="50%" stop-color="#125043"/>
-          <stop offset="100%" stop-color="#0a352c"/>
+          <stop offset="0%" stop-color="#2d6b52"/>
+          <stop offset="60%" stop-color="#1f4d3e"/>
+          <stop offset="100%" stop-color="#123329"/>
         </linearGradient>
 
-        <!-- SIMBOL 1: RANTING DAUN PALEM SUDUT KANAN ATAS (PERSIS MOCKUP TEMPLATE 9) -->
+        <!-- SIMBOL MOTIF SUDUT BOTANICAL SESUAI style.css (leaf-shape-1, leaf-shape-2, leaf-shape-3, leaf-veins) -->
+        <g id="botanicalCornerLeaf">
+          <!-- Lapisan Daun 3 (Belakang, shade dark green) -->
+          <path class="leaf-shape-3" d="M 0, 0 C 45, 15 85, 50 115, 95 C 80, 75 40, 45 0, 0 Z"/>
+          <!-- Lapisan Daun 2 (Tengah, mid green) -->
+          <path class="leaf-shape-2" d="M 0, 0 C 35, 30 65, 80 85, 140 C 60, 105 30, 65 0, 0 Z"/>
+          <!-- Lapisan Daun 1 (Depan, dark green) -->
+          <path class="leaf-shape-1" d="M 0, 0 C 20, 45 35, 105 40, 175 C 25, 125 10, 75 0, 0 Z"/>
+
+          <!-- Daun Tambahan Cabang Anggun -->
+          <path class="leaf-shape-2" d="M 0, 0 C 60, 20 110, 30 145, 50 C 105, 40 55, 25 0, 0 Z"/>
+          <path class="leaf-shape-1" d="M 0, 0 C 50, 40 95, 85 125, 135 C 90, 95 45, 55 0, 0 Z"/>
+
+          <!-- Garis Urat Daun Emas (leaf-veins) -->
+          <path class="leaf-veins" d="M 0, 0 Q 60, 35 115, 95"/>
+          <path class="leaf-veins" d="M 40, 25 Q 65, 40 85, 60"/>
+          <path class="leaf-veins" d="M 70, 50 Q 90, 65 105, 85"/>
+
+          <path class="leaf-veins" d="M 0, 0 Q 45, 65 85, 140"/>
+          <path class="leaf-veins" d="M 30, 45 Q 50, 70 65, 105"/>
+          <path class="leaf-veins" d="M 50, 85 Q 65, 110 75, 130"/>
+
+          <path class="leaf-veins" d="M 0, 0 Q 25, 80 40, 175"/>
+          <path class="leaf-veins" d="M 15, 60 Q 25, 95 30, 135"/>
+
+          <path class="leaf-veins" d="M 0, 0 Q 75, 25 145, 50"/>
+          <path class="leaf-veins" d="M 55, 20 Q 95, 30 130, 42"/>
+
+          <path class="leaf-veins" d="M 0, 0 Q 65, 60 125, 135"/>
+          <path class="leaf-veins" d="M 45, 42 Q 80, 75 110, 115"/>
+        </g>
+
+        <!-- SIMBOL 1: RANTING DAUN PALEM SUDUT KANAN ATAS -->
         <g id="emeraldTopRightBotanical">
-          <!-- Tangkai Lengkung Emas Utama -->
-          <path d="M 140, -10 Q 100, 35 45, 75" fill="none" stroke="url(#goldLineGrad)" stroke-width="1.8" stroke-linecap="round"/>
-          
-          <!-- Helai Daun Garis Emas Menyebar (Golden Palm Fan Rays) -->
-          <path d="M 135, 2 Q 95, 12 40, 18" fill="none" stroke="url(#goldLineGrad)" stroke-width="1.4" opacity="0.95"/>
-          <path d="M 130, 14 Q 90, 26 30, 35" fill="none" stroke="url(#goldLineGrad)" stroke-width="1.4" opacity="0.95"/>
-          <path d="M 124, 25 Q 82, 42 22, 58" fill="none" stroke="url(#goldLineGrad)" stroke-width="1.4" opacity="0.9"/>
-          <path d="M 116, 36 Q 74, 58 14, 82" fill="none" stroke="url(#goldLineGrad)" stroke-width="1.4" opacity="0.88"/>
-          <path d="M 106, 48 Q 66, 75 16, 108" fill="none" stroke="url(#goldLineGrad)" stroke-width="1.3" opacity="0.82"/>
-          <path d="M 94, 60 Q 58, 92 24, 130" fill="none" stroke="url(#goldLineGrad)" stroke-width="1.2" opacity="0.75"/>
-          <path d="M 80, 72 Q 50, 106 32, 148" fill="none" stroke="url(#goldLineGrad)" stroke-width="1.2" opacity="0.7"/>
-
-          <!-- Daun Palem Emerald Tropis Ramping 1 -->
-          <path d="M 125,8 Q 80,14 32,22 Q 75,5 125,8 Z" fill="url(#emeraldLeafGrad)" stroke="url(#goldLineGrad)" stroke-width="0.9"/>
-          <path d="M 125,8 Q 78,13 32,22" fill="none" stroke="#faebd0" stroke-width="0.8"/>
-
-          <!-- Daun Palem Emerald Tropis Ramping 2 -->
-          <path d="M 115,26 Q 70,40 18,65 Q 65,28 115,26 Z" fill="url(#emeraldLeafGrad)" stroke="url(#goldLineGrad)" stroke-width="0.9"/>
-          <path d="M 115,26 Q 68,38 18,65" fill="none" stroke="#faebd0" stroke-width="0.8"/>
-
-          <!-- Daun Palem Emerald Tropis Ramping 3 -->
-          <path d="M 102,46 Q 60,70 12,102 Q 54,54 102,46 Z" fill="url(#emeraldLeafGrad)" stroke="url(#goldLineGrad)" stroke-width="0.9"/>
-          <path d="M 102,46 Q 58,68 12,102" fill="none" stroke="#faebd0" stroke-width="0.8"/>
-
-          <!-- Daun Palem Emerald Tropis Ramping 4 -->
-          <path d="M 86,64 Q 52,94 18,136 Q 46,78 86,64 Z" fill="url(#emeraldLeafGrad)" stroke="url(#goldLineGrad)" stroke-width="0.9"/>
-          <path d="M 86,64 Q 50,92 18,136" fill="none" stroke="#faebd0" stroke-width="0.8"/>
+          <use href="#botanicalCornerLeaf" transform="scale(-1, 1) rotate(5)"/>
         </g>
 
-        <!-- SIMBOL 2: DAUN PALEM SAMPING KIRI (MENYEMBUL DI SAMPING NAMA "MILEA" PERSIS MOCKUP) -->
+        <!-- SIMBOL 2: DAUN PALEM SAMPING KIRI (MENYEMBUL DI SAMPING NAMA "MILEA") -->
         <g id="emeraldSideLeftBotanical">
-          <!-- Daun Palem Emerald Ramping Menyembul dari Tepi Kiri -->
-          <path d="M -8, 25 Q 35, 12 78, -2 Q 40, -5 -8, 25 Z" fill="url(#emeraldLeafGrad)" stroke="url(#goldLineGrad)" stroke-width="0.9"/>
-          <path d="M -8, 25 Q 38, 11 78, -2" fill="none" stroke="#faebd0" stroke-width="0.8"/>
+          <path class="leaf-shape-1" d="M -8, 25 Q 35, 12 78, -2 Q 40, -5 -8, 25 Z" stroke="url(#goldLineGrad)" stroke-width="0.9"/>
+          <path class="leaf-veins" d="M -8, 25 Q 38, 11 78, -2"/>
 
-          <path d="M -8, 42 Q 45, 34 94, 18 Q 48, 20 -8, 42 Z" fill="url(#emeraldLeafGrad)" stroke="url(#goldLineGrad)" stroke-width="0.9"/>
-          <path d="M -8, 42 Q 48, 32 94, 18" fill="none" stroke="#faebd0" stroke-width="0.8"/>
+          <path class="leaf-shape-2" d="M -8, 42 Q 45, 34 94, 18 Q 48, 20 -8, 42 Z" stroke="url(#goldLineGrad)" stroke-width="0.9"/>
+          <path class="leaf-veins" d="M -8, 42 Q 48, 32 94, 18"/>
 
-          <path d="M -8, 58 Q 40, 56 86, 46 Q 44, 42 -8, 58 Z" fill="url(#emeraldLeafGrad)" stroke="url(#goldLineGrad)" stroke-width="0.9"/>
-          <path d="M -8, 58 Q 42, 54 86, 46" fill="none" stroke="#faebd0" stroke-width="0.8"/>
+          <path class="leaf-shape-3" d="M -8, 58 Q 40, 56 86, 46 Q 44, 42 -8, 58 Z" stroke="url(#goldLineGrad)" stroke-width="0.9"/>
+          <path class="leaf-veins" d="M -8, 58 Q 42, 54 86, 46"/>
 
-          <!-- Sinar Garis Daun Emas Tipis Melengkung -->
-          <path d="M -8, 15 Q 35, -5 88, -20" fill="none" stroke="url(#goldLineGrad)" stroke-width="1.3" opacity="0.88"/>
-          <path d="M -8, 72 Q 42, 75 95, 70" fill="none" stroke="url(#goldLineGrad)" stroke-width="1.3" opacity="0.88"/>
-          <path d="M -8, 86 Q 36, 94 82, 105" fill="none" stroke="url(#goldLineGrad)" stroke-width="1.2" opacity="0.82"/>
+          <path class="leaf-veins" d="M -8, 15 Q 35, -5 88, -20" stroke-width="1.3" opacity="0.88"/>
+          <path class="leaf-veins" d="M -8, 72 Q 42, 75 95, 70" stroke-width="1.3" opacity="0.88"/>
+          <path class="leaf-veins" d="M -8, 86 Q 36, 94 82, 105" stroke-width="1.2" opacity="0.82"/>
         </g>
 
-        <!-- SIMBOL 3: RANTING DAUN PALEM SUDUT KIRI BAWAH (PERSIS MOCKUP TEMPLATE 9) -->
+        <!-- SIMBOL 3: RANTING DAUN PALEM SUDUT KIRI BAWAH -->
         <g id="emeraldBottomLeftBotanical">
-          <!-- Tangkai Lengkung Emas Utama -->
-          <path d="M -10, 150 Q 35, 105 85, 55" fill="none" stroke="url(#goldLineGrad)" stroke-width="1.8" stroke-linecap="round"/>
-          
-          <!-- Helai Daun Garis Emas Menyebar -->
-          <path d="M 2, 135 Q 12, 95 18, 40" fill="none" stroke="url(#goldLineGrad)" stroke-width="1.4" opacity="0.95"/>
-          <path d="M 14, 130 Q 26, 90 35, 30" fill="none" stroke="url(#goldLineGrad)" stroke-width="1.4" opacity="0.95"/>
-          <path d="M 25, 124 Q 42, 82 58, 22" fill="none" stroke="url(#goldLineGrad)" stroke-width="1.4" opacity="0.9"/>
-          <path d="M 36, 116 Q 58, 74 82, 14" fill="none" stroke="url(#goldLineGrad)" stroke-width="1.4" opacity="0.88"/>
-          <path d="M 48, 106 Q 75, 66 108, 16" fill="none" stroke="url(#goldLineGrad)" stroke-width="1.3" opacity="0.82"/>
-          <path d="M 60, 94 Q 92, 58 130, 24" fill="none" stroke="url(#goldLineGrad)" stroke-width="1.2" opacity="0.75"/>
-          <path d="M 72, 80 Q 106, 50 148, 32" fill="none" stroke="url(#goldLineGrad)" stroke-width="1.2" opacity="0.7"/>
-
-          <!-- Daun Palem Emerald Tropis Ramping 1 -->
-          <path d="M 8, 125 Q 14, 80 22, 32 Q 5, 75 8, 125 Z" fill="url(#emeraldLeafGrad)" stroke="url(#goldLineGrad)" stroke-width="0.9"/>
-          <path d="M 8, 125 Q 13, 78 22, 32" fill="none" stroke="#faebd0" stroke-width="0.8"/>
-
-          <!-- Daun Palem Emerald Tropis Ramping 2 -->
-          <path d="M 26, 115 Q 40, 70 65, 18 Q 28, 65 26, 115 Z" fill="url(#emeraldLeafGrad)" stroke="url(#goldLineGrad)" stroke-width="0.9"/>
-          <path d="M 26, 115 Q 38, 68 65, 18" fill="none" stroke="#faebd0" stroke-width="0.8"/>
-
-          <!-- Daun Palem Emerald Tropis Ramping 3 -->
-          <path d="M 46, 102 Q 70, 60 102, 12 Q 54, 54 46, 102 Z" fill="url(#emeraldLeafGrad)" stroke="url(#goldLineGrad)" stroke-width="0.9"/>
-          <path d="M 46, 102 Q 68, 58 102, 12" fill="none" stroke="#faebd0" stroke-width="0.8"/>
-
-          <!-- Daun Palem Emerald Tropis Ramping 4 -->
-          <path d="M 64, 86 Q 94, 52 136, 18 Q 78, 46 64, 86 Z" fill="url(#emeraldLeafGrad)" stroke="url(#goldLineGrad)" stroke-width="0.9"/>
-          <path d="M 64, 86 Q 92, 50 136, 18" fill="none" stroke="#faebd0" stroke-width="0.8"/>
+          <use href="#botanicalCornerLeaf" transform="scale(1, -1) rotate(5)"/>
         </g>
 
-        <!-- SIMBOL 4: DAUN PALEM SAMPING KANAN (MENYEMBUL DI SAMPING KANAN PERSIS MOCKUP) -->
+        <!-- SIMBOL 4: DAUN PALEM SAMPING KANAN -->
         <g id="emeraldSideRightBotanical">
-          <path d="M 108, 25 Q 65, 12 22, -2 Q 60, -5 108, 25 Z" fill="url(#emeraldLeafGrad)" stroke="url(#goldLineGrad)" stroke-width="0.9"/>
-          <path d="M 108, 25 Q 62, 11 22, -2" fill="none" stroke="#faebd0" stroke-width="0.8"/>
+          <path class="leaf-shape-1" d="M 108, 25 Q 65, 12 22, -2 Q 60, -5 108, 25 Z" stroke="url(#goldLineGrad)" stroke-width="0.9"/>
+          <path class="leaf-veins" d="M 108, 25 Q 62, 11 22, -2"/>
 
-          <path d="M 108, 42 Q 55, 34 6, 18 Q 52, 20 108, 42 Z" fill="url(#emeraldLeafGrad)" stroke="url(#goldLineGrad)" stroke-width="0.9"/>
-          <path d="M 108, 42 Q 52, 32 6, 18" fill="none" stroke="#faebd0" stroke-width="0.8"/>
+          <path class="leaf-shape-2" d="M 108, 42 Q 55, 34 6, 18 Q 52, 20 108, 42 Z" stroke="url(#goldLineGrad)" stroke-width="0.9"/>
+          <path class="leaf-veins" d="M 108, 42 Q 52, 32 6, 18"/>
 
-          <path d="M 108, 58 Q 60, 56 14, 46 Q 56, 42 108, 58 Z" fill="url(#emeraldLeafGrad)" stroke="url(#goldLineGrad)" stroke-width="0.9"/>
-          <path d="M 108, 58 Q 58, 54 14, 46" fill="none" stroke="#faebd0" stroke-width="0.8"/>
+          <path class="leaf-shape-3" d="M 108, 58 Q 60, 56 14, 46 Q 56, 42 108, 58 Z" stroke="url(#goldLineGrad)" stroke-width="0.9"/>
+          <path class="leaf-veins" d="M 108, 58 Q 58, 54 14, 46"/>
 
-          <path d="M 108, 15 Q 65, -5 12, -20" fill="none" stroke="url(#goldLineGrad)" stroke-width="1.3" opacity="0.88"/>
-          <path d="M 108, 72 Q 58, 75 5, 70" fill="none" stroke="url(#goldLineGrad)" stroke-width="1.3" opacity="0.88"/>
-          <path d="M 108, 86 Q 64, 94 18, 105" fill="none" stroke="url(#goldLineGrad)" stroke-width="1.2" opacity="0.82"/>
+          <path class="leaf-veins" d="M 108, 15 Q 65, -5 12, -20" stroke-width="1.3" opacity="0.88"/>
+          <path class="leaf-veins" d="M 108, 72 Q 58, 75 5, 70" stroke-width="1.3" opacity="0.88"/>
+          <path class="leaf-veins" d="M 108, 86 Q 64, 94 18, 105" stroke-width="1.2" opacity="0.82"/>
         </g>
       </defs>
     </svg>
 
-    <!-- ==================== SCREEN 1: COVER / WELCOME (EMERALD & GOLD ACCENT PERSIS MOCKUP) ==================== -->
-    <section class="screen-section" id="coverScreen" style="min-height: 100vh; background: #f9fbf9;">
+    <!-- ==================== SCREEN 1: COVER / WELCOME (BOTANICAL GREEN GOLD PERSIS MOCKUP) ==================== -->
+    <section class="screen-section" id="coverScreen" style="min-height: 100vh; background: var(--color-bg-cream);">
       
       <!-- Latar Cahaya Emerald Glow Lembut (2.5s) -->
       <div class="bg-aura-glow" style="top: 25%; left: 12%;"></div>
       
-      <!-- Ornamen Motif Dedaunan Tropis Palem Garis Emas Persis Mockup Layar Tengah -->
+      <!-- Ornamen Motif Dedaunan Tropis Botanical Green Gold (4 sudut & samping sesuai style.css) -->
       <div class="bg-ornament-layer">
-        <!-- Sudut Kanan Atas -->
-        <svg style="position: absolute; top: 0; right: 0; width: 145px; height: 145px; pointer-events: none;" viewBox="0 0 150 150">
-          <use href="#emeraldTopRightBotanical" />
+        <!-- Sudut Kiri Atas (leaf-top-left) -->
+        <svg class="leaf-motif leaf-top-left" viewBox="0 0 160 220">
+          <use href="#botanicalCornerLeaf" />
         </svg>
 
-        <!-- Samping Kiri (Di samping nama Milea persis mockup) -->
+        <!-- Sudut Kanan Atas (leaf-top-right) -->
+        <svg class="leaf-motif leaf-top-right" viewBox="0 0 160 220">
+          <use href="#botanicalCornerLeaf" />
+        </svg>
+
+        <!-- Samping Kiri (Di samping nama Milea) -->
         <svg style="position: absolute; top: 140px; left: 0; width: 110px; height: 125px; pointer-events: none;" viewBox="0 0 110 125">
           <use href="#emeraldSideLeftBotanical" />
         </svg>
@@ -1076,9 +1121,14 @@
           <use href="#emeraldSideRightBotanical" />
         </svg>
 
-        <!-- Sudut Kiri Bawah -->
-        <svg style="position: absolute; bottom: 0; left: 0; width: 145px; height: 145px; pointer-events: none;" viewBox="0 0 150 150">
-          <use href="#emeraldBottomLeftBotanical" />
+        <!-- Sudut Kiri Bawah (leaf-bottom-left) -->
+        <svg class="leaf-motif leaf-bottom-left" viewBox="0 0 160 220">
+          <use href="#botanicalCornerLeaf" />
+        </svg>
+
+        <!-- Sudut Kanan Bawah (leaf-bottom-right) -->
+        <svg class="leaf-motif leaf-bottom-right" viewBox="0 0 160 220">
+          <use href="#botanicalCornerLeaf" />
         </svg>
       </div>
 
@@ -1654,4 +1704,4 @@
     }
   </script>
 </body>
-  </html>
+      </html>
