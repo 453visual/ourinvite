@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="locked">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -38,6 +38,14 @@
       -webkit-tap-highlight-color: transparent;
     }
 
+    /* KUNCI SCROLL: Jika belum klik "Buka Undangan", halaman terkunci total */
+    html.locked, body.locked {
+      overflow: hidden !important;
+      height: 100vh !important;
+      position: fixed;
+      width: 100%;
+    }
+
     html, body {
       background-color: #120104;
       color: var(--text-cream);
@@ -74,6 +82,22 @@
       pointer-events: none;
       z-index: 5;
       border-radius: 12px;
+    }
+
+    /* ==========================================================================
+       ANIMASI SCROLL HALUS & ELEGAN (DURASI 2.5 DETIK)
+       ========================================================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px) scale(0.97);
+      transition: opacity 2.5s cubic-bezier(0.22, 1, 0.36, 1), 
+                  transform 2.5s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
     }
 
     /* ==========================================================================
@@ -293,7 +317,7 @@
     }
 
     /* ==========================================================================
-       COUPLE PROFILE SECTION (ARCH CARDS)
+       COUPLE PROFILE SECTION (ARCH CARDS PERSIS MOCKUP)
        ========================================================================== */
     .couple-card {
       position: relative;
@@ -352,7 +376,49 @@
     }
 
     /* ==========================================================================
-       SAVE THE DATE & COUNTDOWN
+       LOVE STORY SECTION (DI BAWAH PROFILE MEMPELAI & DI ATAS SAVE THE DATE)
+       ========================================================================== */
+    .story-card-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 340px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .story-item {
+      background: rgba(38, 3, 9, 0.75);
+      border: 1px solid rgba(216, 177, 82, 0.35);
+      border-radius: 12px;
+      padding: 22px 18px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+      text-align: center;
+      position: relative;
+    }
+
+    .story-title-date {
+      font-family: 'Cinzel', serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--text-gold);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      border-bottom: 1px dashed rgba(216, 177, 82, 0.4);
+      padding-bottom: 6px;
+      display: inline-block;
+    }
+
+    .story-text {
+      font-size: 11px;
+      line-height: 1.7;
+      color: #e6d8c3;
+    }
+
+    /* ==========================================================================
+       SAVE THE DATE & COUNTDOWN (PERSIS MOCKUP)
        ========================================================================== */
     .save-the-date-header {
       margin-bottom: 24px;
@@ -443,7 +509,7 @@
     }
 
     /* ==========================================================================
-       EVENT CARDS (AKAD & RESEPSI)
+       EVENT CARDS (AKAD & RESEPSI ARCH WINDOWS)
        ========================================================================== */
     .event-header-title {
       font-family: 'Cinzel', serif;
@@ -592,48 +658,6 @@
 
     .btn-maps:hover {
       transform: scale(1.04);
-    }
-
-    /* ==========================================================================
-       LOVE STORY SECTION (PERSIS SCREENSHOT SHOPEE)
-       ========================================================================== */
-    .story-card-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 340px;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .story-item {
-      background: rgba(38, 3, 9, 0.7);
-      border: 1px solid rgba(216, 177, 82, 0.35);
-      border-radius: 12px;
-      padding: 22px 18px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.5);
-      text-align: center;
-      position: relative;
-    }
-
-    .story-title-date {
-      font-family: 'Cinzel', serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      color: var(--text-gold);
-      text-transform: uppercase;
-      margin-bottom: 10px;
-      border-bottom: 1px dashed rgba(216, 177, 82, 0.4);
-      padding-bottom: 6px;
-      display: inline-block;
-    }
-
-    .story-text {
-      font-size: 11px;
-      line-height: 1.7;
-      color: #e6d8c3;
     }
 
     /* ==========================================================================
@@ -881,7 +905,7 @@
     }
   </style>
 </head>
-<body>
+<body class="locked">
 
   <!-- Hidden Audio Element for Background Music -->
   <audio id="weddingMusic" loop preload="auto">
@@ -893,7 +917,7 @@
     <i id="audioIcon" class="fas fa-music"></i>
   </div>
 
-  <!-- Mobile Frame Container -->
+  <!-- Mobile Frame Container (Plek Ketiplek Mockup) -->
   <div class="mobile-wrapper">
     <div class="gold-outer-border"></div>
 
@@ -970,18 +994,18 @@
         <p class="guest-salutation">Kepada Yth.<br>Bapak/Ibu/Saudara/i</p>
         <div class="guest-name-box" id="guestNameDisplay">Tamu Undangan</div>
         
-        <a href="#contentSection" class="btn-open-invitation" id="btnOpenInvitation">
+        <button class="btn-open-invitation" id="btnOpenInvitation">
           <i class="fas fa-envelope-open-text"></i>
           <span>Buka Undangan</span>
-        </a>
+        </button>
       </div>
     </section>
 
-    <!-- ==================== MAIN CONTENT SECTION ==================== -->
-    <div id="contentSection">
+    <!-- ==================== MAIN CONTENT SECTION (DIBUKA SETELAH KLIK) ==================== -->
+    <div id="contentSection" style="display: none;">
       
       <!-- SCREEN 2: AYAT SUCI (QS. AR-RUM: 21) -->
-      <section class="screen-section" style="padding-top: 60px;">
+      <section class="screen-section reveal" style="padding-top: 60px;">
         <svg class="mandala-side-left" viewBox="0 0 100 200">
           <path fill="none" stroke="url(#goldGrad1)" stroke-width="1" d="M0,20 C50,40 80,70 80,100 C80,130 50,160 0,180"/>
           <circle cx="0" cy="100" r="50" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
@@ -1001,7 +1025,7 @@
       </section>
 
       <!-- SCREEN 3: MEMPELAI (MILEA DEWI & DILAN SAPUTRA) -->
-      <section class="screen-section">
+      <section class="screen-section reveal">
         <!-- Mempelai Wanita -->
         <div class="couple-card">
           <svg class="couple-ornament-icon" viewBox="0 0 60 60">
@@ -1047,8 +1071,40 @@
         </div>
       </section>
 
-      <!-- SCREEN 4: SAVE THE DATE & COUNTDOWN -->
-      <section class="screen-section">
+      <!-- ==================== SCREEN 4: LOVE STORY (TEPAT DI ATAS SAVE THE DATE) ==================== -->
+      <section class="screen-section reveal">
+        <h2 class="event-header-title">LOVE STORY</h2>
+        <p class="event-header-subtitle">Kisah Cinta Kami</p>
+
+        <div class="story-card-wrapper">
+          <!-- Story 1 -->
+          <div class="story-item">
+            <div class="story-title-date">PERKENALAN — 10 MARET 2021</div>
+            <p class="story-text">
+              Awal perkenalan kami berdua berawal dari Ospek jurusan di kampus, kemudian mulai berkenalan lewat daring di salah satu sosial media. Dilan merupakan kakak tingkat yang menjadi panitia Ospek tersebut. Seiring berjalannya waktu kami pun semakin dekat.
+            </p>
+          </div>
+
+          <!-- Story 2 -->
+          <div class="story-item">
+            <div class="story-title-date">AWAL BERTEMU — 17 APRIL 2021</div>
+            <p class="story-text">
+              Awal pertemuan kami di salah satu acara angkatan Milea dan mengundang kakak tingkat, salah satunya angkatan Dilan. Momen pertama bertatap muka langsung yang menumbuhkan rasa saling mengasihi.
+            </p>
+          </div>
+
+          <!-- Story 3 -->
+          <div class="story-item">
+            <div class="story-title-date">LAMARAN — 3 JANUARI 2024</div>
+            <p class="story-text">
+              Setelah menjalin hubungan lebih dari hampir 3 tahun, akhirnya kami memutuskan untuk melanjutkan ke jenjang yang lebih serius dengan ikatan pertunangan dan restu dari kedua keluarga tercinta.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SCREEN 5: SAVE THE DATE & COUNTDOWN ==================== -->
+      <section class="screen-section reveal">
         <svg class="mandala-corner mandala-top-left" viewBox="0 0 200 200">
           <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
           <circle cx="0" cy="0" r="90" fill="none" stroke="url(#goldGrad1)" stroke-width="1"/>
@@ -1096,8 +1152,8 @@
         </div>
       </section>
 
-      <!-- SCREEN 5: ACARA (AKAD & RESEPSI) -->
-      <section class="screen-section">
+      <!-- ==================== SCREEN 6: ACARA (AKAD & RESEPSI) ==================== -->
+      <section class="screen-section reveal">
         <h2 class="event-header-title">WEDDING</h2>
         <p class="event-header-subtitle">Event</p>
 
@@ -1166,40 +1222,8 @@
         </div>
       </section>
 
-      <!-- ==================== SCREEN 6: LOVE STORY (PERSIS SCREENSHOT) ==================== -->
-      <section class="screen-section">
-        <h2 class="event-header-title">LOVE STORY</h2>
-        <p class="event-header-subtitle">Kisah Cinta Kami</p>
-
-        <div class="story-card-wrapper">
-          <!-- Story 1 -->
-          <div class="story-item">
-            <div class="story-title-date">PERKENALAN — 10 MARET 2021</div>
-            <p class="story-text">
-              Awal perkenalan kami berdua berawal dari Ospek jurusan di kampus, kemudian mulai berkenalan lewat daring di salah satu sosial media. Dilan merupakan kakak tingkat yang menjadi panitia Ospek tersebut. Seiring berjalannya waktu kami pun semakin dekat.
-            </p>
-          </div>
-
-          <!-- Story 2 -->
-          <div class="story-item">
-            <div class="story-title-date">AWAL BERTEMU — 17 APRIL 2021</div>
-            <p class="story-text">
-              Awal pertemuan kami di salah satu acara angkatan Milea dan mengundang kakak tingkat, salah satunya angkatan Dilan. Momen pertama bertatap muka langsung yang menumbuhkan rasa saling mengasihi.
-            </p>
-          </div>
-
-          <!-- Story 3 -->
-          <div class="story-item">
-            <div class="story-title-date">LAMARAN — 3 JANUARI 2024</div>
-            <p class="story-text">
-              Setelah menjalin hubungan lebih dari hampir 3 tahun, akhirnya kami memutuskan untuk melanjutkan ke jenjang yang lebih serius dengan ikatan pertunangan dan restu dari kedua keluarga tercinta.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==================== SCREEN 7: WEDDING GIFT (2 AMPLOP + 1 KADO) ==================== -->
-      <section class="screen-section">
+      <!-- ==================== SCREEN 7: WEDDING GIFT ==================== -->
+      <section class="screen-section reveal">
         <h2 class="event-header-title">WEDDING GIFT</h2>
         <p class="event-header-subtitle">Tanda Kasih & Amplop Digital</p>
         <p style="font-size: 11px; color: #eeddb0; max-width: 320px; margin-bottom: 24px; line-height: 1.6; z-index: 2;">
@@ -1246,7 +1270,7 @@
       </section>
 
       <!-- ==================== SCREEN 8: RSVP & KOLOM UCAPAN ==================== -->
-      <section class="screen-section">
+      <section class="screen-section reveal">
         <h2 class="event-header-title">RSVP & UCAPAN</h2>
         <p class="event-header-subtitle">Konfirmasi Kehadiran & Doa Restu</p>
 
@@ -1335,6 +1359,7 @@
       const audioToggle = document.getElementById('audioToggle');
       const audioIcon = document.getElementById('audioIcon');
       const btnOpen = document.getElementById('btnOpenInvitation');
+      const contentSection = document.getElementById('contentSection');
 
       let isPlaying = false;
 
@@ -1355,8 +1380,17 @@
         }
       }
 
+      // FITUR 1: Buka Undangan Membuka Scroll Kunci, Memulai Musik & Scroll Lembut
       if (btnOpen) {
         btnOpen.addEventListener('click', () => {
+          // Buka kunci scroll pada html dan body
+          document.documentElement.classList.remove('locked');
+          document.body.classList.remove('locked');
+
+          // Tampilkan bagian konten utama
+          contentSection.style.display = 'block';
+
+          // Putar musik otomatis
           if (!isPlaying) {
             weddingMusic.play().then(() => {
               isPlaying = true;
@@ -1366,6 +1400,12 @@
               console.log('Autoplay audio caught:', err);
             });
           }
+
+          // Trigger pengecekan animasi reveal setelah render
+          setTimeout(() => {
+            handleScrollAnimation();
+            contentSection.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
         });
       }
 
@@ -1373,7 +1413,27 @@
         audioToggle.addEventListener('click', toggleAudio);
       }
 
-      // 3. Live Countdown Timer ke 26 Desember 2026 08:00 WIB
+      // FITUR 3: Animasi Scrolling 2.5s saat scroll ke atas dan ke bawah
+      function handleScrollAnimation() {
+        const reveals = document.querySelectorAll('.reveal');
+        const triggerBottom = window.innerHeight * 0.88;
+        const triggerTop = window.innerHeight * 0.05;
+
+        reveals.forEach(element => {
+          const rect = element.getBoundingClientRect();
+          // Jika elemen berada dalam viewport
+          if (rect.top < triggerBottom && rect.bottom > triggerTop) {
+            element.classList.add('active');
+          } else {
+            // Hilang perlahan saat discroll menjauh sehingga beranimasi kembali
+            element.classList.remove('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', handleScrollAnimation, { passive: true });
+
+      // 4. Live Countdown Timer ke 26 Desember 2026 08:00 WIB
       const targetDate = new Date('2026-12-26T08:00:00+07:00').getTime();
 
       function updateCountdown() {
@@ -1409,7 +1469,7 @@
       updateCountdown();
       setInterval(updateCountdown, 1000);
 
-      // 4. RSVP Form Submission Handler
+      // 5. RSVP Form Submission Handler
       const rsvpForm = document.getElementById('rsvpForm');
       const wishesList = document.getElementById('wishesList');
 
@@ -1457,4 +1517,4 @@
     }
   </script>
 </body>
-            </html>
+  </html>
