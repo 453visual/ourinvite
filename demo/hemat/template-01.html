@@ -85,17 +85,75 @@
     }
 
     /* ==========================================================================
-       ANIMASI SCROLL HALUS & ELEGAN (DURASI 2.5 DETIK)
+       ANIMASI LATAR BELAKANG BERGERAK & MUNCUL PERLAHAN (DURASI 2.5S)
+       ========================================================================== */
+    .bg-aura-glow {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(168, 25, 45, 0.38) 0%, rgba(80, 8, 19, 0.15) 50%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0;
+      transform: scale(0.65) translateY(30px);
+      transition: opacity 2.5s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 2.5s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+
+    .bg-aura-glow.active {
+      opacity: 1;
+      transform: scale(1.15) translateY(0);
+    }
+
+    /* Latar Belakang Garis & Ornamen Mandala Bergerak Dinamis 2.5s */
+    .bg-ornament-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0;
+      transform: scale(0.85) rotate(-4deg);
+      transition: opacity 2.5s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 2.5s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+
+    .bg-ornament-layer.active {
+      opacity: 0.85;
+      transform: scale(1) rotate(0deg);
+    }
+
+    /* ==========================================================================
+       ANIMASI SCROLL HALUS & ELEGAN (DURASI 2.5 DETIK - MUNCUL & BERGERAK)
        ========================================================================== */
     .reveal {
       opacity: 0;
-      transform: translateY(40px) scale(0.97);
+      transform: translateY(45px) scale(0.96);
       transition: opacity 2.5s cubic-bezier(0.22, 1, 0.36, 1), 
                   transform 2.5s cubic-bezier(0.22, 1, 0.36, 1);
       will-change: opacity, transform;
     }
 
     .reveal.active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Khusus Elemen Cover Awal (Animasi 2.5 Detik Masuk Saat Pertama Dibuka) */
+    .reveal-initial {
+      opacity: 0;
+      transform: translateY(35px) scale(0.95);
+      transition: opacity 2.5s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 2.5s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal-initial.active {
       opacity: 1;
       transform: translateY(0) scale(1);
     }
@@ -921,76 +979,85 @@
   <div class="mobile-wrapper">
     <div class="gold-outer-border"></div>
 
-    <!-- ==================== SCREEN 1: COVER / WELCOME ==================== -->
+    <!-- ==================== SCREEN 1: COVER / WELCOME (ANIMASI AWAL 2.5S) ==================== -->
     <section class="screen-section" id="coverScreen" style="min-height: 100vh;">
-      <svg class="mandala-corner mandala-top-left" viewBox="0 0 200 200">
-        <defs>
-          <linearGradient id="goldGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#fff0b3"/>
-            <stop offset="50%" stop-color="#d8b152"/>
-            <stop offset="100%" stop-color="#9a7122"/>
-          </linearGradient>
-        </defs>
-        <path fill="none" stroke="url(#goldGrad1)" stroke-width="1.2" d="M0,0 C60,10 100,50 110,110 C120,170 170,200 200,200"/>
-        <path fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" d="M0,40 C50,45 85,80 90,130 C95,175 140,200 160,200"/>
-        <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
-        <circle cx="0" cy="0" r="70" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
-        <circle cx="0" cy="0" r="100" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
-        <circle cx="0" cy="0" r="140" fill="none" stroke="url(#goldGrad1)" stroke-width="0.7"/>
-        <circle cx="0" cy="0" r="170" fill="none" stroke="url(#goldGrad1)" stroke-width="1" stroke-dasharray="4,4"/>
-        <g stroke="url(#goldGrad1)" stroke-width="0.9" fill="none">
-          <path d="M0,0 Q60,20 80,80 Q20,60 0,0"/>
-          <path d="M0,0 Q80,10 120,50 Q60,60 0,0"/>
-          <path d="M0,0 Q10,80 50,120 Q60,60 0,0"/>
-          <circle cx="70" cy="70" r="8"/>
-          <circle cx="110" cy="40" r="6"/>
-          <circle cx="40" cy="110" r="6"/>
-        </g>
-      </svg>
+      
+      <!-- Latar Belakang Bergerak & Bersinar Lembut (2.5s) -->
+      <div class="bg-aura-glow" style="top: 20%; left: 15%;"></div>
+      
+      <!-- Latar Ornamen Sudut Mandala dengan Transisi Halus 2.5s -->
+      <div class="bg-ornament-layer">
+        <svg class="mandala-corner mandala-top-left" viewBox="0 0 200 200">
+          <defs>
+            <linearGradient id="goldGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#fff0b3"/>
+              <stop offset="50%" stop-color="#d8b152"/>
+              <stop offset="100%" stop-color="#9a7122"/>
+            </linearGradient>
+          </defs>
+          <path fill="none" stroke="url(#goldGrad1)" stroke-width="1.2" d="M0,0 C60,10 100,50 110,110 C120,170 170,200 200,200"/>
+          <path fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" d="M0,40 C50,45 85,80 90,130 C95,175 140,200 160,200"/>
+          <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
+          <circle cx="0" cy="0" r="70" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
+          <circle cx="0" cy="0" r="100" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
+          <circle cx="0" cy="0" r="140" fill="none" stroke="url(#goldGrad1)" stroke-width="0.7"/>
+          <circle cx="0" cy="0" r="170" fill="none" stroke="url(#goldGrad1)" stroke-width="1" stroke-dasharray="4,4"/>
+          <g stroke="url(#goldGrad1)" stroke-width="0.9" fill="none">
+            <path d="M0,0 Q60,20 80,80 Q20,60 0,0"/>
+            <path d="M0,0 Q80,10 120,50 Q60,60 0,0"/>
+            <path d="M0,0 Q10,80 50,120 Q60,60 0,0"/>
+            <circle cx="70" cy="70" r="8"/>
+            <circle cx="110" cy="40" r="6"/>
+            <circle cx="40" cy="110" r="6"/>
+          </g>
+        </svg>
 
-      <svg class="mandala-corner mandala-top-right" viewBox="0 0 200 200">
-        <path fill="none" stroke="url(#goldGrad1)" stroke-width="1.2" d="M0,0 C60,10 100,50 110,110 C120,170 170,200 200,200"/>
-        <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
-        <circle cx="0" cy="0" r="70" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
-        <circle cx="0" cy="0" r="100" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
-      </svg>
+        <svg class="mandala-corner mandala-top-right" viewBox="0 0 200 200">
+          <path fill="none" stroke="url(#goldGrad1)" stroke-width="1.2" d="M0,0 C60,10 100,50 110,110 C120,170 170,200 200,200"/>
+          <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
+          <circle cx="0" cy="0" r="70" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
+          <circle cx="0" cy="0" r="100" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
+        </svg>
 
-      <svg class="mandala-corner mandala-bottom-left" viewBox="0 0 200 200">
-        <path fill="none" stroke="url(#goldGrad1)" stroke-width="1.2" d="M0,0 C60,10 100,50 110,110 C120,170 170,200 200,200"/>
-        <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
-        <circle cx="0" cy="0" r="70" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
-        <circle cx="0" cy="0" r="100" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
-      </svg>
+        <svg class="mandala-corner mandala-bottom-left" viewBox="0 0 200 200">
+          <path fill="none" stroke="url(#goldGrad1)" stroke-width="1.2" d="M0,0 C60,10 100,50 110,110 C120,170 170,200 200,200"/>
+          <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
+          <circle cx="0" cy="0" r="70" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
+          <circle cx="0" cy="0" r="100" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
+        </svg>
 
-      <svg class="mandala-corner mandala-bottom-right" viewBox="0 0 200 200">
-        <path fill="none" stroke="url(#goldGrad1)" stroke-width="1.2" d="M0,0 C60,10 100,50 110,110 C120,170 170,200 200,200"/>
-        <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
-        <circle cx="0" cy="0" r="70" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
-        <circle cx="0" cy="0" r="100" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
-      </svg>
+        <svg class="mandala-corner mandala-bottom-right" viewBox="0 0 200 200">
+          <path fill="none" stroke="url(#goldGrad1)" stroke-width="1.2" d="M0,0 C60,10 100,50 110,110 C120,170 170,200 200,200"/>
+          <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
+          <circle cx="0" cy="0" r="70" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
+          <circle cx="0" cy="100" r="100" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
+        </svg>
+      </div>
 
-      <!-- Interlocking Wedding Rings Monogram -->
-      <svg class="interlocking-rings" viewBox="0 0 100 70">
-        <defs>
-          <linearGradient id="ringGold" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#fff2be"/>
-            <stop offset="50%" stop-color="#d8af4b"/>
-            <stop offset="100%" stop-color="#8a5f15"/>
-          </linearGradient>
-        </defs>
-        <circle cx="40" cy="35" r="24" fill="none" stroke="url(#ringGold)" stroke-width="4.5"/>
-        <circle cx="60" cy="35" r="24" fill="none" stroke="url(#ringGold)" stroke-width="4.5"/>
-      </svg>
+      <!-- Interlocking Wedding Rings Monogram (Animasi Muncul Awal 2.5s) -->
+      <div class="reveal-initial">
+        <svg class="interlocking-rings" viewBox="0 0 100 70">
+          <defs>
+            <linearGradient id="ringGold" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#fff2be"/>
+              <stop offset="50%" stop-color="#d8af4b"/>
+              <stop offset="100%" stop-color="#8a5f15"/>
+            </linearGradient>
+          </defs>
+          <circle cx="40" cy="35" r="24" fill="none" stroke="url(#ringGold)" stroke-width="4.5"/>
+          <circle cx="60" cy="35" r="24" fill="none" stroke="url(#ringGold)" stroke-width="4.5"/>
+        </svg>
+      </div>
 
-      <p class="title-the-wedding">THE WEDDING OF</p>
+      <p class="title-the-wedding reveal-initial">THE WEDDING OF</p>
 
-      <div class="names-script">
+      <div class="names-script reveal-initial">
         <span>Milea</span>
         <span class="ampersand-luxury">&</span>
         <span>Dilan</span>
       </div>
 
-      <div class="guest-card-container">
+      <div class="guest-card-container reveal-initial">
         <p class="guest-salutation">Kepada Yth.<br>Bapak/Ibu/Saudara/i</p>
         <div class="guest-name-box" id="guestNameDisplay">Tamu Undangan</div>
         
@@ -1005,19 +1072,23 @@
     <div id="contentSection" style="display: none;">
       
       <!-- SCREEN 2: AYAT SUCI (QS. AR-RUM: 21) -->
-      <section class="screen-section reveal" style="padding-top: 60px;">
-        <svg class="mandala-side-left" viewBox="0 0 100 200">
-          <path fill="none" stroke="url(#goldGrad1)" stroke-width="1" d="M0,20 C50,40 80,70 80,100 C80,130 50,160 0,180"/>
-          <circle cx="0" cy="100" r="50" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
-          <circle cx="0" cy="100" r="75" fill="none" stroke="url(#goldGrad1)" stroke-width="1"/>
-        </svg>
-        <svg class="mandala-side-right" viewBox="0 0 100 200">
-          <path fill="none" stroke="url(#goldGrad1)" stroke-width="1" d="M0,20 C50,40 80,70 80,100 C80,130 50,160 0,180"/>
-          <circle cx="0" cy="100" r="50" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
-          <circle cx="0" cy="100" r="75" fill="none" stroke="url(#goldGrad1)" stroke-width="1"/>
-        </svg>
+      <section class="screen-section">
+        <!-- Latar Belakang Aura Bergerak & Ornamen Mengikuti Scroll 2.5s -->
+        <div class="bg-aura-glow" style="top: 15%; right: 10%;"></div>
+        <div class="bg-ornament-layer">
+          <svg class="mandala-side-left" viewBox="0 0 100 200">
+            <path fill="none" stroke="url(#goldGrad1)" stroke-width="1" d="M0,20 C50,40 80,70 80,100 C80,130 50,160 0,180"/>
+            <circle cx="0" cy="100" r="50" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
+            <circle cx="0" cy="100" r="75" fill="none" stroke="url(#goldGrad1)" stroke-width="1"/>
+          </svg>
+          <svg class="mandala-side-right" viewBox="0 0 100 200">
+            <path fill="none" stroke="url(#goldGrad1)" stroke-width="1" d="M0,20 C50,40 80,70 80,100 C80,130 50,160 0,180"/>
+            <circle cx="0" cy="100" r="50" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
+            <circle cx="0" cy="100" r="75" fill="none" stroke="url(#goldGrad1)" stroke-width="1"/>
+          </svg>
+        </div>
 
-        <div class="verse-container">
+        <div class="verse-container reveal">
           <p class="verse-arabic">وَمِنْ ءَايَٰتِهِۦٓ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَٰجًا لِّتَسْكُنُوٓا۟ إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</p>
           <p class="verse-translation">"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."</p>
           <p class="verse-surah">(QS. Ar-Rum: 21)</p>
@@ -1025,9 +1096,11 @@
       </section>
 
       <!-- SCREEN 3: MEMPELAI (MILEA DEWI & DILAN SAPUTRA) -->
-      <section class="screen-section reveal">
+      <section class="screen-section">
+        <div class="bg-aura-glow" style="top: 35%; left: 8%;"></div>
+
         <!-- Mempelai Wanita -->
-        <div class="couple-card">
+        <div class="couple-card reveal">
           <svg class="couple-ornament-icon" viewBox="0 0 60 60">
             <circle cx="26" cy="30" r="16" fill="none" stroke="url(#goldGrad1)" stroke-width="2.5"/>
             <circle cx="36" cy="30" r="16" fill="none" stroke="url(#goldGrad1)" stroke-width="2.5"/>
@@ -1047,10 +1120,10 @@
           </p>
         </div>
 
-        <span class="ampersand-luxury" style="font-size: 48px; margin: 10px 0;">&</span>
+        <span class="ampersand-luxury reveal" style="font-size: 48px; margin: 10px 0;">&</span>
 
         <!-- Mempelai Pria -->
-        <div class="couple-card" style="margin-top: 10px;">
+        <div class="couple-card reveal" style="margin-top: 10px;">
           <svg class="couple-ornament-icon" viewBox="0 0 60 60">
             <circle cx="26" cy="30" r="16" fill="none" stroke="url(#goldGrad1)" stroke-width="2.5"/>
             <circle cx="36" cy="30" r="16" fill="none" stroke="url(#goldGrad1)" stroke-width="2.5"/>
@@ -1072,13 +1145,15 @@
       </section>
 
       <!-- ==================== SCREEN 4: LOVE STORY (TEPAT DI ATAS SAVE THE DATE) ==================== -->
-      <section class="screen-section reveal">
-        <h2 class="event-header-title">LOVE STORY</h2>
-        <p class="event-header-subtitle">Kisah Cinta Kami</p>
+      <section class="screen-section">
+        <div class="bg-aura-glow" style="top: 25%; right: 10%;"></div>
+
+        <h2 class="event-header-title reveal">LOVE STORY</h2>
+        <p class="event-header-subtitle reveal">Kisah Cinta Kami</p>
 
         <div class="story-card-wrapper">
           <!-- Story 1 -->
-          <div class="story-item">
+          <div class="story-item reveal">
             <div class="story-title-date">PERKENALAN — 10 MARET 2021</div>
             <p class="story-text">
               Awal perkenalan kami berdua berawal dari Ospek jurusan di kampus, kemudian mulai berkenalan lewat daring di salah satu sosial media. Dilan merupakan kakak tingkat yang menjadi panitia Ospek tersebut. Seiring berjalannya waktu kami pun semakin dekat.
@@ -1086,7 +1161,7 @@
           </div>
 
           <!-- Story 2 -->
-          <div class="story-item">
+          <div class="story-item reveal">
             <div class="story-title-date">AWAL BERTEMU — 17 APRIL 2021</div>
             <p class="story-text">
               Awal pertemuan kami di salah satu acara angkatan Milea dan mengundang kakak tingkat, salah satunya angkatan Dilan. Momen pertama bertatap muka langsung yang menumbuhkan rasa saling mengasihi.
@@ -1094,7 +1169,7 @@
           </div>
 
           <!-- Story 3 -->
-          <div class="story-item">
+          <div class="story-item reveal">
             <div class="story-title-date">LAMARAN — 3 JANUARI 2024</div>
             <p class="story-text">
               Setelah menjalin hubungan lebih dari hampir 3 tahun, akhirnya kami memutuskan untuk melanjutkan ke jenjang yang lebih serius dengan ikatan pertunangan dan restu dari kedua keluarga tercinta.
@@ -1104,18 +1179,20 @@
       </section>
 
       <!-- ==================== SCREEN 5: SAVE THE DATE & COUNTDOWN ==================== -->
-      <section class="screen-section reveal">
-        <svg class="mandala-corner mandala-top-left" viewBox="0 0 200 200">
-          <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
-          <circle cx="0" cy="0" r="90" fill="none" stroke="url(#goldGrad1)" stroke-width="1"/>
-        </svg>
+      <section class="screen-section">
+        <div class="bg-aura-glow" style="top: 20%; left: 15%;"></div>
+        <div class="bg-ornament-layer">
+          <svg class="mandala-corner mandala-top-left" viewBox="0 0 200 200">
+            <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
+            <circle cx="0" cy="0" r="90" fill="none" stroke="url(#goldGrad1)" stroke-width="1"/>
+          </svg>
+          <svg class="mandala-corner mandala-bottom-right" viewBox="0 0 200 200">
+            <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
+            <circle cx="0" cy="0" r="90" fill="none" stroke="url(#goldGrad1)" stroke-width="1"/>
+          </svg>
+        </div>
 
-        <svg class="mandala-corner mandala-bottom-right" viewBox="0 0 200 200">
-          <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
-          <circle cx="0" cy="0" r="90" fill="none" stroke="url(#goldGrad1)" stroke-width="1"/>
-        </svg>
-
-        <div class="save-the-date-header">
+        <div class="save-the-date-header reveal">
           <div class="names-script" style="font-size: 42px;">
             <span>Milea</span>
             <span class="ampersand-luxury" style="font-size: 26px;">&</span>
@@ -1123,16 +1200,16 @@
           </div>
         </div>
 
-        <div class="std-date-badge">
+        <div class="std-date-badge reveal">
           <span class="std-month">DESEMBER</span>
           <div class="std-day-number">26</div>
           <span class="std-year">2026</span>
         </div>
 
-        <p class="std-label">SAVE THE DATE</p>
+        <p class="std-label reveal">SAVE THE DATE</p>
 
         <!-- Live Countdown Grid -->
-        <div class="countdown-grid">
+        <div class="countdown-grid reveal">
           <div class="countdown-box">
             <span class="number" id="countDays">349</span>
             <span class="label">Days</span>
@@ -1153,12 +1230,14 @@
       </section>
 
       <!-- ==================== SCREEN 6: ACARA (AKAD & RESEPSI) ==================== -->
-      <section class="screen-section reveal">
-        <h2 class="event-header-title">WEDDING</h2>
-        <p class="event-header-subtitle">Event</p>
+      <section class="screen-section">
+        <div class="bg-aura-glow" style="top: 30%; right: 15%;"></div>
+
+        <h2 class="event-header-title reveal">WEDDING</h2>
+        <p class="event-header-subtitle reveal">Event</p>
 
         <!-- KARTU 1: AKAD -->
-        <div class="arch-card">
+        <div class="arch-card reveal">
           <h3 class="arch-card-title">Akad</h3>
           <div class="arch-card-dots">• • • • • • • • • • • • • •</div>
 
@@ -1190,7 +1269,7 @@
         </div>
 
         <!-- KARTU 2: RESEPSI -->
-        <div class="arch-card">
+        <div class="arch-card reveal">
           <h3 class="arch-card-title">Resepsi</h3>
           <div class="arch-card-dots">• • • • • • • • • • • • • •</div>
 
@@ -1223,15 +1302,17 @@
       </section>
 
       <!-- ==================== SCREEN 7: WEDDING GIFT ==================== -->
-      <section class="screen-section reveal">
-        <h2 class="event-header-title">WEDDING GIFT</h2>
-        <p class="event-header-subtitle">Tanda Kasih & Amplop Digital</p>
-        <p style="font-size: 11px; color: #eeddb0; max-width: 320px; margin-bottom: 24px; line-height: 1.6; z-index: 2;">
+      <section class="screen-section">
+        <div class="bg-aura-glow" style="top: 25%; left: 10%;"></div>
+
+        <h2 class="event-header-title reveal">WEDDING GIFT</h2>
+        <p class="event-header-subtitle reveal">Tanda Kasih & Amplop Digital</p>
+        <p class="reveal" style="font-size: 11px; color: #eeddb0; max-width: 320px; margin-bottom: 24px; line-height: 1.6; z-index: 2;">
           Doa restu Anda merupakan karunia terindah bagi kami. Namun jika ingin memberikan tanda kasih secara cashless, dapat melalui rekening berikut:
         </p>
 
         <!-- Amplop Digital 1: BCA -->
-        <div class="gift-card">
+        <div class="gift-card reveal">
           <p class="bank-logo-text">BANK BCA</p>
           <p class="acc-number" id="accBCA">5420981234</p>
           <p class="acc-holder">a.n Dilan Saputra</p>
@@ -1242,7 +1323,7 @@
         </div>
 
         <!-- Amplop Digital 2: MANDIRI -->
-        <div class="gift-card">
+        <div class="gift-card reveal">
           <p class="bank-logo-text">BANK MANDIRI</p>
           <p class="acc-number" id="accMandiri">1370019283741</p>
           <p class="acc-holder">a.n Milea Dewi</p>
@@ -1253,7 +1334,7 @@
         </div>
 
         <!-- 1 Alamat Kado Fisik -->
-        <div class="gift-card">
+        <div class="gift-card reveal">
           <div style="color: var(--gold-primary); font-size: 20px; margin-bottom: 8px;">
             <i class="fas fa-gift"></i>
           </div>
@@ -1270,12 +1351,14 @@
       </section>
 
       <!-- ==================== SCREEN 8: RSVP & KOLOM UCAPAN ==================== -->
-      <section class="screen-section reveal">
-        <h2 class="event-header-title">RSVP & UCAPAN</h2>
-        <p class="event-header-subtitle">Konfirmasi Kehadiran & Doa Restu</p>
+      <section class="screen-section">
+        <div class="bg-aura-glow" style="top: 20%; right: 10%;"></div>
+
+        <h2 class="event-header-title reveal">RSVP & UCAPAN</h2>
+        <p class="event-header-subtitle reveal">Konfirmasi Kehadiran & Doa Restu</p>
 
         <!-- Form RSVP & Ucapan -->
-        <div class="form-box">
+        <div class="form-box reveal">
           <form id="rsvpForm">
             <div class="form-group">
               <label for="rsvpName">Nama Lengkap</label>
@@ -1312,7 +1395,7 @@
         </div>
 
         <!-- Daftar Ucapan Masuk -->
-        <div class="wishes-container" id="wishesList">
+        <div class="wishes-container reveal" id="wishesList">
           <div class="wish-item">
             <div class="wish-header">
               <span class="wish-author">Fikri & Keluarga</span>
@@ -1330,8 +1413,8 @@
           </div>
         </div>
 
-        <p class="footer-text">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</p>
-        <p class="footer-text" style="margin-top: 10px; font-weight: 600; color: var(--text-gold);">Milea & Dilan</p>
+        <p class="footer-text reveal">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</p>
+        <p class="footer-text reveal" style="margin-top: 10px; font-weight: 600; color: var(--text-gold);">Milea & Dilan</p>
       </section>
 
     </div>
@@ -1353,6 +1436,22 @@
         guestDisplay.textContent = decodedName;
         if (rsvpNameInput) rsvpNameInput.value = decodedName;
       }
+
+      // FITUR PERBAIKAN 1: Animasi 2.5s saat pertama kali dibuka di Halaman Awal (Cover)
+      // Latar belakang dan elemen teks/cincin muncul perlahan selama 2.5 detik
+      setTimeout(() => {
+        const initialReveals = document.querySelectorAll('.reveal-initial');
+        initialReveals.forEach((el, index) => {
+          setTimeout(() => {
+            el.classList.add('active');
+          }, index * 120);
+        });
+
+        const coverAura = document.querySelector('#coverScreen .bg-aura-glow');
+        const coverOrnament = document.querySelector('#coverScreen .bg-ornament-layer');
+        if (coverAura) coverAura.classList.add('active');
+        if (coverOrnament) coverOrnament.classList.add('active');
+      }, 150);
 
       // 2. Audio Background Music Controller
       const weddingMusic = document.getElementById('weddingMusic');
@@ -1380,17 +1479,17 @@
         }
       }
 
-      // FITUR 1: Buka Undangan Membuka Scroll Kunci, Memulai Musik & Scroll Lembut
+      // Kunci Scroll Awal Dilepas Saat Klik "Buka Undangan"
       if (btnOpen) {
         btnOpen.addEventListener('click', () => {
-          // Buka kunci scroll pada html dan body
+          // Buka kunci scroll
           document.documentElement.classList.remove('locked');
           document.body.classList.remove('locked');
 
-          // Tampilkan bagian konten utama
+          // Tampilkan konten utama
           contentSection.style.display = 'block';
 
-          // Putar musik otomatis
+          // Mainkan musik
           if (!isPlaying) {
             weddingMusic.play().then(() => {
               isPlaying = true;
@@ -1401,7 +1500,7 @@
             });
           }
 
-          // Trigger pengecekan animasi reveal setelah render
+          // Trigger animasi scroll & gerak 2.5s ke halaman berikutnya
           setTimeout(() => {
             handleScrollAnimation();
             contentSection.scrollIntoView({ behavior: 'smooth' });
@@ -1413,20 +1512,43 @@
         audioToggle.addEventListener('click', toggleAudio);
       }
 
-      // FITUR 3: Animasi Scrolling 2.5s saat scroll ke atas dan ke bawah
+      // FITUR PERBAIKAN 2: Animasi Scrolling 2.5s (Konten & Latar Belakang Ikut Bergerak & Muncul)
+      // Berlaku dua arah: saat scroll ke bawah maupun ke atas
       function handleScrollAnimation() {
         const reveals = document.querySelectorAll('.reveal');
-        const triggerBottom = window.innerHeight * 0.88;
+        const bgAuras = document.querySelectorAll('.bg-aura-glow');
+        const bgOrnaments = document.querySelectorAll('.bg-ornament-layer');
+
+        const triggerBottom = window.innerHeight * 0.90;
         const triggerTop = window.innerHeight * 0.05;
 
+        // Konten utama
         reveals.forEach(element => {
           const rect = element.getBoundingClientRect();
-          // Jika elemen berada dalam viewport
           if (rect.top < triggerBottom && rect.bottom > triggerTop) {
             element.classList.add('active');
           } else {
-            // Hilang perlahan saat discroll menjauh sehingga beranimasi kembali
             element.classList.remove('active');
+          }
+        });
+
+        // Latar Belakang Cahaya & Aura Dinamis
+        bgAuras.forEach(aura => {
+          const rect = aura.getBoundingClientRect();
+          if (rect.top < triggerBottom && rect.bottom > triggerTop) {
+            aura.classList.add('active');
+          } else {
+            aura.classList.remove('active');
+          }
+        });
+
+        // Latar Belakang Ornamen Mandala
+        bgOrnaments.forEach(ornament => {
+          const rect = ornament.getBoundingClientRect();
+          if (rect.top < triggerBottom && rect.bottom > triggerTop) {
+            ornament.classList.add('active');
+          } else {
+            ornament.classList.remove('active');
           }
         });
       }
@@ -1517,4 +1639,4 @@
     }
   </script>
 </body>
-  </html>
+            </html>
