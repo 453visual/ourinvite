@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>The Wedding of Milea & Dilan</title>
+  
+  <!-- Google Fonts: Kaligrafi, Serif Klasik & Sans Modern -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;500;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* ==========================================================================
+       RESET & ROOT VARIABLES
+       ========================================================================== */
+    :root {
+      --bg-deep-maroon: #250207;
+      --bg-dark-burgundy: #38040d;
+      --bg-card-maroon: #2d0309;
+      --gold-primary: #e6ca7b;
+      --gold-secondary: #c59b3f;
+      --gold-dark: #987224;
+      --gold-gradient: linear-gradient(135deg, #fceda2 0%, #d8b152 45%, #ae832a 100%);
+      --gold-btn-gradient: linear-gradient(180deg, #d3ab4e 0%, #a87d29 100%);
+      --text-white: #ffffff;
+      --text-cream: #f4edd8;
+      --text-gold: #e2c069;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      background-color: #120104;
+      color: var(--text-cream);
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    /* ==========================================================================
+       MOBILE FRAME WRAPPER (PRESISI MOCKUP SMARTPHONE)
+       ========================================================================== */
+    .mobile-wrapper {
+      width: 100%;
+      max-width: 440px;
+      min-height: 100vh;
+      position: relative;
+      background: radial-gradient(circle at 50% 30%, #500813 0%, #2f040b 55%, #190105 100%);
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(216, 177, 82, 0.25);
+      overflow: hidden;
+    }
+
+    /* Decorative Gold Outer Border line as seen in mockup */
+    .gold-outer-border {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      right: 8px;
+      bottom: 8px;
+      border: 1px solid rgba(216, 177, 82, 0.28);
+      pointer-events: none;
+      z-index: 5;
+      border-radius: 12px;
+    }
+
+    /* ==========================================================================
+       SCREEN SECTIONS
+       ========================================================================== */
+    .screen-section {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      padding: 40px 24px 60px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    /* ==========================================================================
+       LUXURY MANDALA SVG ORNAMENTS
+       ========================================================================== */
+    .mandala-corner {
+      position: absolute;
+      width: 210px;
+      height: 210px;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.85;
+    }
+
+    .mandala-top-left {
+      top: -20px;
+      left: -20px;
+    }
+
+    .mandala-top-right {
+      top: -20px;
+      right: -20px;
+      transform: scaleX(-1);
+    }
+
+    .mandala-bottom-left {
+      bottom: -20px;
+      left: -20px;
+      transform: scaleY(-1);
+    }
+
+    .mandala-bottom-right {
+      bottom: -20px;
+      right: -20px;
+      transform: scale(-1);
+    }
+
+    .mandala-side-left {
+      position: absolute;
+      left: -45px;
+      top: 45%;
+      transform: translateY(-50%);
+      width: 140px;
+      height: 220px;
+      pointer-events: none;
+      opacity: 0.75;
+    }
+
+    .mandala-side-right {
+      position: absolute;
+      right: -45px;
+      top: 45%;
+      transform: translateY(-50%) scaleX(-1);
+      width: 140px;
+      height: 220px;
+      pointer-events: none;
+      opacity: 0.75;
+    }
+
+    /* ==========================================================================
+       TYPOGRAPHY
+       ========================================================================== */
+    .title-the-wedding {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      color: var(--text-gold);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      opacity: 0.95;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+      z-index: 2;
+    }
+
+    .names-script {
+      font-family: 'Alex Brush', cursive;
+      font-size: 58px;
+      line-height: 1.15;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+      font-weight: 400;
+      margin-bottom: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 2;
+    }
+
+    .ampersand-luxury {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 38px;
+      margin: -6px 0;
+      display: inline-block;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      z-index: 2;
+    }
+
+    .interlocking-rings {
+      width: 60px;
+      height: 44px;
+      margin-bottom: 16px;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
+      z-index: 2;
+    }
+
+    /* ==========================================================================
+       GUEST BOX & CTA BUTTON
+       ========================================================================== */
+    .guest-card-container {
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 2;
+      width: 100%;
+    }
+
+    .guest-salutation {
+      font-size: 11.5px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: #eeddb0;
+      line-height: 1.5;
+      margin-bottom: 6px;
+    }
+
+    .guest-name-box {
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: #ffffff;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+      margin-bottom: 22px;
+    }
+
+    .btn-open-invitation {
+      background: var(--gold-btn-gradient);
+      border: 1px solid #ffea9e;
+      color: #2b040a;
+      font-family: 'Cinzel', serif;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      padding: 10px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6), 0 0 10px rgba(216, 177, 82, 0.35);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-open-invitation:hover, .btn-open-invitation:active {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8), 0 0 15px rgba(216, 177, 82, 0.6);
+    }
+
+    /* ==========================================================================
+       AYAT SUCI SECTION
+       ========================================================================== */
+    .verse-container {
+      padding: 24px 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .verse-arabic {
+      font-family: 'Amiri', 'Times New Roman', serif;
+      font-size: 19px;
+      line-height: 2.1;
+      color: #f7e6b5;
+      direction: rtl;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    }
+
+    .verse-translation {
+      font-size: 11.5px;
+      font-style: italic;
+      line-height: 1.8;
+      color: #eedcc0;
+      margin-bottom: 16px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+    }
+
+    .verse-surah {
+      font-family: 'Cinzel', serif;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: var(--text-gold);
+    }
+
+    /* ==========================================================================
+       COUPLE PROFILE SECTION (ARCH CARDS PERSIS MOCKUP)
+       ========================================================================== */
+    .couple-card {
+      position: relative;
+      width: 100%;
+      max-width: 320px;
+      background: radial-gradient(circle at 50% 30%, #460610 0%, #280308 100%);
+      border: 1px solid rgba(216, 177, 82, 0.45);
+      border-radius: 160px 160px 20px 20px; /* Arch / kubah shape */
+      padding: 42px 20px 32px 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(0,0,0,0.5);
+      margin-bottom: 28px;
+      z-index: 2;
+    }
+
+    .couple-ornament-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 12px;
+    }
+
+    .couple-nickname {
+      font-family: 'Alex Brush', cursive;
+      font-size: 46px;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 4px;
+    }
+
+    .couple-fullname {
+      font-family: 'Cinzel', serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .couple-birth {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--text-gold);
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .couple-parents {
+      font-size: 11px;
+      line-height: 1.6;
+      color: #e3d3b6;
+    }
+
+    .couple-parents-bold {
+      font-weight: 600;
+      color: #fff;
+    }
+
+    /* ==========================================================================
+       SAVE THE DATE & COUNTDOWN (PERSIS MOCKUP KANAN TENGAH)
+       ========================================================================== */
+    .save-the-date-header {
+      margin-bottom: 24px;
+      z-index: 2;
+    }
+
+    .std-date-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin: 20px 0;
+      width: 100%;
+      z-index: 2;
+    }
+
+    .std-month, .std-year {
+      font-family: 'Cinzel', serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      color: var(--text-gold);
+      border-top: 1px solid rgba(216, 177, 82, 0.4);
+      border-bottom: 1px solid rgba(216, 177, 82, 0.4);
+      padding: 5px 12px;
+    }
+
+    .std-day-number {
+      width: 60px;
+      height: 60px;
+      border: 1.5px solid #e2c069;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cinzel', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #ffffff;
+      background: rgba(43, 4, 10, 0.8);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    }
+
+    .std-label {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: #fce79f;
+      margin-top: 10px;
+      z-index: 2;
+    }
+
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      width: 100%;
+      max-width: 320px;
+      margin-top: 24px;
+      z-index: 2;
+    }
+
+    .countdown-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(36, 3, 8, 0.75);
+      border: 1px solid rgba(216, 177, 82, 0.35);
+      border-radius: 8px;
+      padding: 12px 4px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .countdown-box .number {
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .countdown-box .label {
+      font-size: 9.5px;
+      letter-spacing: 1px;
+      color: var(--text-gold);
+      text-transform: uppercase;
+    }
+
+    /* ==========================================================================
+       EVENT CARDS (AKAD & RESEPSI ARCH WINDOWS)
+       ========================================================================== */
+    .event-header-title {
+      font-family: 'Cinzel', serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: #fff;
+      margin-bottom: 2px;
+      z-index: 2;
+    }
+
+    .event-header-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text-gold);
+      margin-bottom: 28px;
+      z-index: 2;
+    }
+
+    .arch-card {
+      position: relative;
+      width: 100%;
+      max-width: 330px;
+      background: radial-gradient(circle at 50% 20%, #460610 0%, #250207 100%);
+      border: 1px solid rgba(216, 177, 82, 0.5);
+      border-radius: 170px 170px 18px 18px; /* Bentuk kubah arsitektur persis mockup */
+      padding: 44px 22px 30px 22px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+      margin-bottom: 30px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .arch-card-title {
+      font-family: 'Alex Brush', cursive;
+      font-size: 46px;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 4px;
+    }
+
+    .arch-card-dots {
+      color: var(--gold-secondary);
+      letter-spacing: 4px;
+      font-size: 10px;
+      margin-bottom: 18px;
+      opacity: 0.8;
+    }
+
+    .event-date-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      width: 100%;
+    }
+
+    .event-month-text, .event-year-text {
+      font-family: 'Cinzel', serif;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: var(--text-gold);
+      border-top: 1px solid rgba(216, 177, 82, 0.35);
+      border-bottom: 1px solid rgba(216, 177, 82, 0.35);
+      padding: 4px 8px;
+    }
+
+    .event-day-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #d8b152;
+      border-radius: 6px;
+      padding: 5px 12px;
+      background: rgba(30, 2, 7, 0.7);
+    }
+
+    .event-day-name {
+      font-size: 8.5px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      color: var(--text-gold);
+      text-transform: uppercase;
+    }
+
+    .event-day-num {
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.1;
+    }
+
+    .event-time-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #fff;
+      margin-bottom: 18px;
+      font-weight: 500;
+    }
+
+    .event-place-name {
+      font-family: 'Cinzel', serif;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .event-address {
+      font-size: 11px;
+      color: #e5d5be;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .btn-maps {
+      background: var(--gold-btn-gradient);
+      color: #2b040a;
+      border: 1px solid #ffea9e;
+      border-radius: 4px;
+      padding: 7px 18px;
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-maps:hover {
+      transform: scale(1.04);
+    }
+
+    /* ==========================================================================
+       FLOATING MUSIC CONTROLLER
+       ========================================================================== */
+    .floating-audio-btn {
+      position: fixed;
+      bottom: 24px;
+      right: calc(50% - 200px);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--gold-btn-gradient);
+      border: 1.5px solid #ffea9e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #260207;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.7), 0 0 10px rgba(216, 177, 82, 0.5);
+      z-index: 99;
+      transition: all 0.3s ease;
+    }
+
+    @media (max-width: 440px) {
+      .floating-audio-btn {
+        right: 20px;
+      }
+    }
+
+    .spinning {
+      animation: spinMusic 4s linear infinite;
+    }
+
+    @keyframes spinMusic {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .footer-text {
+      font-size: 10.5px;
+      color: rgba(226, 192, 105, 0.7);
+      letter-spacing: 1px;
+      margin-top: 30px;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hidden Audio Element for Background Music -->
+  <audio id="weddingMusic" loop preload="auto">
+    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-wedding-113337.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- Floating Music Toggle Button -->
+  <div id="audioToggle" class="floating-audio-btn" title="Putar / Hentikan Musik">
+    <i id="audioIcon" class="fas fa-music"></i>
+  </div>
+
+  <!-- Mobile Frame Container (Plek Ketiplek Mockup) -->
+  <div class="mobile-wrapper">
+    <div class="gold-outer-border"></div>
+
+    <!-- ==================== SCREEN 1: COVER / WELCOME ==================== -->
+    <section class="screen-section" id="coverScreen">
+      <!-- Luxury Gold Mandala Ornaments di 4 Sudut -->
+      <svg class="mandala-corner mandala-top-left" viewBox="0 0 200 200">
+        <defs>
+          <linearGradient id="goldGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#fff0b3"/>
+            <stop offset="50%" stop-color="#d8b152"/>
+            <stop offset="100%" stop-color="#9a7122"/>
+          </linearGradient>
+        </defs>
+        <path fill="none" stroke="url(#goldGrad1)" stroke-width="1.2" d="M0,0 C60,10 100,50 110,110 C120,170 170,200 200,200"/>
+        <path fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" d="M0,40 C50,45 85,80 90,130 C95,175 140,200 160,200"/>
+        <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
+        <circle cx="0" cy="0" r="70" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
+        <circle cx="0" cy="0" r="100" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
+        <circle cx="0" cy="0" r="140" fill="none" stroke="url(#goldGrad1)" stroke-width="0.7"/>
+        <circle cx="0" cy="0" r="170" fill="none" stroke="url(#goldGrad1)" stroke-width="1" stroke-dasharray="4,4"/>
+        <g stroke="url(#goldGrad1)" stroke-width="0.9" fill="none">
+          <path d="M0,0 Q60,20 80,80 Q20,60 0,0"/>
+          <path d="M0,0 Q80,10 120,50 Q60,60 0,0"/>
+          <path d="M0,0 Q10,80 50,120 Q60,60 0,0"/>
+          <path d="M40,0 C60,40 100,60 140,0"/>
+          <path d="M0,40 C40,60 60,100 0,140"/>
+          <circle cx="70" cy="70" r="8"/>
+          <circle cx="110" cy="40" r="6"/>
+          <circle cx="40" cy="110" r="6"/>
+          <circle cx="130" cy="90" r="5"/>
+          <circle cx="90" cy="130" r="5"/>
+        </g>
+      </svg>
+
+      <svg class="mandala-corner mandala-top-right" viewBox="0 0 200 200">
+        <path fill="none" stroke="url(#goldGrad1)" stroke-width="1.2" d="M0,0 C60,10 100,50 110,110 C120,170 170,200 200,200"/>
+        <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
+        <circle cx="0" cy="0" r="70" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
+        <circle cx="0" cy="0" r="100" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
+        <circle cx="0" cy="0" r="140" fill="none" stroke="url(#goldGrad1)" stroke-width="0.7"/>
+        <circle cx="0" cy="0" r="170" fill="none" stroke="url(#goldGrad1)" stroke-width="1" stroke-dasharray="4,4"/>
+        <g stroke="url(#goldGrad1)" stroke-width="0.9" fill="none">
+          <path d="M0,0 Q60,20 80,80 Q20,60 0,0"/>
+          <path d="M0,0 Q80,10 120,50 Q60,60 0,0"/>
+          <path d="M0,0 Q10,80 50,120 Q60,60 0,0"/>
+          <circle cx="70" cy="70" r="8"/>
+          <circle cx="110" cy="40" r="6"/>
+          <circle cx="40" cy="110" r="6"/>
+        </g>
+      </svg>
+
+      <svg class="mandala-corner mandala-bottom-left" viewBox="0 0 200 200">
+        <path fill="none" stroke="url(#goldGrad1)" stroke-width="1.2" d="M0,0 C60,10 100,50 110,110 C120,170 170,200 200,200"/>
+        <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
+        <circle cx="0" cy="0" r="70" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
+        <circle cx="0" cy="0" r="100" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
+        <circle cx="0" cy="0" r="140" fill="none" stroke="url(#goldGrad1)" stroke-width="0.7"/>
+        <circle cx="0" cy="0" r="170" fill="none" stroke="url(#goldGrad1)" stroke-width="1" stroke-dasharray="4,4"/>
+        <g stroke="url(#goldGrad1)" stroke-width="0.9" fill="none">
+          <path d="M0,0 Q60,20 80,80 Q20,60 0,0"/>
+          <circle cx="70" cy="70" r="8"/>
+          <circle cx="110" cy="40" r="6"/>
+          <circle cx="40" cy="110" r="6"/>
+        </g>
+      </svg>
+
+      <svg class="mandala-corner mandala-bottom-right" viewBox="0 0 200 200">
+        <path fill="none" stroke="url(#goldGrad1)" stroke-width="1.2" d="M0,0 C60,10 100,50 110,110 C120,170 170,200 200,200"/>
+        <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
+        <circle cx="0" cy="0" r="70" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
+        <circle cx="0" cy="0" r="100" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
+        <circle cx="0" cy="0" r="140" fill="none" stroke="url(#goldGrad1)" stroke-width="0.7"/>
+        <circle cx="0" cy="0" r="170" fill="none" stroke="url(#goldGrad1)" stroke-width="1" stroke-dasharray="4,4"/>
+        <g stroke="url(#goldGrad1)" stroke-width="0.9" fill="none">
+          <path d="M0,0 Q60,20 80,80 Q20,60 0,0"/>
+          <circle cx="70" cy="70" r="8"/>
+          <circle cx="110" cy="40" r="6"/>
+          <circle cx="40" cy="110" r="6"/>
+        </g>
+      </svg>
+
+      <!-- Interlocking Wedding Rings Monogram -->
+      <svg class="interlocking-rings" viewBox="0 0 100 70">
+        <defs>
+          <linearGradient id="ringGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#fff2be"/>
+            <stop offset="50%" stop-color="#d8af4b"/>
+            <stop offset="100%" stop-color="#8a5f15"/>
+          </linearGradient>
+        </defs>
+        <circle cx="40" cy="35" r="24" fill="none" stroke="url(#ringGold)" stroke-width="4.5"/>
+        <circle cx="60" cy="35" r="24" fill="none" stroke="url(#ringGold)" stroke-width="4.5"/>
+      </svg>
+
+      <!-- Header Title -->
+      <p class="title-the-wedding">THE WEDDING OF</p>
+
+      <!-- Couple Names Persis Mockup -->
+      <div class="names-script">
+        <span>Milea</span>
+        <span class="ampersand-luxury">&</span>
+        <span>Dilan</span>
+      </div>
+
+      <!-- Salutation & Guest Name -->
+      <div class="guest-card-container">
+        <p class="guest-salutation">Kepada Yth.<br>Bapak/Ibu/Saudara/i</p>
+        <div class="guest-name-box" id="guestNameDisplay">Tamu Undangan</div>
+        
+        <a href="#contentSection" class="btn-open-invitation" id="btnOpenInvitation">
+          <i class="fas fa-envelope-open-text"></i>
+          <span>Buka Undangan</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ==================== MAIN CONTENT SECTION ==================== -->
+    <div id="contentSection">
+      
+      <!-- SCREEN 2: AYAT SUCI (QS. AR-RUM: 21) -->
+      <section class="screen-section" style="min-height: auto; padding-top: 60px;">
+        <!-- Side Mandalas -->
+        <svg class="mandala-side-left" viewBox="0 0 100 200">
+          <path fill="none" stroke="url(#goldGrad1)" stroke-width="1" d="M0,20 C50,40 80,70 80,100 C80,130 50,160 0,180"/>
+          <circle cx="0" cy="100" r="50" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
+          <circle cx="0" cy="100" r="75" fill="none" stroke="url(#goldGrad1)" stroke-width="1"/>
+        </svg>
+        <svg class="mandala-side-right" viewBox="0 0 100 200">
+          <path fill="none" stroke="url(#goldGrad1)" stroke-width="1" d="M0,20 C50,40 80,70 80,100 C80,130 50,160 0,180"/>
+          <circle cx="0" cy="100" r="50" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="3,3"/>
+          <circle cx="0" cy="100" r="75" fill="none" stroke="url(#goldGrad1)" stroke-width="1"/>
+        </svg>
+
+        <div class="verse-container">
+          <p class="verse-arabic">وَمِنْ ءَايَٰتِهِۦٓ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَٰجًا لِّتَسْكُنُوٓا۟ إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</p>
+          <p class="verse-translation">"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."</p>
+          <p class="verse-surah">(QS. Ar-Rum: 21)</p>
+        </div>
+      </section>
+
+      <!-- SCREEN 3: MEMPELAI WANITA (MILEA DEWI) -->
+      <section class="screen-section">
+        <div class="couple-card">
+          <!-- Monogram Ring Icon -->
+          <svg class="couple-ornament-icon" viewBox="0 0 60 60">
+            <circle cx="26" cy="30" r="16" fill="none" stroke="url(#goldGrad1)" stroke-width="2.5"/>
+            <circle cx="36" cy="30" r="16" fill="none" stroke="url(#goldGrad1)" stroke-width="2.5"/>
+          </svg>
+
+          <h2 class="couple-nickname">Milea</h2>
+          <h3 class="couple-fullname">Milea Dewi</h3>
+          <p class="couple-birth">Bandung, 29 Agustus 1998</p>
+          
+          <div style="width: 40px; height: 1px; background: rgba(216,177,82,0.4); margin: 12px auto;"></div>
+
+          <p class="couple-parents">
+            Putri pertama dari<br>
+            <span class="couple-parents-bold">Bapak Ikhsan Fauzi</span><br>
+            dan<br>
+            <span class="couple-parents-bold">Ibu Putri Saumi</span>
+          </p>
+        </div>
+
+        <!-- Luxury Separator Glyph & -->
+        <span class="ampersand-luxury" style="font-size: 48px; margin: 10px 0;">&</span>
+
+        <!-- SCREEN 4: MEMPELAI PRIA (DILAN SAPUTRA) -->
+        <div class="couple-card" style="margin-top: 10px;">
+          <!-- Monogram Ring Icon -->
+          <svg class="couple-ornament-icon" viewBox="0 0 60 60">
+            <circle cx="26" cy="30" r="16" fill="none" stroke="url(#goldGrad1)" stroke-width="2.5"/>
+            <circle cx="36" cy="30" r="16" fill="none" stroke="url(#goldGrad1)" stroke-width="2.5"/>
+          </svg>
+
+          <h2 class="couple-nickname">Dilan</h2>
+          <h3 class="couple-fullname">Dilan Saputra</h3>
+          <p class="couple-birth">Bogor, 14 Desember 1997</p>
+
+          <div style="width: 40px; height: 1px; background: rgba(216,177,82,0.4); margin: 12px auto;"></div>
+
+          <p class="couple-parents">
+            Putra pertama dari<br>
+            <span class="couple-parents-bold">Bapak Fikri Fahreza</span><br>
+            dan<br>
+            <span class="couple-parents-bold">Ibu Elsa Melisa</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- SCREEN 5: SAVE THE DATE & COUNTDOWN (PERSIS MOCKUP KANAN TENGAH) -->
+      <section class="screen-section">
+        <svg class="mandala-corner mandala-top-left" viewBox="0 0 200 200">
+          <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
+          <circle cx="0" cy="0" r="90" fill="none" stroke="url(#goldGrad1)" stroke-width="1"/>
+          <circle cx="0" cy="0" r="130" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="4,4"/>
+        </svg>
+
+        <svg class="mandala-corner mandala-bottom-right" viewBox="0 0 200 200">
+          <circle cx="0" cy="0" r="40" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"/>
+          <circle cx="0" cy="0" r="90" fill="none" stroke="url(#goldGrad1)" stroke-width="1"/>
+          <circle cx="0" cy="0" r="130" fill="none" stroke="url(#goldGrad1)" stroke-width="0.8" stroke-dasharray="4,4"/>
+        </svg>
+
+        <div class="save-the-date-header">
+          <div class="names-script" style="font-size: 42px;">
+            <span>Milea</span>
+            <span class="ampersand-luxury" style="font-size: 26px;">&</span>
+            <span>Dilan</span>
+          </div>
+        </div>
+
+        <div class="std-date-badge">
+          <span class="std-month">DESEMBER</span>
+          <div class="std-day-number">26</div>
+          <span class="std-year">2026</span>
+        </div>
+
+        <p class="std-label">SAVE THE DATE</p>
+
+        <!-- Live Countdown Grid -->
+        <div class="countdown-grid">
+          <div class="countdown-box">
+            <span class="number" id="countDays">349</span>
+            <span class="label">Days</span>
+          </div>
+          <div class="countdown-box">
+            <span class="number" id="countHours">04</span>
+            <span class="label">Hours</span>
+          </div>
+          <div class="countdown-box">
+            <span class="number" id="countMins">09</span>
+            <span class="label">Minutes</span>
+          </div>
+          <div class="countdown-box">
+            <span class="number" id="countSecs">11</span>
+            <span class="label">Seconds</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN 6: ACARA (AKAD & RESEPSI - ARCH WINDOW STYLE PERSIS MOCKUP) -->
+      <section class="screen-section">
+        <h2 class="event-header-title">WEDDING</h2>
+        <p class="event-header-subtitle">Event</p>
+
+        <!-- KARTU 1: AKAD -->
+        <div class="arch-card">
+          <h3 class="arch-card-title">Akad</h3>
+          <div class="arch-card-dots">• • • • • • • • • • • • • •</div>
+
+          <div class="event-date-row">
+            <span class="event-month-text">DESEMBER</span>
+            <div class="event-day-box">
+              <span class="event-day-name">MINGGU</span>
+              <span class="event-day-num">26</span>
+            </div>
+            <span class="event-year-text">2026</span>
+          </div>
+
+          <div class="event-time-row">
+            <i class="far fa-clock" style="color: var(--gold-primary);"></i>
+            <span>08.00 - 10.00 WIB</span>
+          </div>
+
+          <div style="color: var(--gold-primary); font-size: 18px; margin-bottom: 8px;">
+            <i class="fas fa-home"></i>
+          </div>
+
+          <h4 class="event-place-name">Kediaman Mempelai Wanita</h4>
+          <p class="event-address">Jalan Keramat Jati Nomer 45</p>
+
+          <a href="https://maps.google.com" target="_blank" class="btn-maps">
+            <i class="fas fa-location-dot"></i>
+            <span>GOOGLE MAPS</span>
+          </a>
+        </div>
+
+        <!-- KARTU 2: RESEPSI -->
+        <div class="arch-card">
+          <h3 class="arch-card-title">Resepsi</h3>
+          <div class="arch-card-dots">• • • • • • • • • • • • • •</div>
+
+          <div class="event-date-row">
+            <span class="event-month-text">DESEMBER</span>
+            <div class="event-day-box">
+              <span class="event-day-name">MINGGU</span>
+              <span class="event-day-num">26</span>
+            </div>
+            <span class="event-year-text">2026</span>
+          </div>
+
+          <div class="event-time-row">
+            <i class="far fa-clock" style="color: var(--gold-primary);"></i>
+            <span>11.00 - Selesai</span>
+          </div>
+
+          <div style="color: var(--gold-primary); font-size: 18px; margin-bottom: 8px;">
+            <i class="fas fa-building-columns"></i>
+          </div>
+
+          <h4 class="event-place-name">Gedung Pertemuan Graha Kencana</h4>
+          <p class="event-address">Jalan Keramat Jati Nomer 45</p>
+
+          <a href="https://maps.google.com" target="_blank" class="btn-maps">
+            <i class="fas fa-location-dot"></i>
+            <span>GOOGLE MAPS</span>
+          </a>
+        </div>
+
+        <p class="footer-text">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</p>
+        <p class="footer-text" style="margin-top: 10px; font-weight: 600; color: var(--text-gold);">Milea & Dilan</p>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       JAVASCRIPT LOGIC (INLINE SINGLE FILE)
+       ========================================================================== */
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Ambil Nama Tamu dari URL Parameter (?to=Nama+Tamu atau ?u=Nama+Tamu)
+      const urlParams = new URLSearchParams(window.location.search);
+      const guestParam = urlParams.get('to') || urlParams.get('u') || urlParams.get('guest');
+      const guestDisplay = document.getElementById('guestNameDisplay');
+      
+      if (guestParam && guestDisplay) {
+        guestDisplay.textContent = decodeURIComponent(guestParam);
+      }
+
+      // 2. Audio Background Music Controller
+      const weddingMusic = document.getElementById('weddingMusic');
+      const audioToggle = document.getElementById('audioToggle');
+      const audioIcon = document.getElementById('audioIcon');
+      const btnOpen = document.getElementById('btnOpenInvitation');
+
+      let isPlaying = false;
+
+      function toggleAudio() {
+        if (isPlaying) {
+          weddingMusic.pause();
+          audioIcon.className = 'fas fa-volume-mute';
+          audioToggle.classList.remove('spinning');
+          isPlaying = false;
+        } else {
+          weddingMusic.play().then(() => {
+            audioIcon.className = 'fas fa-music';
+            audioToggle.classList.add('spinning');
+            isPlaying = true;
+          }).catch(err => {
+            console.log('Audio playback interaction needed:', err);
+          });
+        }
+      }
+
+      if (btnOpen) {
+        btnOpen.addEventListener('click', () => {
+          if (!isPlaying) {
+            weddingMusic.play().then(() => {
+              isPlaying = true;
+              audioIcon.className = 'fas fa-music';
+              audioToggle.classList.add('spinning');
+            }).catch(err => {
+              console.log('Autoplay policy caught:', err);
+            });
+          }
+        });
+      }
+
+      if (audioToggle) {
+        audioToggle.addEventListener('click', toggleAudio);
+      }
+
+      // 3. Live Countdown Timer ke 26 Desember 2026 08:00 WIB
+      const targetDate = new Date('2026-12-26T08:00:00+07:00').getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance <= 0) {
+          document.getElementById('countDays').textContent = '00';
+          document.getElementById('countHours').textContent = '00';
+          document.getElementById('countMins').textContent = '00';
+          document.getElementById('countSecs').textContent = '00';
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        const pad = (num) => num.toString().padStart(2, '0');
+
+        const daysElem = document.getElementById('countDays');
+        const hoursElem = document.getElementById('countHours');
+        const minsElem = document.getElementById('countMins');
+        const secsElem = document.getElementById('countSecs');
+
+        if (daysElem) daysElem.textContent = days.toString();
+        if (hoursElem) hoursElem.textContent = pad(hours);
+        if (minsElem) minsElem.textContent = pad(minutes);
+        if (secsElem) secsElem.textContent = pad(seconds);
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    });
+  </script>
+</body>
+</html>
